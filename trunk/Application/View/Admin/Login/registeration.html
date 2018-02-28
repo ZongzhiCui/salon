@@ -1,0 +1,64 @@
+﻿<?php include VIEW_PATH.'Home\Login\link_script.html';?>
+
+</head>
+<body>
+    <div class="container">
+        <div class="row text-center  ">
+            <div class="col-md-12">
+                <br /><br />
+                <h2>新用户注册</h2>
+               
+                <h5>( Register yourself to get access )</h5>
+                 <br />
+            </div>
+        </div>
+         <div class="row">
+               
+                <div class="col-md-4 col-md-offset-4 col-sm-6 col-sm-offset-3 col-xs-10 col-xs-offset-1">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                        <strong>注册</strong>
+                            </div>
+                            <div class="panel-body">
+                                <form action="index.php?p=Home&c=Login&a=add_save" method="post" enctype="multipart/form-data">
+<br/>
+                                        <div class="form-group input-group">
+                                            <span class="input-group-addon"><i class="fa fa-circle-o-notch"  ></i></span>
+                                            <input type="text" name="realname" class="form-control" placeholder="真实姓名" />
+                                        </div>
+                                     <div class="form-group input-group">
+                                            <span class="input-group-addon"><i class="fa fa-tag"  ></i></span>
+                                            <input type="text" name="username" class="form-control" placeholder="用户昵称" />
+                                        </div>
+                                    <div class="form-group input-group">
+                                        <span class="input-group-addon"><i class="fa fa-phone"  ></i></span>
+                                        <input type="text" name="telephone" class="form-control" placeholder="用户电话" />
+                                    </div>
+                                      <div class="form-group input-group">
+                                            <span class="input-group-addon"><i class="fa fa-lock"  ></i></span>
+                                            <input type="password" name="pwd1" class="form-control" placeholder="输入密码" />
+                                        </div>
+                                     <div class="form-group input-group">
+                                            <span class="input-group-addon"><i class="fa fa-lock"  ></i></span>
+                                            <input type="password" name="pwd2" class="form-control" placeholder="确认密码" />
+                                    </div>
+                                    <div class="form-group input-group">
+                                        <span class="input-group-addon"><i class="fa fa-file"  ></i></span>
+                                        <input type="file" name="head" class="form-control" placeholder="上传头像" />
+                                    </div>
+
+                                    <input type="submit" class="btn btn-success " value="点击注册">
+                                    <hr />
+                                </form>
+                                已经注册 ?  <a href="index.php?p=Home&c=Login&a=index" >在这里登录</a>
+                            </div>
+                           
+                        </div>
+                    </div>
+                
+                
+        </div>
+    </div>
+
+</body>
+</html>

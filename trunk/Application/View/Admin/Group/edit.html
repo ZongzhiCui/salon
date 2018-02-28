@@ -1,0 +1,191 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+      <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Free Bootstrap Admin Template : Binary Admin</title>
+	<!-- BOOTSTRAP STYLES-->
+    <link href="./Public/Admin/assets/css/bootstrap.css" rel="stylesheet" />
+     <!-- FONTAWESOME STYLES-->
+    <link href="./Public/Admin/assets/css/font-awesome.css" rel="stylesheet" />
+     <!-- MORRIS CHART STYLES-->
+   
+        <!-- CUSTOM STYLES-->
+    <link href="./Public/Admin/assets/css/custom.css" rel="stylesheet" />
+     <!-- GOOGLE FONTS-->
+   <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
+     <!-- TABLE STYLES-->
+    <link href="./Public/Admin/assets/js/dataTables/dataTables.bootstrap.css" rel="stylesheet" />
+</head>
+<body>
+    <div id="wrapper">
+        <nav class="navbar navbar-default navbar-cls-top " role="navigation" style="margin-bottom: 0">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".sidebar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="index.html">Binary admin</a> 
+            </div>
+  <div style="color: white;
+padding: 15px 50px 5px 50px;
+float: right;
+font-size: 16px;"> Last access : 30 May 2014 &nbsp; <a href="login.html" class="btn btn-danger square-btn-adjust">Logout</a> </div>
+        </nav>   
+           <!-- /. NAV TOP  -->
+                <nav class="navbar-default navbar-side" role="navigation">
+            <div class="sidebar-collapse">
+                <ul class="nav" id="main-menu">
+                    <li>
+                        <a href="#"><i class="fa fa-sitemap fa-3x"></i> 功能选择<span class="fa arrow"></span></a>
+                        <ul class="nav nav-second-level">
+                            <li>
+                                <a href="table.html">表格</a>
+                            </li>
+                            <li>
+                                <a href="tab-panel.html">文字</a>
+                            </li>
+                        </ul>
+                </ul>
+            </div>
+            
+        </nav>  
+        <!-- /. NAV SIDE  -->
+        <div id="page-wrapper" >
+            <div id="page-inner">
+                <div class="row">
+                    <div class="col-md-12">
+                     <h2>Table Examples</h2>   
+                        <h5>Welcome Jhon Deo , Love to see you back. </h5>
+                       
+                    </div>
+                </div>
+                 <!-- /. ROW  -->
+                 <hr />
+                <div class="col-md-6">
+                    <h3>修改公司</h3>
+                    <form role="form" method="post" action="index.php?p=Admin&c=Group&a=edit">
+                        <div class="form-group">
+                            <label>公司名称</label>
+                            <input type="hidden" name="id" value="<?=$row['id']?>">
+                            <input class="form-control"  type="text" name="name" value="<?=$row['name']?>"/>
+                            <p class="help-block">修改公司名称</p>
+                        </div>
+                        <!--<div class="form-group">-->
+                            <!--<label>Just A Label Control</label>-->
+                            <!--<p class="form-control-static">info@yourdomain.com</p>-->
+                        <!--</div>-->
+                        <!--<div class="form-group">-->
+                            <!--<label>File input</label>-->
+                            <!--<input type="file" />-->
+                        <!--</div>-->
+                        <!--<div class="form-group">-->
+                            <!--<label>Text area</label>-->
+                            <!--<textarea class="form-control" rows="3"></textarea>-->
+                        <!--</div>-->
+                        <!--<div class="form-group">-->
+                            <!--<label>Checkboxes</label>-->
+                            <!--<div class="checkbox">-->
+                                <!--<label>-->
+                                    <!--<input type="checkbox" value="" />Checkbox Example One-->
+                                <!--</label>-->
+                            <!--</div>-->
+                            <!--<div class="checkbox">-->
+                                <!--<label>-->
+                                    <!--<input type="checkbox" value=""/>Checkbox Example Two-->
+                                <!--</label>-->
+                            <!--</div>-->
+                            <!--<div class="checkbox">-->
+                                <!--<label>-->
+                                    <!--<input type="checkbox" value=""/>Checkbox Example Three-->
+                                <!--</label>-->
+                            <!--</div>-->
+                        <!--</div>-->
+                        <!--<div class="form-group">-->
+                            <!--<label>Inline Checkboxes Examples</label>-->
+                            <!--<label class="checkbox-inline">-->
+                                <!--<input type="checkbox"/> One-->
+                            <!--</label>-->
+                            <!--<label class="checkbox-inline">-->
+                                <!--<input type="checkbox"/> Two-->
+                            <!--</label>-->
+                            <!--<label class="checkbox-inline">-->
+                                <!--<input type="checkbox"/> Three-->
+                            <!--</label>-->
+                        <!--</div>-->
+                        <!--<div class="form-group">-->
+                            <!--<label>Radio Button Examples</label>-->
+                            <!--<div class="radio">-->
+                                <!--<label>-->
+                                    <!--<input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked />Radio Example One-->
+                                <!--</label>-->
+                            <!--</div>-->
+                            <!--<div class="radio">-->
+                                <!--<label>-->
+                                    <!--<input type="radio" name="optionsRadios" id="optionsRadios2" value="option2"/>Radio Example Two-->
+                                <!--</label>-->
+                            <!--</div>-->
+                            <!--<div class="radio">-->
+                                <!--<label>-->
+                                    <!--<input type="radio" name="optionsRadios" id="optionsRadios3" value="option3"/>Radio Example Three-->
+                                <!--</label>-->
+                            <!--</div>-->
+                        <!--</div>-->
+
+                        <!--<div class="form-group">-->
+                            <!--<label>Select Example</label>-->
+                            <!--<select class="form-control">-->
+                                <!--<option>One Vale</option>-->
+                                <!--<option>Two Vale</option>-->
+                                <!--<option>Three Vale</option>-->
+                                <!--<option>Four Vale</option>-->
+                            <!--</select>-->
+                        <!--</div>-->
+                        <!--<div class="form-group">-->
+                            <!--<label>Multiple Select Example</label>-->
+                            <!--<select multiple class="form-control">-->
+                                <!--<option>One Vale</option>-->
+                                <!--<option>Two Vale</option>-->
+                                <!--<option>Three Vale</option>-->
+                                <!--<option>Four Vale</option>-->
+                            <!--</select>-->
+                        <!--</div>-->
+                        <button type="submit" class="btn btn-default">提交</button>
+                        <button type="reset" class="btn btn-primary">点击重置</button>
+
+                    </form>
+
+
+                </div>
+                <!-- /. ROW  -->
+            </div>
+                <!-- /. ROW  -->
+        </div>
+               
+    </div>
+             <!-- /. PAGE INNER  -->
+         <!-- /. PAGE WRAPPER  -->
+     <!-- /. WRAPPER  -->
+    <!-- SCRIPTS -AT THE BOTOM TO REDUCE THE LOAD TIME-->
+    <!-- JQUERY SCRIPTS -->
+    <script src="./Public/Admin/assets/js/jquery-1.10.2.js"></script>
+      <!-- BOOTSTRAP SCRIPTS -->
+    <script src="./Public/Admin/assets/js/bootstrap.min.js"></script>
+    <!-- METISMENU SCRIPTS -->
+    <script src="./Public/Admin/assets/js/jquery.metisMenu.js"></script>
+     <!-- DATA TABLE SCRIPTS -->
+    <script src="./Public/Admin/assets/js/dataTables/jquery.dataTables.js"></script>
+    <script src="./Public/Admin/assets/js/dataTables/dataTables.bootstrap.js"></script>
+        <script>
+            $(document).ready(function () {
+                $('#dataTables-example').dataTable();
+            });
+    </script>
+         <!-- CUSTOM SCRIPTS -->
+    <script src="./Public/Admin/assets/js/custom.js"></script>
+    
+   
+</body>
+</html>
