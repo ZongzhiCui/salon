@@ -43,7 +43,7 @@ class LoginController extends Controller
         if ($r === false) {
             Tools::jump('./index.php?p=Admin&c=Login&a=index', $this->obj->getError(), 3);
         }
-        Tools::jump('./index.php?p=Admin&c=Home&a=home');
+        Tools::jump('./index.php?p=Admin&c=Home&a=index');
     }
 
     public function logout()

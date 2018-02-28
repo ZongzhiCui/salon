@@ -25,19 +25,21 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="index.html">Binary admin</a> 
+                <a class="navbar-brand" href="index.php?p=Admin&c=Home&a=index"><?=$_SESSION['admin']['username'];?></a>
             </div>
   <div style="color: white;
 padding: 15px 50px 5px 50px;
 float: right;
-font-size: 16px;"> Last access : 30 May 2014 &nbsp; <a href="login.html" class="btn btn-danger square-btn-adjust">Logout</a> </div>
+font-size: 16px;">最后登录时间:<?=date('m月d日 H:i',$_SESSION['admin']['last_login'])?>&nbsp; <a href="index.php?p=Admin&c=Login&a=logout" class="btn btn-danger square-btn-adjust">Logout</a> </div>
         </nav>   
            <!-- /. NAV TOP  -->
                 <nav class="navbar-default navbar-side" role="navigation">
             <div class="sidebar-collapse">
                 <ul class="nav" id="main-menu">
+                    <li class="text-center">
+                        <img src="./Public/Admin/assets/img/find_user.png" class="user-image img-responsive">
+                    </li>
                     <li>
-
                         <a href="#"><i class="fa fa-sitemap fa-3x"></i> 功能选项框<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
                             <li>
