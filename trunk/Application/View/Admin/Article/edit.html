@@ -1,0 +1,54 @@
+﻿<?php include VIEW_PATH.'Admin/Home/nav.html';?>
+        <div id="page-wrapper" >
+            <div id="page-inner">
+               <div class="row">
+                <div class="col-md-12">
+                    <!-- Form Elements -->
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            修改活动
+                        </div>
+                        <div class="panel-body">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <form action="index.php?p=Admin&c=Article&a=edit_save" method="post" enctype="multipart/form-data">
+                                        <div class="form-group">
+                                            <label>活动标题
+                                            <input type="text" name="title" value="<?=$row['title'];?>" class="form-control" placeholder="PLease Enter Keyword" /></label>
+                                            <div class="form-group">
+                                                <label>活动内容</label>
+                                                <textarea name="content" class="form-control" rows="4"> <?=$row['content'];?></textarea>
+                                            </div>
+                                            <label>活动开始时间
+                                                <input type="date" name="start" value="<?=date('Y-m-d',$row['start']);?>" class="form-control" placeholder="PLease Enter Keyword" /></label>
+                                            <label>活动结束时间
+                                                <input type="date" name="end" value="<?=date('Y-m-d',$row['end']);?>" class="form-control" placeholder="PLease Enter Keyword" /></label>
+                                        </div>
+                                        <input type="hidden" name="id" value="<?=$row['id'];?>">
+                                        <button type="submit" class="btn btn-primary">修改活动</button>
+                                    </form>
+
+                                </div>
+             <!-- /. PAGE INNER  -->
+                            </div>
+                        </div>
+                    </div>
+         <!-- /. PAGE WRAPPER  -->
+                </div>
+                </div>
+                </div>
+                </div>
+     <!-- /. WRAPPER  -->
+    <!-- SCRIPTS -AT THE BOTOM TO REDUCE THE LOAD TIME-->
+    <!-- JQUERY SCRIPTS -->
+    <script src="assets/js/jquery-1.10.2.js"></script>
+      <!-- BOOTSTRAP SCRIPTS -->
+    <script src="assets/js/bootstrap.min.js"></script>
+    <!-- METISMENU SCRIPTS -->
+    <script src="assets/js/jquery.metisMenu.js"></script>
+      <!-- CUSTOM SCRIPTS -->
+    <script src="assets/js/custom.js"></script>
+    
+   
+</body>
+</html>

@@ -41,8 +41,11 @@ class ArticleController extends PlatformController
         }
     }
     public function delete(){
-        $id = $_GET['id'];
-        $this->obj->getDelete($id);
+        $id = addslashes($_GET['id']);
+        $r = $this->obj->getDelete($id);
+        if ($r === false){
+            Tools::jump('./index.php?p=Admin&c=Article&a=index',$this->obj->getError(),3);
+        }
         Tools::jump('./index.php?p=Admin&c=Article&a=index');
     }
     public function edit(){
@@ -54,7 +57,7 @@ class ArticleController extends PlatformController
     public function edit_save(){
         $field = $_POST;
         /**判断是否有上传文件 有的话调用上传文件函数**/
-        if ($_FILES['logo']['error'] != 4){
+        /*if ($_FILES['logo']['error'] != 4){
             //如果上传文件就要删除原来的文件,需要Model里有个方法先把 logo  thumb_logo读取出来
             //得到数据需要等到新的图片上传成功再删除-----------------------
             $unlink = $this->obj->getLogo($field['id']);
@@ -80,7 +83,7 @@ class ArticleController extends PlatformController
                     unlink($unlink['thumb_logo']);
                 }
             }
-        }
+        }*/
         //把数据写入数据库
         $r = $this->obj->getEdit_save($field);
         if ($r === false){

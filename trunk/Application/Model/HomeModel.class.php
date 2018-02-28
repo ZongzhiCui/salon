@@ -8,23 +8,24 @@
 class HomeModel extends Model
 {
     public function getIndex(){
-        //获取分类表数据
-        $cates = $this->getCate();
-        //获取最新的9篇文章
-        $sql = "select * from article order by id desc limit 0,6";
-        $new = $this->pdo->fetchAll($sql);
-        //获取评论最多数据
-        $sql = "select * from article order by comments desc limit 0,4";
-        $comments = $this->pdo->fetchAll($sql);
-        //获取收藏最多数据
-        $sql = "select * from article order by collect desc limit 0,2";
-        $collect = $this->pdo->fetchAll($sql);
+        $page_size = $field['page_size']??4;
+        //>>计算count totalPage
+        $sql = "select count(id) from `article`";
+        $count = $this->pdo->fetchColumn($sql);
+        $total_page = ceil($count/$page_size);
 
+        //>>开始页和每页条数
+        $page = intval($field['page']??1);
+        $page = $page<1?1:$page;
+        $page = $page>$total_page?$total_page:$page;
+        $start = ($page-1)*$page_size;
+        $limit = " limit {$start},{$page_size}";
+        $sql = "select * from article ORDER BY id DESC ".$limit;
+        $rows = $this->pdo->fetchAll($sql);
+        $html = PageTool::myYeMa($page,$page_size,$total_page);
         return [
-            'cates'=>$cates,
-            'new'=>$new,
-            'comments'=>$comments,
-            'keep'=>$collect
+            'rows'=>$rows,
+            'html'=>$html
         ];
     }
 
