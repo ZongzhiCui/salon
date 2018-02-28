@@ -45,25 +45,25 @@ class UserModel extends Model
 //    return $rs;
     }
     public function getAdd_save($field){
+        //判定2次密码的相同
+        if($field['pwd1']!==$field['pwd2']){
+            $this->error = '两次输入的密码不一致';
+            return false;
+//            Tools::jump('两次输入的密码不一致','./index.php?c=User&a=index',3);
+        }
         //先判断用户名必须大于3位
         if (strlen($field['username'])<3){
             $this->error = '用户名不能小于3位';
             return false;
         }
         //判断用户名在数据库的唯一性
-            //>>1.根据名字去数据库读取数据如果数据存在则不可添加
-            $sql = "select id from user where username='{$field['username']}'";
-            $r = $this->pdo->fetchRow($sql);
-            if (!empty($r)){
-                $this->error = '该用户名已经存在!';
-                return false;
-            }
-        //判定2次密码的相同
-        if($field['pwd1']!==$field['pwd2']){
-            $this->error = '两次输入的密码不一致';
+        //>>1.根据名字去数据库读取数据如果数据存在则不可添加
+        $sql = "select `id` from `user` where username='{$field['username']}'";
+        $r = $this->pdo->fetchAll($sql);
+        if (!empty($r)){
+            $this->error = '该用户名已经存在!';
             return false;
-//            Tools::jump('两次输入的密码不一致','./index.php?c=User&a=index',3);
-}
+        }
         $field['password']=Tools::myPwd($field['pwd1']);
         unset($field['pwd2']);
         unset($field['pwd1']);

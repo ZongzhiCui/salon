@@ -17,7 +17,7 @@ class LoginController extends Controller
     public function index(){
         session_start();
         if (isset($_SESSION['admin'])) {
-            Tools::jump('./index.php?p=Home&c=Home&a=edit');
+            Tools::jump('./index.php?p=Home&c=Home&a=index');
         }
         if (isset($_COOKIE['id']) && isset($_COOKIE['password'])) {
             $id = $_COOKIE['id'];
@@ -28,7 +28,7 @@ class LoginController extends Controller
             if ($r === false) {
                 Tools::jump('./index.php?p=Home&c=Login&a=index', $obj->getError(), 3);
             }
-            Tools::jump('./index.php?p=Home&c=Home&a=edit');
+            Tools::jump('./index.php?p=Home&c=Home&a=index');
         }
         $this->display('index');
     }
@@ -58,17 +58,17 @@ class LoginController extends Controller
                 $user_add = new UserModel();
                 $r = $user_add->getAdd_save($field);
                 if ($r === false){
-                    Tools::jump($this->obj->getError(),'./index.php?p=Home&c=Home&a=index',3);
+                    Tools::jump('./index.php?p=Home&c=Login&a=add_save',$user_add->getError(),3);
                 }
                 Tools::jump('./index.php?p=Home&c=Home&a=index','插入数据成功',1);
         }else{
-            $this->display('add_save');
+            $this->display('registeration');
         }
     }
     public function login_check()
     {
         $field = $_POST;
-        $r = $this->obj->getLogin_check($field);
+        $r = $this->obj->getLogin_check($field,'user');
         if ($r === false) {
             Tools::jump('./index.php?p=Home&c=Login&a=index', $this->obj->getError(), 3);
         }
