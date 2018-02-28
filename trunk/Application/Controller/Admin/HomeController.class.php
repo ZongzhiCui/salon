@@ -14,21 +14,19 @@ class HomeController extends PlatformController
         @session_start();
         $this->obj = ObjFactory::createObj('HomeModel');
     }
-    public function index(){
+    public function index()
+    {
         @session_start();
         $this->display('index');
-    public function index(){
-//        include './View/Home/home.html';
-        $this->display('index');
     }
-    public function edit(){
+    public function edit()
+    {
         $field = $_POST;
         $r = $this->obj->getEdit($field);
-        if ($r === false){
-            Tools::jump("index.php?c=Home&a=home",$this->obj->getError(),3);
+        if ($r === false) {
+            Tools::jump("index.php?c=Home&a=index", $this->obj->getError(), 3);
         }
         Tools::jump('./index.php?c=Login&a=index');
     }
 }
-
 //class_implements()

@@ -12,6 +12,8 @@ class LoginModel extends Model
         $random = $field['random_code'];
             //验证码不区分大小写  strtolower()  二进制比较字符串 strcasecmp不区分大小写比较 相等 =0
         @session_start();
+//        var_dump($field);
+//        var_dump($_SESSION['random_code']);die;
         if (strtolower($_SESSION['random_code']) != strtolower($random)){
             $this->error = '验证码输入错误!';
             return false;
