@@ -14,9 +14,9 @@ class HomeController extends PlatformController
         @session_start();
         $this->obj = ObjFactory::createObj('HomeModel');
     }
-    public function home(){
+    public function index(){
 //        include './View/Home/home.html';
-        $this->display('home');
+        $this->display('index');
     }
     public function edit(){
         $field = $_POST;

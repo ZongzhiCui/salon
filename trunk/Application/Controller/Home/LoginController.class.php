@@ -23,7 +23,7 @@ class LoginController extends Controller
             $id = $_COOKIE['id'];
             $pwd = $_COOKIE['password'];
             $obj = ObjFactory::createObj('LoginModel');
-            $r = $obj->getCookie_check($id, $pwd);
+            $r = $obj->getCookie_check($id, $pwd,'user');
             //判断返回结果如果全等于false则输出错误信息,并跳到登录界面
             if ($r === false) {
                 Tools::jump('./index.php?p=Home&c=Login&a=index', $obj->getError(), 3);
@@ -41,7 +41,7 @@ class LoginController extends Controller
                     $file = $_FILES['head'];
                     //UploadTools对象里的upload来实现上传
                     $upload = new UploadTool();
-                    $head = $upload->upload($file,'Admin/');
+                    $head = $upload->upload($file,'User/');
 //                返回值 失败跳转到添加,成功就写$field 实现加入数据库
                     if ($head === false){
                         Tools::jump('./index.php?p=Home&c=Login&a=add_save',$upload->getError(),3);
