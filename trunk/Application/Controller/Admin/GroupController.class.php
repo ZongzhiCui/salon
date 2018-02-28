@@ -11,7 +11,7 @@ class GroupController extends PlatformController
     private $obj;
     public function __construct()
     {
-//        parent::__construct();
+        parent::__construct();
         @session_start();
         $this->obj = ObjFactory::createObj('GroupModel');
     }
@@ -64,7 +64,7 @@ class GroupController extends PlatformController
            $res= $this->obj->getadd($data);
             //显示页面分支
         if ($res===false){
-            $this->redirect('index.php?p=Admin&c=Group&a=index','添加失败'.$this->ogb->getError(),3);
+            $this->redirect('index.php?p=Admin&c=Group&a=index','添加失败'.$this->obj->getError(),3);
         }else{
         $this->redirect('index.php?p=Admin&c=Group&a=index','添加成功',3);
     }

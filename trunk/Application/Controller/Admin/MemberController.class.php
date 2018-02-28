@@ -19,8 +19,8 @@ class MemberController extends PlatformController
         //接受数据
         $field = $_REQUEST;
         //处理数据
-       $rows= $this->obj->getAll($field);
-       //分配数据
+        $rows= $this->obj->getAll($field);
+        //分配数据
         $this->assign($rows);
        //显示页面
         $this->display('index');
