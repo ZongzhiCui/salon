@@ -17,7 +17,7 @@ class LoginModel extends Model
             return false;
         }
 //        $field = addslashes($field);
-        $sql = "select * from `user` where username='{$field['username']}'";
+        $sql = "select * from `member` where username='{$field['username']}'";
         $admin = $this->pdo->fetchRow($sql);
         if(empty($admin)){
             $this->error = '用户名不存在';
@@ -38,16 +38,16 @@ class LoginModel extends Model
         }
         //更新登录时间和ip
         $last['id'] = $admin['id'];
-        $last['last_login_time'] = time();
+        $last['last_login'] = time();
         $last['last_login_ip'] = ip2long($_SERVER['REMOTE_ADDR']);
-        $sql = Tools::myUpdate('user',$last);
+        $sql = Tools::myUpdate('member',$last);
         return $this->pdo->execute($sql);
     }
     /**
      * 这个方法用来检测cookie中保存的用户id和密码是否正确实现自动登录
      */
     public function getCookie_check($id,$pwd){
-        $sql = "select * from `user` where id='{$id}'";
+        $sql = "select * from `member` where id='{$id}'";
         $admin = $this->pdo->fetchRow($sql);
         if (empty($admin)){
             $this->error = '用户id不存在';

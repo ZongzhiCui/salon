@@ -53,7 +53,7 @@ class LoginController extends Controller
                         Tools::jump('./index.php?p=Home&c=Login&a=add_save',$thumb->getError(),3);
                     }
                     unlink(__DIR__.'/../'.$head);
-                    $field['head'] = $thumb_logo;
+                    $field['photo'] = $thumb_logo;
                 }
                 $user_add = new UserModel();
                 $r = $user_add->getAdd_save($field);
@@ -82,5 +82,8 @@ class LoginController extends Controller
         setcookie('id', null, -1, '/');
         setcookie('password', null, -1, '/');
         Tools::jump('./index.php?p=Home&c=Login&a=index');
+    }
+    public function registeration(){
+        $this->display();
     }
 }

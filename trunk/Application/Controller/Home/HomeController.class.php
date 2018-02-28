@@ -23,12 +23,15 @@ class HomeController extends Controller
         $this->assign($all);*/
         $this->display('index');
     }
-    public function edit(){
+    public function gallery(){
+        $this->display('gallery');
+    }
+    public function personalcenter(){
 /*        @session_start();
         if (!empty($_SESSION['admin'])){
             $this->assign($_SESSION);
         }*/
-        $this->display('user_edit');
+        $this->display('personalcenter');
     }
     public function edit_save(){
         $field = $_POST;

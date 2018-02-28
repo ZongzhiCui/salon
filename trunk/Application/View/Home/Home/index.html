@@ -7,13 +7,13 @@
 <meta name="keywords" content="Beautyou Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
 Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyErricsson, Motorola web design" />
 <script type="applisalonion/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
-<link href="css/bootstrap.css" rel='stylesheet' type='text/css' />
+<link href="./Public/Home/css/bootstrap.css" rel='stylesheet' type='text/css' />
 <!-- Custom Theme files -->
-<link href="css/style.css" rel='stylesheet' type='text/css' />	
-<link rel="stylesheet" href="css/flexslider.css" type="text/css" media="screen" />
-<script src="js/jquery-1.11.1.min.js"></script>
-<script type="text/javascript" src="js/move-top.js"></script>
-<script type="text/javascript" src="js/easing.js"></script>
+<link href="./Public/Home/css/style.css" rel='stylesheet' type='text/css' />	
+<link rel="stylesheet" href="./Public/Home/css/flexslider.css" type="text/css" media="screen" />
+<script src="./Public/Home/js/jquery-1.11.1.min.js"></script>
+<script type="text/javascript" src="./Public/Home/js/move-top.js"></script>
+<script type="text/javascript" src="./Public/Home/js/easing.js"></script>
 <!--/web-font-->
 <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700,600,600italic,800' rel='stylesheet' type='text/css'>
 <!--/script-->
@@ -34,7 +34,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			  <div class="head-top">
 			   <!--logo-->
 			       <div class="logo">
-                      <a href="index.html"><h1>Beautyou</h1></a>
+                      <a href="index.php?p=Home&c=Home&a=index"><h1>Beautyou</h1></a>
 				   </div>
 				    <div class="phone"><i class="glyphicon glyphicon-phone"></i><p>176 0880 1854</p>
 				      <h5>Call me</h5>
@@ -63,7 +63,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						</ul>
 						</div>
 						<!--banner-Slider-->
-						<script src="js/Responsiveslides.min.js"></script>
+						<script src="./Public/Home/js/Responsiveslides.min.js"></script>
 						 <script>
 						// You can also use "$(window).load(function() {"
 						$(function () {
@@ -95,15 +95,18 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					<div class="top-menu">
 					<nav>
 						<ul class="cl-effect-16">
-						<li><a class="active" href="index.html" data-hover="HOME">Home</a></li> 
-						<li><a href="about.html" data-hover="About">About</a></li>
-						<li><a href="typography.html" data-hover="SERVICES">SERVICES</a></li>
-						<li><a href="gallery.html" data-hover="Gallery">Gallery</a></li>
-						<li><a href="blog.html" data-hover="BLOG">BLOG</a></li>
-						<li><a href="contact.html" data-hover="CONTACT">Contact</a></li>
+						<li><a class="active" href="index.php?p=Home&c=Home&a=index" data-hover="HOME">Home</a></li>
+						<li><a href="index.php?p=Home&c=Home&a=gallery" data-hover="Gallery">Gallery</a></li>
+						<?php
+                    	@session_start();
+                    	if (!empty($_SESSION['admin'])){?>
+						<li style="position: absolute;right: 20px;"><a href="index.php?p=Home&c=Home&a=personalcenter"  data-hover="<?=$_SESSION['admin']['username'].'&emsp;欢迎您的光临'?>"><?=$_SESSION['admin']['username'].'&emsp;欢迎您的光临'?></a>&emsp;&emsp;<a
+								href="index.php?p=Home&c=Login&a=logout">安全退出</a></li>
+						<?php }else{?>
+						<li style="position: absolute;right: 20px;"><a href="index.php?p=Home&c=Login&a=index"  data-hover="请先登录">请先登录</a></li>
+						<?php }?>
 					</ul>
-
-					</nav>		
+					</nav>
 					</div>
 
 				 <div class="clearfix"></div>
@@ -144,15 +147,15 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							  
 								 <div class="col-md-6 service-type-main">
 										<div class="service-type-grd-left">
-											<img src="images/8.jpg" alt=" " class="img-Responsive" />
+											<img src="./Public/Home/images/8.jpg" alt=" " class="img-Responsive" />
 											<h5>Nail Art</h5>
 										</div>
 										<div class="service-type-grd-left">
-											<img src="images/6.jpg" alt=" " class="img-Responsive" />
+											<img src="./Public/Home/images/6.jpg" alt=" " class="img-Responsive" />
 											<h5>Hair style</h5>
 										</div>
 										<div class="service-type-grd-left">
-											<img src="images/8.jpg" alt=" " class="img-Responsive" />
+											<img src="./Public/Home/images/8.jpg" alt=" " class="img-Responsive" />
 											<h5>Make up</h5>
 										</div>
 								     </div>
@@ -174,15 +177,15 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							  
 								 <div class="col-md-6 service-type-main">
 										<div class="service-type-grd-left">
-											<img src="images/6.jpg" alt=" " class="img-Responsive" />
+											<img src="./Public/Home/images/6.jpg" alt=" " class="img-Responsive" />
 											<h5>Hair style</h5>
 										</div>
 										<div class="service-type-grd-left">
-											<img src="images/8.jpg" alt=" " class="img-Responsive" />
+											<img src="./Public/Home/images/8.jpg" alt=" " class="img-Responsive" />
 											<h5>Make up</h5>
 										</div>
 										<div class="service-type-grd-left">
-											<img src="images/6.jpg" alt=" " class="img-Responsive" />
+											<img src="./Public/Home/images/6.jpg" alt=" " class="img-Responsive" />
 											<h5>Nail Art</h5>
 										</div>
 								     </div>
@@ -204,15 +207,15 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							  
 								 <div class="col-md-6 service-type-main">
 										<div class="service-type-grd-left">
-											<img src="images/8.jpg" alt=" " class="img-Responsive" />
+											<img src="./Public/Home/images/8.jpg" alt=" " class="img-Responsive" />
 											<h5>Make up</h5>
 										</div>
 										<div class="service-type-grd-left">
-											<img src="images/6.jpg" alt=" " class="img-Responsive" />
+											<img src="./Public/Home/images/6.jpg" alt=" " class="img-Responsive" />
 											<h5>Hair style</h5>
 										</div>
 										<div class="service-type-grd-left">
-											<img src="images/8.jpg" alt=" " class="img-Responsive" />
+											<img src="./Public/Home/images/8.jpg" alt=" " class="img-Responsive" />
 											<h5>Nail Art</h5>
 										</div>
 								     </div>
@@ -233,7 +236,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				</div>
 			</section>
 			<!--FlexSlider-->
-						<script defer src="js/jquery.flexslider.js"></script>
+						<script defer src="./Public/Home/js/jquery.flexslider.js"></script>
 							<script type="text/javascript">
 									$(function(){
 									  SyntaxHighlighter.all();
@@ -258,7 +261,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	           <div class="grid">
 			      <div class="col-md-4 h-f">
 					<figure class="effect-jazz">
-					<img src="images/s1.jpg" alt="img25"/>
+					<img src="./Public/Home/images/s1.jpg" alt="img25"/>
 						<figcaption>
 								<h4>hair <span>Cutting</span></h4>
 							<p>When Jazz starts to chase cars, the whole world stands still.</p>
@@ -269,7 +272,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				 </div>
 				 <div class="col-md-4 h-f">
 					<figure class="effect-jazz">
-						<img src="images/s2.jpg" alt="img25"/>
+						<img src="./Public/Home/images/s2.jpg" alt="img25"/>
 						<figcaption>
 							<h4>Make<span>Up</span></h4>
 							<p>When Jazz starts to chase cars, the whole world stands still.</p>
@@ -280,7 +283,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				 </div>
 					<div class="col-md-4 h-f">
 					 <figure class="effect-jazz">
-							<img src="images/s3.jpg" alt="img25"/>
+							<img src="./Public/Home/images/s3.jpg" alt="img25"/>
 						<figcaption>
 								<h4>hair <span>Style</span></h4>
 							<p>When Jazz starts to chase cars, the whole world stands still.</p>
@@ -291,7 +294,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				 </div>
 				 <div class="col-md-4 h-f one">
 					<figure class="effect-jazz">
-					<img src="images/s4.jpg" alt="img25"/>
+					<img src="./Public/Home/images/s4.jpg" alt="img25"/>
 						<figcaption>
 							<h4>hair <span>Style</span></h4>
 							<p>When Jazz starts to chase cars, the whole world stands still.</p>
@@ -302,7 +305,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				 </div>
 				<div class="col-md-4 h-f">
 					<figure class="effect-jazz">
-						<img src="images/s5.jpg" alt="img25"/>
+						<img src="./Public/Home/images/s5.jpg" alt="img25"/>
 						<figcaption>
 							<h4>Nail<span>Art</span></h4>
 							<p>When Jazz starts to chase cars, the whole world stands still.</p>
@@ -313,7 +316,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				 </div>
 					<div class="col-md-4 h-f one">
 					 <figure class="effect-jazz">
-						<a class="example-image-link" href="images/s6.jpg" data-lightbox="example-set" data-title=""><img class="example-image" src="images/s6.jpg" alt=""/></a>
+						<a class="example-image-link" href="./Public/Home/images/s6.jpg" data-lightbox="example-set" data-title=""><img class="example-image" src="./Public/Home/images/s6.jpg" alt=""/></a>
 
 						<figcaption>
 							<h4>make<span>over</span></h4>
@@ -327,8 +330,53 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				</div>
 		   </div>
 		</div>
+	<p>最新优惠活动<code style="font-size: small">详情.</code></p>
+	<div class="bs-docs-example">
+	<table class="table table-hover">
+		<thead>
+		<tr>
+			<th>时间</th>
+			<th>活动名称</th>
+			<th colspan="5">简介</th>
+		</tr>
+		</thead>
+		<tbody>
+		<tr>
+			<td>1</td>
+			<td>Mark</td>
+			<td colspan="5">Otto</td>
+		</tr>
+		<tr>
+			<td>2</td>
+			<td>Jacob</td>
+			<td colspan="5">Thornton</td>
+		</tr>
+		<tr>
+			<td>3</td>
+			<td>3</td>
+			<td colspan="5">Larry the Bird</td>
+		</tr>
+		</tbody>
+	</table>
+</div>
+	<p style="text-align: center">显示页码</p>
   <!--bottom-->
+	<div class="s-bottom">
+	<div class="container">
+		<div class="salon-top">
+			<h3>Flat 10% Discount On !!</h3>
+			<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.Lorem Ipsum has been the industry's standard dummy text ever since, Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.</p>
+			<a class="read two" href="#">Read More</a>
+		</div>
+	</div>
+</div>
 		<!--start-smooth-scrolling-->
+	<!--footer-->
+	<div class="container">
+		<div class="copy">
+			<p>Copyright &copy; 2015.Company name All rights reserved.More Templates . - Collect from .</p>
+		</div>
+	</div>
 						<script type="text/javascript">
 									$(document).ready(function() {
 										/*
