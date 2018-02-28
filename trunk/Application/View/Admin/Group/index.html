@@ -39,13 +39,16 @@ font-size: 16px;"> Last access : 30 May 2014 &nbsp; <a href="login.html" class="
             <div class="sidebar-collapse">
                 <ul class="nav" id="main-menu">
                     <li>
-                        <a href="#"><i class="fa fa-sitemap fa-3x"></i> 功能选择<span class="fa arrow"></span></a>
+                        <a href="#"><i class="fa fa-sitemap fa-3x"></i> 后台控制<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
                             <li>
                                 <a href="table.html">表格</a>
                             </li>
                             <li>
                                 <a href="tab-panel.html">文字</a>
+                            </li>
+                            <li>
+                                <a href="index.php?p=Admin&c=Group&a=index">部门管理</a>
                             </li>
                         </ul>
                 </ul>
@@ -88,6 +91,15 @@ font-size: 16px;"> Last access : 30 May 2014 &nbsp; <a href="login.html" class="
                                             <a href="index.php?p=Admin&c=Group&a=delete&id=<?=$row['id']?>">删除</a></td>
                                         </tr>
                                         <?php endforeach;?>
+                                        <form action="index.php?p=Admin&c=Group&a=add" method="post">
+                                        <tr>
+                                            <td>
+                                                添加一个部门
+                                            </td>
+                                            <td><input type="text" name="name"></td>
+                                            <td><input type="submit" value="点击添加" style="color: #f53b49;"></td>
+                                        </tr>
+                                        </form>
                                     </table>
                                 </div>
                             </div>
