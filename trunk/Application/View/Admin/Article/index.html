@@ -1,0 +1,95 @@
+﻿<?php include VIEW_PATH.'Admin/Home/nav.html';?>
+        <div id="page-wrapper" >
+            <div id="page-inner">
+                <div class="row">
+                    <div class="col-md-12">
+                     <h2>活动详情页</h2>
+                        <h5>查看活动!!!!!-----. </h5>
+                       
+                    </div>
+                </div>
+                 <!-- /. ROW  -->
+                 <hr />
+               
+            <div class="row">
+                <div class="col-md-12">
+                    <!-- Advanced Tables -->
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                             最新活动
+                        </div>
+                        <div class="panel-body">
+                            <div class="table-responsive">
+                                <div class="col-sm-6"><div id="dataTables-example_filter" class="dataTables_filter">
+                                    <label>Search:<input type="search" class="form-control input-sm" aria-controls="dataTables-example"></label>
+                                </div></div>
+                                <table class="table table-striped table-bordered table-hover" id="dataTables-example">
+                                    <thead>
+                                        <tr>
+                                            <th>活动ID</th>
+                                            <th>活动名称</th>
+                                            <th>活动简介</th>
+                                            <th>活动开始时间</th>
+                                            <th>活动结束时间</th>
+                                            <th>发布时间</th>
+                                            <th>操作</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                    <?php foreach($arts as $row):?>
+                                    <tr class="odd gradeX">
+                                        <td><?=$row['id'];?></td>
+                                        <td><?=$row['title'];?></td>
+                                        <td><?=mb_substr($row['content'],0,20);?></td>
+                                        <td><?=date('Y-m-d H:i:s',$row['start']);?></td>
+                                        <td><?=date('Y-m-d H:i:s',$row['end']);?></td>
+                                        <td class="center"><?=date('Y-m-d H:i:s',$row['time']);?></td>
+                                        <td class="center">
+                                            <a href="index.php?p=Admin&c=Article&a=edit&id=<?=$row['id'];?>">修改</a>
+                                            <a href="index.php?p=Admin&c=Article&a=delete&id=<?=$row['id'];?>">删除</a>
+                                        </td>
+                                    </tr>
+                                    <?php endforeach;?>
+                                    <tr>
+                                        <td></td>
+                                        <td colspan="6"><?=$html?></td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            
+                        </div>
+                    </div>
+                    <!--End Advanced Tables -->
+                </div>
+            </div>
+                <!-- /. ROW  -->
+            </div>
+                <!-- /. ROW  -->
+        </div>
+               
+    </div>
+             <!-- /. PAGE INNER  -->
+         <!-- /. PAGE WRAPPER  -->
+     <!-- /. WRAPPER  -->
+    <!-- SCRIPTS -AT THE BOTOM TO REDUCE THE LOAD TIME-->
+    <!-- JQUERY SCRIPTS -->
+    <script src="assets/js/jquery-1.10.2.js"></script>
+      <!-- BOOTSTRAP SCRIPTS -->
+    <script src="assets/js/bootstrap.min.js"></script>
+    <!-- METISMENU SCRIPTS -->
+    <script src="assets/js/jquery.metisMenu.js"></script>
+     <!-- DATA TABLE SCRIPTS -->
+    <script src="assets/js/dataTables/jquery.dataTables.js"></script>
+    <script src="assets/js/dataTables/dataTables.bootstrap.js"></script>
+        <script>
+            $(document).ready(function () {
+                $('#dataTables-example').dataTable();
+            });
+    </script>
+         <!-- CUSTOM SCRIPTS -->
+    <script src="assets/js/custom.js"></script>
+    
+   
+</body>
+</html>

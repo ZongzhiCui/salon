@@ -53,28 +53,10 @@ class ArticleModel extends Model
     }
 
     public function getAdd($field){
-        //这里判断上传文件
-        if ($_FILES['logo']['error'] != 4){
-            //接收到文件数据 实现上传文件的功能
-            $file = $_FILES['logo'];
-            //UploadTools对象里的upload来实现上传
-            $upload = new UploadTools();
-            $brand_logo = $upload->upload($file,'Article/');
-//                返回值 失败跳转到添加,成功就写$field 实现加入数据库
-            if ($brand_logo === false){
-                Tools::jump('./index.php?p=Admin&c=Article&a=add',$upload->getError(),3);
-            }
-            $field['logo'] = $brand_logo;
-            //拿到上传的原图 制作一个缩略图
-            $thumb = new ImageTools();
-            $thumb_logo = $thumb->thumb($brand_logo,100,100);
-            if ($thumb_logo === false){
-                Tools::jump('./index.php?p=Admin&c=Article&a=add',$thumb->getError(),3);
-            }
-            $field['thumb_logo'] = $thumb_logo;
-        }
-
-        $sql = Tools::myInsert('Article',$field);
+        $field['start'] = strtotime($field['start']);
+        $field['end'] = strtotime($field['end']);
+        $field['time'] = time();
+        $sql = Tools::myInsert('article',$field);
         $num = $this->pdo->execute($sql);
         return $num;
     }
@@ -100,9 +82,13 @@ class ArticleModel extends Model
     }
     //文章删除 上下2个可以合并 多传一个表名就可以实现
     public function getDelete($id){
-        $field['id'] = $id;
-        $field['status'] = -1;
-        $sql = Tools::myUpdate('article',$field);
+        $sql = "select * from article where id={$id}";
+        $r = $this->pdo->fetchRow($sql);
+        if (time() < $r['end']){
+            $this->error = '该活动还在进行中!请修改活动时间后再删除';
+            return false;
+        }
+        $sql = Tools::myDelete('article',$id);
         $r = $this->pdo->execute($sql);
         return $r;
     }
@@ -144,23 +130,12 @@ class ArticleModel extends Model
     }
     //文章回显
     public function getEdit($id){
-//        $sql = "select u.username,a.* from article a LEFT JOIN user u ON a.user_id=u.id where a.id={$id}"; 不能用联表 需要显示出所有的用户列表.
         $sql = "select * from article where id={$id}";
         $r = $this->pdo->fetchRow($sql);
-        $sql = "select * from user ";
-        $user = $this->pdo->fetchAll($sql);
-        $r['user'] = $user;
-        //分类表
-/*        foreach ($r as &$val){
-            $sql = "select * from category";
-            $cates = $this->pdo->fetchAll($sql);
-        }*/
-        $cates = $this->getCate();
-        $r['cates'] = $cates;
         return $r;
     }
     public function getEdit_save($field){
-        if ($_FILES['logo']['error'] != 4){
+/*        if ($_FILES['logo']['error'] != 4){
             $file = $_FILES['logo'];
             $upload = new UploadTool();
             $logo = $upload->upload($file,'Article/');
@@ -176,14 +151,15 @@ class ArticleModel extends Model
                 return false;
             }
             $field['thumb_logo'] = $thumb_logo;
-        }
+        }*/
         //判断POST数据的有效性
         if (mb_strlen($field['title']) < 2){
             $this->error = '文章标题不能小于2个字!';
             return false;
         }
-//        //把修改时间写进去
-//        $field['edit_time'] = time();
+//        //把修改时间写成时间时间戳的格式
+        $field['start'] = strtotime($field['start']);
+        $field['end'] = strtotime($field['end']);
         $sql = Tools::myUpdate('article',$field);
         $num = $this->pdo->execute($sql);
         if ($num === false){
@@ -212,7 +188,7 @@ class ArticleModel extends Model
         //>>开始页和每页条数
         $page = intval($field['page']??1);
         $page = $page<1?1:$page;
-        $page = $page>$total_page?$total_page:$page;
+        $page = $page>=$total_page?$total_page:$page;
         $start = ($page-1)*$page_size;
         $limit = " limit {$start},{$page_size}";
 
@@ -220,7 +196,7 @@ class ArticleModel extends Model
         $rs = $this->pdo->fetchAll($sql);
         $html = PageTool::myYeMa($page,$page_size,$total_page);
         return [
-            'rs'=>$rs,
+            'arts'=>$rs,
             'count'=>$count,
             'total_page'=>$total_page,
             'page'=>$page,

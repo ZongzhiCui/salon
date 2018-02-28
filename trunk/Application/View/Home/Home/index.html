@@ -279,7 +279,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							<a href="#">View more</a>
 						</figcaption>			
 					</figure>
-					 <div class="hf-text"><h5>Make up</h5><p>$ 180</p></div>
+					 <div class="hf-text"><h5>Make up</h5><p>$ 280</p></div>
 				 </div>
 					<div class="col-md-4 h-f">
 					 <figure class="effect-jazz">
@@ -290,7 +290,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							<a href="#">View more</a>
 						</figcaption>			
 					 </figure>
-					 <div class="hf-text"><h5>Hair Style</h5><p>$ 180</p></div>
+					 <div class="hf-text"><h5>Hair Style</h5><p>$ 380</p></div>
 				 </div>
 				 <div class="col-md-4 h-f one">
 					<figure class="effect-jazz">
@@ -301,7 +301,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							<a href="#">View more</a>
 						</figcaption>			
 					</figure>
-					 <div class="hf-text"><h5>Hair Style</h5><p>$ 180</p></div>
+					 <div class="hf-text"><h5>Hair Style</h5><p>$ 480</p></div>
 				 </div>
 				<div class="col-md-4 h-f">
 					<figure class="effect-jazz">
@@ -312,7 +312,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							<a href="#">View more</a>
 						</figcaption>			
 					</figure>
-					 <div class="hf-text"><h5>Nail Art</h5><p>$ 180</p></div>
+					 <div class="hf-text"><h5>Nail Art</h5><p>$ 580</p></div>
 				 </div>
 					<div class="col-md-4 h-f one">
 					 <figure class="effect-jazz">
@@ -324,7 +324,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							<a href="#">View more</a>
 						</figcaption>			
 					 </figure>
-					 <div class="hf-text"><h5>Makeover</h5><p>$ 180</p></div>
+					 <div class="hf-text"><h5>Makeover</h5><p>$ 880</p></div>
 				 </div>
 				 <div class="clearfix"></div>
 				</div>
@@ -333,33 +333,20 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	<p>最新优惠活动<code style="font-size: small">详情.</code></p>
 	<div class="bs-docs-example">
 	<table class="table table-hover">
-		<thead>
-		<tr>
-			<th>时间</th>
-			<th>活动名称</th>
-			<th colspan="5">简介</th>
-		</tr>
-		</thead>
 		<tbody>
+		<?php foreach($rows as $row):?>
 		<tr>
-			<td>1</td>
-			<td>Mark</td>
-			<td colspan="5">Otto</td>
+			<td><a href="index.php?p=Home&c=Article&a=index">
+				<span style="font-size: small;padding-left: 120px"><?=$row['end']<time()?'<span style="font-size:10px;color:red;">活动已过期</span>'.date('Y-m-d H:i:s',$row['start']).'---'.date('Y-m-d H:i:s',$row['end']):date('Y-m-d H:i:s',$row['start']).'---'.date('Y-m-d H:i:s',$row['end']);?></span>
+			-&ensp;<?=$row['title']?>
+			:&ensp;<?=mb_substr($row['content'],0,20)?></a></td>
 		</tr>
-		<tr>
-			<td>2</td>
-			<td>Jacob</td>
-			<td colspan="5">Thornton</td>
-		</tr>
-		<tr>
-			<td>3</td>
-			<td>3</td>
-			<td colspan="5">Larry the Bird</td>
-		</tr>
+		<?php endforeach;?>
 		</tbody>
 	</table>
-</div>
-	<p style="text-align: center">显示页码</p>
+	</div>
+<div style="text-align: center"><?=$html;?></div>
+
   <!--bottom-->
 	<div class="s-bottom">
 	<div class="container">

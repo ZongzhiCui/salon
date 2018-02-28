@@ -6,7 +6,7 @@
  * Date: 2018/2/28
  * Time: 10:16
  */
-class GroupController extends Controller
+class GroupController extends PlatformController
 {
     private $obj;
     public function __construct()

@@ -14,13 +14,8 @@ class HomeController extends Controller
         $this->obj = ObjFactory::createObj('HomeModel');
     }
     public function index(){
-/*        @session_start();
-        if (!empty($_SESSION['admin'])){
-            $this->assign($_SESSION);
-        }*/
-/*        //需要读取分类表
-        $all = $this->obj->getIndex();
-        $this->assign($all);*/
+        $rows = $this->obj->getIndex();
+        $this->assign($rows);
         $this->display('index');
     }
     public function gallery(){

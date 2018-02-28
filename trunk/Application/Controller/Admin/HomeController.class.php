@@ -15,6 +15,9 @@ class HomeController extends PlatformController
         $this->obj = ObjFactory::createObj('HomeModel');
     }
     public function index(){
+        @session_start();
+        $this->display('index');
+    public function index(){
 //        include './View/Home/home.html';
         $this->display('index');
     }
