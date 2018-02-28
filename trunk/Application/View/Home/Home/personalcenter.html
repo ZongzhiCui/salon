@@ -1,0 +1,153 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>个人中心</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="keywords" content="Beautyou  Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
+Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyErricsson, Motorola web design" />
+<script type="applisalonion/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+<link href="./Public/Home/css/bootstrap.css" rel='stylesheet' type='text/css' />
+<!-- Custom Theme files -->
+<link href="./Public/Home/css/style.css" rel='stylesheet' type='text/css' />	
+<link rel="stylesheet" href="./Public/Home/css/flexslider.css" type="text/css" media="screen" />
+<script src="./Public/Home/js/jquery-1.11.1.min.js"></script>
+<script type="text/javascript" src="./Public/Home/js/move-top.js"></script>
+<script type="text/javascript" src="./Public/Home/js/easing.js"></script>
+<!--/web-font-->
+<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700,600,600italic,800' rel='stylesheet' type='text/css'>
+<!--/script-->
+<script type="text/javascript">
+			jQuery(document).ready(function($) {
+				$(".scroll").click(function(event){		
+					event.preventDefault();
+					$('html,body').animate({scrollTop:$(this.hash).offset().top},900);
+				});
+			});
+</script>
+<script src="./Public/Home/js/bootstrap.min.js"></script>
+
+</head>
+<body>
+
+<div class="header-bottom">
+	<div class="fixed-header">
+		<div class="menu">Menu</div>
+		<span class="menu"> </span>
+		<div class="top-menu">
+			<nav>
+				<ul class="cl-effect-16">
+					<li><a class="active" href="index.php?p=Home&c=Home&a=index" data-hover="HOME">Home</a></li>
+					<li><a href="index.php?p=Home&c=Home&a=gallery" data-hover="Gallery">Gallery</a></li>
+					<?php
+                    	@session_start();
+                    	if (!empty($_SESSION['admin'])){?>
+					<li style="position: absolute;right: 20px;"><a href="index.php?p=Home&c=Home&a=personalcenter"  data-hover="<?=$_SESSION['admin']['username'].'&emsp;欢迎您的光临'?>"><?=$_SESSION['admin']['username'].'&emsp;欢迎您的光临'?></a>&emsp;&emsp;<a
+							href="index.php?p=Home&c=Login&a=logout">安全退出</a></li>
+					<?php }else{?>
+					<li style="position: absolute;right: 20px;"><a href="index.php?p=Home&c=Login&a=index"  data-hover="请先登录">请先登录</a></li>
+					<?php }?>
+				</ul>
+			</nav>
+		</div>
+
+		<div class="clearfix"></div>
+		<!-- script for menu -->
+		<script>
+            $( "span.menu" ).click(function() {
+                $( ".top-menu" ).slideToggle( "slow", function() {
+                    // Animation complete.
+                });
+            });
+		</script>
+		<!-- script for menu -->
+		<script>
+            $(document).ready(function() {
+                var navoffeset=$(".header-bottom").offset().top;
+                $(window).scroll(function(){
+                    var scrollpos=$(window).scrollTop();
+                    if(scrollpos >=navoffeset){
+                        $(".header-bottom").addClass("fixed");
+                    }else{
+                        $(".header-bottom").removeClass("fixed");
+                    }
+                });
+
+            });
+		</script>
+	</div>
+</div>
+
+<!--start-typography-->
+<div style="padding-top: 0" class="typrography">
+	 <div class="container">
+		 <div class="grid_3 grid_5">
+				 <h3>个人VIP中心</h3>
+				   <div class="bs-example bs-example-tabs" role="tabpanel" data-example-id="togglable-tabs">
+			<ul id="myTab" class="nav nav-tabs" role="tablist">
+			  <li role="presentation" class="active"><a href="#house" id="home-tab" role="tab" data-toggle="tab" aria-controls="house" aria-expanded="true">基本资料</a></li>
+			  <li role="presentation" class=""><a href="#profile" role="tab" id="profile-tab" data-toggle="tab" aria-controls="profile" aria-expanded="false">修改密码</a></li>
+			  <li role="presentation" class="dropdown">
+				<a href="#" id="myTabDrop1" class="dropdown-toggle" data-toggle="dropdown" aria-controls="myTabDrop1-contents" aria-expanded="false">我的消费记录-敬请期待<span class="caret"></span></a>
+				<ul class="dropdown-menu" role="menu" aria-labelledby="myTabDrop1" id="myTabDrop1-contents">
+				  <li><a href="#dropdown1" tabindex="-1" role="tab" id="dropdown1-tab" data-toggle="tab" aria-controls="dropdown1">@fat</a></li>
+				  <li><a href="#dropdown2" tabindex="-1" role="tab" id="dropdown2-tab" data-toggle="tab" aria-controls="dropdown2">@mdo</a></li>
+				</ul>
+			  </li>
+			</ul>
+			<div id="myTabContent" class="tab-content">
+			  <div role="tabpanel" class="tab-pane fade" id="house">
+				  <form action="">
+					<p>昵称</p>
+					<p>真实姓名</p>
+					<p>性别</p>
+					<p>电话</p>
+					<p>remark</p>
+					<p>photo</p>
+				  </form>
+			  </div>
+			  <div role="tabpanel" class="tab-pane fade active in" id="profile">
+				<p>
+				  <form action="">
+
+				  </form>
+				</p>
+			  </div>
+			  <div role="tabpanel" class="tab-pane fade" id="dropdown1">
+				<p>Etsy mixtape wayfarers, ethical wes anderson tofu before they sold out mcsweeney's organic lomo retro fanny pack lo-fi farm-to-table readymade. Messenger bag gentrify pitchfork tattooed craft beer, iphone skateboard locavore carles etsy salvia banksy hoodie helvetica. DIY synth PBR banksy irony. Leggings gentrify squid 8-bit cred pitchfork. Williamsburg banh mi whatever gluten-free, carles pitchfork biodiesel fixie etsy retro mlkshk vice blog. Scenester cred you probably haven't heard of them, vinyl craft beer blog stumptown. Pitchfork sustainable tofu synth chambray yr.</p>
+			  </div>
+			  <div role="tabpanel" class="tab-pane fade" id="dropdown2">
+				<p>Trust fund seitan letterpress, keytar raw denim keffiyeh etsy art party before they sold out master cleanse gluten-free squid scenester freegan cosby sweater. Fanny pack portland seitan DIY, art party locavore wolf cliche high life echo park Austin. Cred vinyl keffiyeh DIY salvia PBR, banh mi before they sold out farm-to-table VHS viral locavore cosby sweater. Lomo wolf viral, mustache readymade thundercats keffiyeh craft beer marfa ethical. Wolf salvia freegan, sartorial keffiyeh echo park vegan.</p>
+			  </div>
+			</div>
+		   </div>
+		  </div>
+	</div>
+</div>
+
+<!--footer-->
+<div class="container">
+	<div class="copy">
+		<p>Copyright &copy; 2015.Company name All rights reserved.More Templates . - Collect from .</p>
+	</div>
+</div>
+<script type="text/javascript">
+    $(document).ready(function() {
+        /*
+        var defaults = {
+              containerID: 'toTop', // fading element id
+            containerHoverID: 'toTopHover', // fading element hover id
+            scrollSpeed: 1200,
+            easingType: 'linear'
+         };
+        */
+
+        $().UItoTop({ easingType: 'easeOutQuart' });
+
+    });
+</script>
+<!--end-smooth-scrolling-->
+<a href="#home" id="toTop" class="scroll" style="display: block;"> <span id="toTopHover" style="opacity: 1;"> </span></a>
+
+</body>
+</html>
