@@ -19,7 +19,7 @@ $field = $_REQUEST;
 $field['page_size'] = 3;
         $users = $this->obj->getIndex($field);
         $this->assign($users);
-        $this->display('user_list');
+        $this->display('index');
     }
     public function add_save(){
         $field = $_POST;
