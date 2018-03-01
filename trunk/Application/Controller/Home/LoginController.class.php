@@ -81,7 +81,7 @@ class LoginController extends Controller
         unset($_SESSION['admin']);
         setcookie('id', null, -1, '/');
         setcookie('password', null, -1, '/');
-        Tools::jump('./index.php?p=Home&c=Login&a=index');
+        Tools::jump('./index.php?p=Home&c=Home&a=index');
     }
     public function registeration(){
         $this->display();
