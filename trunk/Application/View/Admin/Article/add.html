@@ -17,8 +17,16 @@
                                             <input type="text" name="title" class="form-control" placeholder="PLease Enter Keyword" /></label>
                                             <div class="form-group">
                                                 <label>添加活动内容</label>
-                                                <textarea name="content" class="form-control" rows="4"></textarea>
+                                                <textarea id="container" name="content" class="form-control" rows="4"></textarea>
                                             </div>
+                                            <!-- 配置文件 -->
+                                            <script type="text/javascript" src="./Public/Common/utf8-php/ueditor.config.js"></script>
+                                            <!-- 编辑器源码文件 -->
+                                            <script type="text/javascript" src="./Public/Common/utf8-php/ueditor.all.js"></script>
+                                            <!-- 实例化编辑器 -->
+                                            <script type="text/javascript">
+                                                var ue = UE.getEditor('container');
+                                            </script>
                                             <label>活动开始时间
                                                 <input type="date" name="start" class="form-control" placeholder="PLease Enter Keyword" /></label>
                                             <label>活动结束时间

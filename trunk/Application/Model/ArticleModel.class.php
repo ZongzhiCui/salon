@@ -175,7 +175,7 @@ class ArticleModel extends Model
     public function getAdminIndex($field=[]){
         $where = '1=1 ';
         if (!empty($field['keyword'])){
-            $where .= "and (title like '%{$field['keyword']}%' or content like '%{$field['keyword']}%' or intro like '%{$field['keyword']}%' )";
+            $where .= "and (title like '%{$field['keyword']}%' or content like '%{$field['keyword']}%' )";
         }
 
         //分页显示
