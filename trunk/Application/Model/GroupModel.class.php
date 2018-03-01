@@ -15,8 +15,20 @@ class GroupModel extends Model
            return $this->pdo->fetchAll($sql);
         }
         public function getdelete($id){
+            $sql="select count(*) from member where group_id={$id}";
+            $res=$this->pdo->fetchColumn($sql);
+            if ($res==0){
+                //准备sql
+                $sql="delete from `group` where id={$id}";
+                //执行sql
+                $this->pdo->execute($sql);
+            }
+            else{
+                $this->error='部门下面有员工,所以不能删除';
+                return false;
+            }
             //准备sql
-            $sql="delete from `group` where id={$id}";
+
             //执行sql
             $this->pdo->execute($sql);
         }
@@ -34,10 +46,18 @@ class GroupModel extends Model
                 $this->error='请填写名字';
                 return false;
             }
-            //准备sql
-            $sql="update `group` set `name`='{$data['name']}' where id={$data['id']}";
-            //执行sql
-            $this->pdo->execute($sql);
+            $sql="select count(*) from member where group_id={$data['id']}";
+            $res=$this->pdo->fetchColumn($sql);
+            if ($res==0){
+                //准备sql
+                $sql="update `group` set `name`='{$data['name']}' where id={$data['id']}";
+                //执行sql
+                $this->pdo->execute($sql);
+            }
+            else{
+                $this->error='部门下面有员工,所以不能修改';
+            return false;
+            }
         }
         public function getadd($data){
             //判断健壮性

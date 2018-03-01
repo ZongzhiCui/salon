@@ -35,7 +35,7 @@
                                             <td><img src="<?=$row['photo']??''?>" alt=""></td>
                                             <td><?=$row['res']['name']?></td>
                                             <td><?=date('Y-m-d H:i:s',$row['last_login'])?></td>
-                                            <td><?=$row['last_login_ip']?></td>
+                                            <td><?=long2ip($row['last_login_ip'])?></td>
                                             <td><?=$row['is_admin']==1?'是':'否'?></td>
                                             <td><?=$row['status']==0?'休息中':'工作中'?></td>
                                             <td>
