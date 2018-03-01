@@ -13,7 +13,6 @@ class MemberModel extends Model
         if (!empty($field['keyword'])){
             $where .= "and (username like '%{$field['keyword']}%' or realname like '%{$field['keyword']}%' )";
         }
-
         //分页显示
         $page_size = $field['page_size']??4;
         //>>计算count totalPage
