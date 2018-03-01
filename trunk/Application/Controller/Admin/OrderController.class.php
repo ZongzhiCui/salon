@@ -11,7 +11,37 @@ class OrderController extends PlatformController
     public function __construct()
     {
         parent::__construct();
-        $this->obj = new ArticleModel();
+        $this->obj = new OrderModel();
     }
-
+    public function index(){
+        $field = $_REQUEST;
+        $order = $this->obj->getAdminIndex($field);
+        $this->assign($order);
+        $this->display('index');
+    }
+    public function edit(){
+        $field = $_POST;
+        $r = $this->obj->getEdit($field);
+        if ($r === false){
+            Tools::jump('./index.php?p=Admin&c=Order&a=index',$this->obj->getError(),3);
+        }
+        Tools::jump('./index.php?p=Admin&c=Order&a=index');
+    }
+    public function delete(){
+        $id = addslashes($_GET['id']);
+        $r = $this->obj->getDelete($id);
+        if ($r === false){
+            Tools::jump('./index.php?p=Admin&c=Order&a=index',$this->obj->getError(),3);
+        }
+        Tools::jump('./index.php?p=Admin&c=Order&a=index');
+    }
+    public function status(){
+        $q = $_GET['q'];
+        $id = addslashes($_GET['id']);
+        $r = $this->obj->getStatus($q,$id);
+        if ($r === false){
+            Tools::jump('./index.php?p=Admin&c=Order&a=index',$this->obj->getError(),3);
+        }
+        Tools::jump('./index.php?p=Admin&c=Order&a=index');
+    }
 }
