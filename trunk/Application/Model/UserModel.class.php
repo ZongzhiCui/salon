@@ -11,13 +11,20 @@ class UserModel extends Model
         //处理搜索数据
         $where = '1=1 ';
         if (!empty($field['keyword'])){
-            $where .= "and (username like '%{$field['keyword']}%' or email like '%{$field['keyword']}%')";
+            $where .= "and (realname like '%{$field['keyword']}%' or username like '%{$field['keyword']}%')";
+        }
+        if(!empty($field['telephone'])){
+            $where.=" and telephone like '%{$field['telephone']}%'";
+        }
+        if(isset($field['sex'])){
+            $where.=" and sex = {$field['sex']}";
         }
 
         //分页显示
         $page_size = $field['page_size']??4;
         //>>计算count totalPage
         $sql = "select count(id) from `user` where ".$where;
+
         $count = $this->pdo->fetchColumn($sql);
         $total_page = ceil($count/$page_size);
 
@@ -29,6 +36,7 @@ class UserModel extends Model
         $limit = " limit {$start},{$page_size}";
 
         $sql = "select * from `user` where {$where} order by id desc {$limit}";
+//        var_dump($sql);die;
         $rs = $this->pdo->fetchAll($sql);
         $html = PageTool::myYeMa($page,$page_size,$total_page);
         return [
@@ -95,51 +103,108 @@ last_login_ip='{$ip}'
 ";
         $this->pdo->execute($sql);
     }
-    public function getEdit($id){
+    public function getEdit_user($id){
         $id = addslashes($id);
         $sql = "select * from user where id={$id}";
         $user = $this->pdo->fetchRow($sql);
         return $user;
     }
-    public function getEdit_save($field){
-        $sql = Tools::myUpdate('user',$field);
-        $this->pdo->execute($sql);
-    }
-    public function getDelete($id){
-        $id = addslashes($id);
-        //读取数据库的头像文件路径
-        $sql = "select head from user where id={$id}";
-        $del_head = $this->pdo->fetchColumn($sql);
 
-        $sql = Tools::myDelete('user',$id);
-        $this->pdo->execute($sql);
-        //执行完删除数据库,就判断头像文件是否存在.存在就删除
-        if (!empty($del_head)){
-            unlink(__DIR__.'/../'.$del_head);
-        }
-    }
-    public function getEdit_pwd_save($field){
-        if($field['pwd1']!==$field['pwd2']){
+    public function getEdit_save($data,$file){
+        //判定2次密码的相同
+        if($data['pwd1']!==$data['pwd2']){
             $this->error = '两次输入的密码不一致';
             return false;
 //            Tools::jump('两次输入的密码不一致','./index.php?c=User&a=index',3);
         }
-        $field['id'] = addslashes($field['id']);
-        $sql = "select password from user where id={$field['id']}";
-        $u_pwd = $this->pdo->fetchColumn($sql);
-        if(Tools::myPwd($field['pwd'])!==$u_pwd){
-            $this->error = '原始密码错误!';
+        //先判断用户名必须大于3位
+        if (strlen($data['username'])<3){
+            $this->error = '用户名不能小于3位';
             return false;
-//            Tools::jump('原始密码错误!','./index.php?c=User&a=index',3);
-}
-        $pwd = Tools::myPwd($field['pwd1']);
-        $sql = "update user set password='{$pwd}' where id={$field['id']}";
-        return $this->pdo->execute($sql);
+        }
+        if (empty($data['pwd1'])){
+            $this->error='请填写密码';
+            return false;
+        }
+
+
+        //判断用户名在数据库的唯一性
+        //>>1.根据名字去数据库读取数据如果数据存在则不可添加
+        $sql = "select `id` from `user` where username='{$data['username']}'";
+        $r = $this->pdo->fetchAll($sql);
+        if (!empty($r)){
+            $this->error = '该用户名已经存在!';
+            return false;
+        }
+        $sql="select * from `user` where id='{$data['id']}'";
+        $res=$this->pdo->fetchRow($sql);
+        if ($res['password']!=Tools::myPwd($data['pwd'])){
+            $this->error='旧密码错误';
+            return false;
+        }
+        //准备数据
+        $time=time();
+        $ip=$_SERVER['REMOTE_ADDR'];
+        $ip=ip2long($ip);
+        $pwd=Tools::myPwd($data['pwd1']);
+
+        if ($file['error']!=4){
+            //移动图片
+            $up= new UploadTool();
+            $res=$up->upload($file,'user/');
+            if ($res===false){
+                $this->error='图片上传失败'.$up->getError();
+                return false;
+            }
+        $im=new ImageTool();
+        $thumb=$im->thumb($res,80,80);
+
+        //准备sql
+        $sql="update `user` set 
+username='{$data['username']}',
+password='{$pwd}',
+realname='{$data['realname']}',
+sex='{$data['sex']}',
+telephone='{$data['telephone']}',
+remark='{$data['remark']}',
+photo='{$thumb}',
+last_login='{$time}',
+last_login_ip='{$ip}' where id={$data['id']}
+";
+        }
+        else{
+            $sql="update `user` set 
+username='{$data['username']}',
+password='{$pwd}',
+realname='{$data['realname']}',
+sex='{$data['sex']}',
+telephone='{$data['telephone']}',
+remark='{$data['remark']}',
+last_login='{$time}',
+last_login_ip='{$ip}' where id={$data['id']}
+";
+        }
+        $this->pdo->execute($sql);
+
+
     }
-    public function getHead($id){
-        $sql = "select `head` from user where id={$id}";
-        $r = $this->pdo->fetchRow($sql);
-        return $r;
+    public function getrecharge($id){
+        //准备sql
+        $sql="select * from `user` where id={$id}";
+       //处理返回值
+        return $this->pdo->fetchRow($sql);
+    }
+    public function get_save($data){
+            //健壮性
+        if ($data['money']<0){
+            $this->error='充值金额不能小于0';
+            return false;
+        }
+        //准备sql
+        //执行sql
+    }
+    public function getDelete($id){
+
     }
 
 }

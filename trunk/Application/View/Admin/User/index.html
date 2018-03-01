@@ -6,9 +6,13 @@
                     <!-- Advanced Tables -->
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                            <form action="index.php?p=Admin&c=Code&a=index" method="post">
-                                名称<input type="text" name="keyword" title="查询用户名">
-                                价格<input type="text" name="money" title="查询真实姓名">
+                            <form action="index.php?p=Admin&c=User&a=index" method="post">
+                                名称:<input type="text" name="keyword" title="查询用户名,或者真实姓名">
+                                电话:<input type="text" name="telephone" title="查询电话号码">
+                                性别: <select name="sex" id="">
+                                <option value="0">男</option>
+                                <option value="1">女</option>
+                            </select>
                                 <input type="submit" value="查询">
                             </form>
                         </div>
@@ -41,9 +45,9 @@
                                             <td><img src="<?=$row['photo']?>" alt=""></td>
                                             <td><?=date('Y-m-d H:i:s',$row['last_login'])?></td>
                                             <td>
-                                                <a href="index.php?p=Admin&c=Code&a=delete&id=<?=$row['id']?>">删除</a>
-                                                <a href="index.php?p=Admin&c=Code&a=recharge&id=<?=$row['id']?>">充值</a>
-                                                <a href="index.php?p=Admin&c=Code&a=edit&id=<?=$row['id']?>">修改</a>
+                                                <a href="index.php?p=Admin&c=User&a=delete&id=<?=$row['id']?>">删除</a>
+                                                <a href="index.php?p=Admin&c=User&a=recharge&id=<?=$row['id']?>">充值</a>
+                                                <a href="index.php?p=Admin&c=User&a=edit&id=<?=$row['id']?>">修改</a>
                                             </td>
                                         </tr>
                                     <?php endforeach;?>
