@@ -18,11 +18,11 @@ class PlatformController extends Controller
                 $r = $obj->getCookie_check($id,$pwd,'user');
                 //判断返回结果如果全等于false则输出错误信息,并跳到登录界面
                 if ($r === false){
-                    Tools::jump('./index.php?p=Admin&c=Login&a=index',$obj->getError(),3);
+                    Tools::jump('./index.php?p=Home&c=Login&a=index',$obj->getError(),3);
                 }
                 return;
             }
-            Tools::jump('./index.php?p=Admin&c=Login&a=index');
+            Tools::jump('./index.php?p=Home&c=Login&a=index');
         }
     }
 }
