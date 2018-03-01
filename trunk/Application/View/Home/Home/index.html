@@ -97,11 +97,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						<ul class="cl-effect-16">
 						<li><a class="active" href="index.php?p=Home&c=Home&a=index" data-hover="HOME">Home</a></li>
 						<li><a href="index.php?p=Home&c=Home&a=gallery" data-hover="Gallery">Gallery</a></li>
-							<li><a href="index.php?p=Home&c=Order&a=ind ex" data-hover="预约">预约</a></li>
+							<li><a href="index.php?p=Home&c=Order&a=index" data-hover="预约">预约</a></li>
 						<?php
                     	@session_start();
-                    	if (!empty($_SESSION['admin'])){?>
-						<li style="position: absolute;right: 20px;"><img src="$_SESSION['admin']['photo']" alt="头像"><a href="index.php?p=Home&c=User&a=index"  data-hover="<?=$_SESSION['admin']['username'].'&emsp;欢迎您的光临'?>"><?=$_SESSION['admin']['username'].'&emsp;欢迎您的光临'?></a>&emsp;&emsp;<a
+                    	if (!empty($_SESSION['user'])){?>
+						<li style="position: absolute;right: 20px;"><img src="$_SESSION['user']['photo']" alt="头像"><a href="index.php?p=Home&c=User&a=index"  data-hover="<?=$_SESSION['user']['username'].'&emsp;欢迎您的光临'?>"><?=$_SESSION['user']['username'].'&emsp;欢迎您的光临'?></a>&emsp;&emsp;<a
 								href="index.php?p=Home&c=Login&a=logout">安全退出</a></li>
 						<?php }else{?>
 						<li style="position: absolute;right: 20px;"><a href="index.php?p=Home&c=Login&a=index"  data-hover="请先登录">请先登录</a></li>
