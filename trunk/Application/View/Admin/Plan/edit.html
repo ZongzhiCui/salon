@@ -1,0 +1,70 @@
+﻿<?php include VIEW_PATH.'Admin/Home/nav.html';?>
+        <!-- /. NAV SIDE  -->
+        <div id="page-wrapper" >
+            <div id="page-inner">
+                <div class="row">
+                    <div class="col-md-12">
+                     <h2>套餐添加</h2>
+                        <h5>套餐添加表单 </h5>
+                       
+                    </div>
+                </div>
+                 <!-- /. ROW  -->
+                 <hr />
+                <div class="col-md-6">
+                    <h3>添加套餐</h3>
+                    <form role="form" method="post" action="index.php?p=Admin&c=Plan&a=edit">
+                        <div class="form-group">
+                            <label>套餐名</label>
+                            <input type="hidden" name="id" value="<?=$row['id']?>">
+                            <input class="form-control"  type="text" name="name" value="<?=$row['name']?>"/>
+                        </div>
+                        <div class="form-group">
+                            <label>套餐描述</label>
+                            <input type="text" name="des" value="<?=$row['des']?>">
+                        </div>
+                        <div class="form-group">
+                            <label>套餐价格</label>
+                                    <input type="number" name="money" value="<?=$row['money']?>"/>
+                            </div>
+                        <div class="form-group">
+                            <label>套餐状态</label>
+                                上线中<input type="checkbox" name="status" value="0" <?=$row['status']==0?'checked':''?>/>
+                                已下线<input type="checkbox" name="status" value="1" <?=$row['status']==1?'checked':''?>/>
+                        </div>
+                        <button type="submit" class="btn btn-default">提交</button>
+                        <button type="reset" class="btn btn-primary">点击重置</button>
+                    </form>
+
+
+                </div>
+                <!-- /. ROW  -->
+            </div>
+                <!-- /. ROW  -->
+        </div>
+               
+    </div>
+             <!-- /. PAGE INNER  -->
+         <!-- /. PAGE WRAPPER  -->
+     <!-- /. WRAPPER  -->
+    <!-- SCRIPTS -AT THE BOTOM TO REDUCE THE LOAD TIME-->
+    <!-- JQUERY SCRIPTS -->
+    <script src="./Public/Admin/assets/js/jquery-1.10.2.js"></script>
+      <!-- BOOTSTRAP SCRIPTS -->
+    <script src="./Public/Admin/assets/js/bootstrap.min.js"></script>
+    <!-- METISMENU SCRIPTS -->
+    <script src="./Public/Admin/assets/js/jquery.metisMenu.js"></script>
+     <!-- DATA TABLE SCRIPTS -->
+    <script src="./Public/Admin/assets/js/dataTables/jquery.dataTables.js"></script>
+    <script src="./Public/Admin/assets/js/dataTables/dataTables.bootstrap.js"></script>
+        <script>
+            $(document).ready(function () {
+                $('#dataTables-example').dataTable();
+            });
+    </script>
+         <!-- CUSTOM SCRIPTS -->
+    <script src="./Public/Admin/assets/js/custom.js"></script>
+    
+   
+</body>
+</html>
