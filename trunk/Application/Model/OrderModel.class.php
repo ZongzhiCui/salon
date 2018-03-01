@@ -30,6 +30,7 @@ class OrderModel extends Model
         $plans = $this->pdo->fetchAll($sql);
         $sql = "select * from member where {$where} order by id desc {$limit}";;
         $mems = $this->pdo->fetchAll($sql);
+//        var_dump($plans,$mems);die;
         $html = PageTool::myYeMa($page,$page_size,$total_page);
         return [
             'plans'=>$plans,
@@ -41,7 +42,7 @@ class OrderModel extends Model
             'html'=>$html
         ];
     }
-    public function getAdd($b,$id){
+    public function getAdd($ob,$id){
         @session_start();
         $field['realname'] = $_SESSION['user']['realname'];
         $field['phone'] = $_SESSION['user']['telephone'];
@@ -49,14 +50,23 @@ class OrderModel extends Model
             $this->error = '预约时间至少提前一小时!';
             return false;
         }
-        $field['date'] = $_POST['date'];
-        if ($b = 1){//
+        $field['date'] = strtotime($_POST['date']);
+        $field['content'] = $_POST['content'];
+        if ($ob = 1){//
             $field['plan_id'] = $id;
             $sql = Tools::myInsert('order',$field);
             $r = $this->pdo->execute($sql);
             return $r;
-        }elseif ($b = 2){//
+        }elseif ($ob = 2){//
             $field['barber'] = $id;
+            $sql = "select * from `order` barber={$field['barber']}";
+            $barber = $this->pdo->fetchAll($sql);
+            foreach ($barber as $val){
+                if ($val['date']==$field['date']){
+                    $this->error = '您预约的这位美发师当天已经被预约!';
+                    return false;
+                }
+            }
             $sql = Tools::myInsert('order',$field);
             $r = $this->pdo->execute($sql);
             return $r;
