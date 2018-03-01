@@ -11,7 +11,7 @@ class MemberModel extends Model
     public function getAll($field){
         $where = '1=1 ';
         if (!empty($field['keyword'])){
-            $where .= "and (title like '%{$field['keyword']}%' or intro like '%{$field['keyword']}%' or content like '%{$field['keyword']}%')";
+            $where .= "and (username like '%{$field['keyword']}%' or realname like '%{$field['keyword']}%' )";
         }
 
         //分页显示
@@ -35,15 +35,6 @@ class MemberModel extends Model
             $res=$this->pdo->fetchRow($sql);
             $v['res']=$res;
         }
-//        var_dump($v);die;
-
-
-
-/*        foreach ($arts as &$value){
-            $sql = "select u.username,r.* from reply r LEFT JOIN user u on r.user_id=u.id where (r.art_id={$value['id']} and r.status=0) order by id desc";
-            $reply = $this->pdo->fetchAll($sql);
-            $value['reply'] = $reply;
-        }*/
         $html = PageTool::myYeMa($page,$page_size,$total_page);
         return [
             'rows'=>$arts,

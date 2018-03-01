@@ -40,13 +40,13 @@ font-size: 16px;">最后登录时间:<?=date('m月d日 H:i',$_SESSION['admin']['
                     <img src="./Public/Admin/assets/img/find_user.png" class="user-image img-responsive">
                 </li>
                 <li>
-                    <a href="#"><i class="fa fa-sitemap fa-3x"></i> 功能选项框<span class="fa arrow"></span></a>
+                    <a href="#"><i class="fa fa-dashboard fa-3x"></i>活动<span class="fa arrow"></span></a>
                     <ul class="nav nav-second-level">
                         <li>
-                            <a href="table.html">表格</a>
+                            <a href="index.php?p=Admin&c=Article&a=index">列表</a>
                         </li>
                         <li>
-                            <a href="tab-panel.html">文字</a>
+                            <a href="index.php?p=Admin&c=Article&a=add">添加活动</a>
                         </li>
                         <li>
                             <a href="#">Second Level Link<span class="fa arrow"></span></a>
@@ -67,15 +67,18 @@ font-size: 16px;">最后登录时间:<?=date('m月d日 H:i',$_SESSION['admin']['
                     </ul>
                 </li>
                 <li>
-                    <a href="#"><i class="fa fa-table fa-3x"></i>活动列表<span class="fa arrow"></span></a>
+                    <a href="#"><i class="fa fa-table fa-3x"></i>员工<span class="fa arrow"></span></a>
                     <ul class="nav nav-second-level">
                         <li>
-                            <a href="index.php?p=Admin&c=Article&a=index">活动列表</a>
+                            <a href="index.php?p=Admin&c=Member&a=index">列表</a>
                         </li>
                         <li>
-                            <a href="index.php?p=Admin&c=Article&a=add">添加活动</a>
+                            <a href="index.php?p=Admin&c=Member&a=add">添加活动</a>
                         </li>
                     </ul>
+                </li>
+                <li>
+                    <a  href="index.php?p=Admin&c=Group&a=index"><i class="fa fa-desktop fa-3x"></i>公司部门</a>
                 </li>
             </ul>
 
