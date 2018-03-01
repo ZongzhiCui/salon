@@ -25,13 +25,18 @@ class GroupController extends PlatformController
         $this->display('index');
 
     }
-    public function delete(){
+    public function delete()
+    {
         //接受数据
-        $id=$_GET['id'];
+        $id = $_GET['id'];
         //处理数据
-        $this->obj->getdelete($id);
+        $res = $this->obj->getdelete($id);
         //显示页面
-        $this->redirect('index.php?p=Admin&c=Group&a=index','删除成功',3);
+        if ($res === false) {
+            $this->redirect('index.php?p=Admin&c=Group&a=index', '删除失败'.$this->obj->getError(), 3);
+        } else {
+            $this->redirect('index.php?p=Admin&c=Group&a=index', '删除成功', 3);
+    }
     }
     public function edit(){
         //分支

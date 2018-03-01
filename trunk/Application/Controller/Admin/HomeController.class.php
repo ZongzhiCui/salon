@@ -16,6 +16,8 @@ class HomeController extends PlatformController
     }
     public function index()
     {
+
+//    include './View/Home/home.html';
         @session_start();
         $this->display('index');
     }
