@@ -7,7 +7,7 @@
 
 class UserModel extends Model
 {
-    public function getIndex($field=[]){
+    public function getAll($field=[]){
         //处理搜索数据
         $where = '1=1 ';
         if (!empty($field['keyword'])){
@@ -32,7 +32,7 @@ class UserModel extends Model
         $rs = $this->pdo->fetchAll($sql);
         $html = PageTool::myYeMa($page,$page_size,$total_page);
         return [
-            'rs'=>$rs,
+            'rows'=>$rs,
             'count'=>$count,
             'total_page'=>$total_page,
             'page'=>$page,
@@ -44,31 +44,56 @@ class UserModel extends Model
 //    $rs = $fenye->myFenYe($field,'user');
 //    return $rs;
     }
-    public function getAdd_save($field){
+    public function getAdd_save($data,$file){
         //判定2次密码的相同
-        if($field['pwd1']!==$field['pwd2']){
+        if($data['pwd1']!==$data['pwd2']){
             $this->error = '两次输入的密码不一致';
             return false;
 //            Tools::jump('两次输入的密码不一致','./index.php?c=User&a=index',3);
         }
         //先判断用户名必须大于3位
-        if (strlen($field['username'])<3){
+        if (strlen($data['username'])<3){
             $this->error = '用户名不能小于3位';
             return false;
         }
+        if (empty($data['pwd1'])){
+            $this->error='请填写密码';
+            return false;
+        }
+        //移动图片
+        $up= new UploadTool();
+        $res=$up->upload($file,'user/');
+        if ($res===false){
+            $this->error='图片上传失败'.$up->getError();
+            return false;
+        }
+        $im=new ImageTool();
+        $thumb=$im->thumb($res,80,80);
         //判断用户名在数据库的唯一性
         //>>1.根据名字去数据库读取数据如果数据存在则不可添加
-        $sql = "select `id` from `user` where username='{$field['username']}'";
+        $sql = "select `id` from `user` where username='{$data['username']}'";
         $r = $this->pdo->fetchAll($sql);
         if (!empty($r)){
             $this->error = '该用户名已经存在!';
             return false;
         }
-        $field['password']=Tools::myPwd($field['pwd1']);
-        unset($field['pwd2']);
-        unset($field['pwd1']);
-        $sql = Tools::myInsert('user',$field);
-        return $this->pdo->execute($sql);
+        //准备数据
+        $time=time();
+        $ip=$_SERVER['REMOTE_ADDR'];
+        $ip=ip2long($ip);
+        //准备sql
+        $sql="insert into `user` set 
+username='{$data['username']}',
+password='{$data['pwd1']}',
+realname='{$data['realname']}',
+sex='{$data['sex']}',
+telephone='{$data['telephone']}',
+remark='{$data['remark']}',
+photo='{$thumb}',
+last_login='{$time}',
+last_login_ip='{$ip}'
+";
+        $this->pdo->execute($sql);
     }
     public function getEdit($id){
         $id = addslashes($id);
