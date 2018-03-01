@@ -83,7 +83,7 @@ class OrderModel extends Model
         //分页显示
         $page_size = $field['page_size']??4;
         //>>计算count totalPage
-        $sql = "select count(id) from `member` where ".$where;
+        $sql = "select count(id) from `order` where del=0 AND ".$where;
         $count = $this->pdo->fetchColumn($sql);
         $total_page = ceil($count/$page_size);
 
