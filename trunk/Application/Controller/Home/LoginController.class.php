@@ -77,9 +77,9 @@ class LoginController extends Controller
     public function logout()
     {
         @session_start();
-        unset($_SESSION['admin']);
-        setcookie('id', null, -1, '/');
-        setcookie('password', null, -1, '/');
+        unset($_SESSION['user']);
+        setcookie('vip_id', null, -1, '/');
+        setcookie('vip_password', null, -1, '/');
         Tools::jump('./index.php?p=Home&c=Home&a=index');
     }
     public function registeration(){
