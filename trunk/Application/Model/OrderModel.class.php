@@ -32,6 +32,25 @@ class OrderModel extends Model
         $mems = $this->pdo->fetchAll($sql);
 //        var_dump($plans,$mems);die;
         $html = PageTool::myYeMa($page,$page_size,$total_page);
+
+        //充值记录
+        //消费记录
+        @session_start();
+//        var_dump($_SESSION['user']);die;
+        $sql = "select * from histories where user_id={$_SESSION['user']['id']} order by id desc";
+        $vip = $this->pdo->fetchAll($sql);
+        $recharge = [];
+        $consume = [];
+        foreach($vip as $v){
+            if ($v['type'] == '充值'){
+                $recharge[] = $v;
+            }elseif ($v['type'] == '消费'){
+                $consume[] = $v;
+            }
+        }
+        /*var_dump($consume);
+        echo '<hr>';
+        var_dump($recharge);die;*/
         return [
             'plans'=>$plans,
             'mems'=>$mems,
@@ -39,7 +58,9 @@ class OrderModel extends Model
             'total_page'=>$total_page,
             'page'=>$page,
             'page_size'=>$page_size,
-            'html'=>$html
+            'html'=>$html,
+            'recharge'=>$recharge,
+            'consume'=>$consume,
         ];
     }
     public function getAdd($ob,$id){

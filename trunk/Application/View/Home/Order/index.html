@@ -89,10 +89,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<li role="presentation" class=""><a href="#house" id="home-tab" role="tab" data-toggle="tab" aria-controls="house" aria-expanded="true">套餐</a></li>
 				<li role="presentation" class="active"><a href="#profile" role="tab" id="profile-tab" data-toggle="tab" aria-controls="profile" aria-expanded="false">美发师</a></li>
 				<li role="presentation" class="dropdown">
-				<a href="#" id="myTabDrop1" class="dropdown-toggle" data-toggle="dropdown" aria-controls="myTabDrop1-contents" aria-expanded="false">我的消费记录-敬请期待<span class="caret"></span></a>
+				<a href="#" id="myTabDrop1" class="dropdown-toggle" data-toggle="dropdown" aria-controls="myTabDrop1-contents" aria-expanded="false">我的轨迹<span class="caret"></span></a>
 				<ul class="dropdown-menu" role="menu" aria-labelledby="myTabDrop1" id="myTabDrop1-contents">
-				  <li><a href="#dropdown1" tabindex="-1" role="tab" id="dropdown1-tab" data-toggle="tab" aria-controls="dropdown1">@fat</a></li>
-				  <li><a href="#dropdown2" tabindex="-1" role="tab" id="dropdown2-tab" data-toggle="tab" aria-controls="dropdown2">@mdo</a></li>
+				  <li><a href="#dropdown1" tabindex="-1" role="tab" id="dropdown1-tab" data-toggle="tab" aria-controls="dropdown1">充值记录</a></li>
+				  <li><a href="#dropdown2" tabindex="-1" role="tab" id="dropdown2-tab" data-toggle="tab" aria-controls="dropdown2">消费记录</a></li>
 				</ul>
 			  </li>
 			</ul>
@@ -139,11 +139,37 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			 		</ul>
 			  </div>
 			    <div role="tabpanel" class="tab-pane fade" id="dropdown1">
-				<p>Etsy mixtape wayfarers, ethical wes anderson tofu before they sold out mcsweeney's organic lomo retro fanny pack lo-fi farm-to-table readymade. Messenger bag gentrify pitchfork tattooed craft beer, iphone skateboard locavore carles etsy salvia banksy hoodie helvetica. DIY synth PBR banksy irony. Leggings gentrify squid 8-bit cred pitchfork. Williamsburg banh mi whatever gluten-free, carles pitchfork biodiesel fixie etsy retro mlkshk vice blog. Scenester cred you probably haven't heard of them, vinyl craft beer blog stumptown. Pitchfork sustainable tofu synth chambray yr.</p>
-			  </div>
-			  <div role="tabpanel" class="tab-pane fade" id="dropdown2">
-				<p>Trust fund seitan letterpress, keytar raw denim keffiyeh etsy art party before they sold out master cleanse gluten-free squid scenester freegan cosby sweater. Fanny pack portland seitan DIY, art party locavore wolf cliche high life echo park Austin. Cred vinyl keffiyeh DIY salvia PBR, banh mi before they sold out farm-to-table VHS viral locavore cosby sweater. Lomo wolf viral, mustache readymade thundercats keffiyeh craft beer marfa ethical. Wolf salvia freegan, sartorial keffiyeh echo park vegan.</p>
-			  </div>
+					<table class="table">
+						<tr>
+							<th>日期</th>
+							<th>充值金额</th>
+							<th>赠送</th>
+						</tr>
+						<?php foreach($recharge as $rec):?>
+						<tr>
+							<th><?=date('Y-m-d H:i',$rec['time'])?></th>
+							<th><?=$rec['amount']?></th>
+							<th><?=$rec['handsel']?></th>
+						</tr>
+						<?php endforeach;?>
+					</table>
+			  	</div>
+				<div role="tabpanel" class="tab-pane fade" id="dropdown2">
+					<table class="table">
+						<tr>
+							<th>日期</th>
+							<th>消费金额</th>
+							<th>优惠</th>
+						</tr>
+						<?php foreach($consume as $con):?>
+						<tr>
+							<th><?=date('Y-m-d H:i',$con['time'])?></th>
+							<th><?=$con['amount']?></th>
+							<th><?=$con['handsel']?></th>
+						</tr>
+						<?php endforeach;?>
+					</table>
+				</div>
 			</div>
 		   </div>
 		  </div>

@@ -17,7 +17,7 @@ class UserController extends PlatformController
     public function index(){
 $field = $_REQUEST;
 $field['page_size'] = 3;
-        $users = $this->obj->getIndex($field);
+        $users = $this->obj->getAll($field);
         $this->assign($users);
         $this->display('index');
     }

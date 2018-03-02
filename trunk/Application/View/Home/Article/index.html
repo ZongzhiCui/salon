@@ -1,0 +1,177 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>个人中心</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta name="keywords" content="Beautyou  Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template,
+Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyErricsson, Motorola web design"/>
+    <script type="applisalonion/x-javascript">
+         addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); }
+    </script>
+    <link href="./Public/Home/css/bootstrap.css" rel='stylesheet' type='text/css'/>
+    <!-- Custom Theme files -->
+    <link href="./Public/Home/css/style.css" rel='stylesheet' type='text/css'/>
+    <link rel="stylesheet" href="./Public/Home/css/flexslider.css" type="text/css" media="screen"/>
+    <script src="./Public/Home/js/jquery-1.11.1.min.js"></script>
+    <script type="text/javascript" src="./Public/Home/js/move-top.js"></script>
+    <script type="text/javascript" src="./Public/Home/js/easing.js"></script>
+    <!--/web-font-->
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700,600,600italic,800' rel='stylesheet'
+          type='text/css'>
+    <!--/script-->
+    <script type="text/javascript">
+        jQuery(document).ready(function ($) {
+            $(".scroll").click(function (event) {
+                event.preventDefault();
+                $('html,body').animate({scrollTop: $(this.hash).offset().top}, 900);
+            });
+        });
+    </script>
+    <script src="./Public/Home/js/bootstrap.min.js"></script>
+
+</head>
+<body>
+
+<div class="header-bottom">
+    <div class="fixed-header">
+        <div class="menu">Menu</div>
+        <span class="menu"> </span>
+        <div class="top-menu">
+            <nav>
+                <ul class="cl-effect-16">
+                    <li><a class="active" href="index.php?p=Home&c=Home&a=index" data-hover="HOME">Home</a></li>
+                    <li><a href="index.php?p=Home&c=Home&a=gallery" data-hover="Gallery">Gallery</a></li>
+                    <li><a href="index.php?p=Home&c=Order&a=index" data-hover="预约">预约</a></li>
+                    <?php
+                    	@session_start();
+                    	if (!empty($_SESSION['admin'])){?>
+                    <li style="position: absolute;right: 20px;"><img src="<?=$_SESSION['user']['photo']?>" alt="头像"><a
+                            href="index.php?p=Home&c=User&a=index"
+                            data-hover="<?=$_SESSION['admin']['username'].'&emsp;欢迎您的光临'?>"><?=$_SESSION['admin']['username'].'&emsp;欢迎您的光临'?></a>&emsp;&emsp;<a
+                            href="index.php?p=Home&c=Login&a=logout">安全退出</a></li>
+                    <?php }else{?>
+                    <li style="position: absolute;right: 20px;"><a href="index.php?p=Home&c=Login&a=index"
+                                                                   data-hover="请先登录">请先登录</a></li>
+                    <?php }?>
+                </ul>
+            </nav>
+        </div>
+
+        <div class="clearfix"></div>
+        <!-- script for menu -->
+        <script>
+            $("span.menu").click(function () {
+                $(".top-menu").slideToggle("slow", function () {
+                    // Animation complete.
+                });
+            });
+        </script>
+        <!-- script for menu -->
+        <script>
+            $(document).ready(function () {
+                var navoffeset = $(".header-bottom").offset().top;
+                $(window).scroll(function () {
+                    var scrollpos = $(window).scrollTop();
+                    if (scrollpos >= navoffeset) {
+                        $(".header-bottom").addClass("fixed");
+                    } else {
+                        $(".header-bottom").removeClass("fixed");
+                    }
+                });
+
+            });
+        </script>
+    </div>
+</div>
+
+<!--start-typography-->
+<div style="padding-top: 0" class="typrography">
+    <div class="container">
+        <div class="grid_3 grid_5">
+            <h3>活动详情</h3>
+            <div class="bs-example bs-example-tabs" role="tabpanel" data-example-id="togglable-tabs">
+                <ul id="myTab" class="nav nav-tabs" role="tablist">
+                    <li role="presentation" class="active"><a href="#house" id="home-tab" role="tab" data-toggle="tab"
+                                                              aria-controls="house" aria-expanded="true">查看活动</a></li>
+                    <li role="presentation" class=""><a href="#profile" role="tab" id="profile-tab" data-toggle="tab"
+                                                        aria-controls="profile" aria-expanded="false">####</a></li>
+                    <li role="presentation" class="dropdown">
+                        <a href="#" id="myTabDrop1" class="dropdown-toggle" data-toggle="dropdown"
+                           aria-controls="myTabDrop1-contents" aria-expanded="false">我的消费记录-敬请期待<span
+                                class="caret"></span></a>
+                        <ul class="dropdown-menu" role="menu" aria-labelledby="myTabDrop1" id="myTabDrop1-contents">
+                            <li><a href="#dropdown1" tabindex="-1" role="tab" id="dropdown1-tab" data-toggle="tab"
+                                   aria-controls="dropdown1">@fat</a></li>
+                            <li><a href="#dropdown2" tabindex="-1" role="tab" id="dropdown2-tab" data-toggle="tab"
+                                   aria-controls="dropdown2">@mdo</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <div id="myTabContent" class="tab-content">
+                    <div role="tabpanel" class="tab-pane fade active in" id="house">
+                        <table class="table table-hover">
+                            <tr>
+                                <th><h2><?=$row['title']?></h2></th>
+                            </tr>
+                            <tr>
+                                <td>
+                                   <span style="font-size: small;"><?=$row['end']<time()?'<span style="font-size:10px;color:red;">
+                                       活动已过期</span>'.date('Y-m-d H:i:s',$row['start']).'---'.date('Y-m-d
+                                    H:i:s',$row['end']):date('Y-m-d H:i:s',$row['start']).'---'.date('Y-m-d
+                                    H:i:s',$row['end']);?></span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><?=$row['content']?></td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+                <div role="tabpanel" class="tab-pane fade" id="profile">
+                    <p>
+                    <form action="">
+
+                    </form>
+                    </p>
+                </div>
+                <div role="tabpanel" class="tab-pane fade" id="dropdown1">
+                    <p>Etsy mixtape wayfarers, ethical wes anderson tofu before they sold out</p>
+                </div>
+                <div role="tabpanel" class="tab-pane fade" id="dropdown2">
+                    <p> Lomo wolf viral, mustache readymade thundercats keffiyeh craft beer marfa ethical. Wolf salvia
+                        freegan, sartorial keffiyeh echo park vegan.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+
+<!--footer-->
+<div class="container">
+    <div class="copy">
+        <p>Copyright &copy; 2015.Company name All rights reserved.More Templates . - Collect from .</p>
+    </div>
+</div>
+<script type="text/javascript">
+    $(document).ready(function () {
+        /*
+        var defaults = {
+              containerID: 'toTop', // fading element id
+            containerHoverID: 'toTopHover', // fading element hover id
+            scrollSpeed: 1200,
+            easingType: 'linear'
+         };
+        */
+
+        $().UItoTop({easingType: 'easeOutQuart'});
+
+    });
+</script>
+<!--end-smooth-scrolling-->
+<a href="#home" id="toTop" class="scroll" style="display: block;"> <span id="toTopHover"
+                                                                         style="opacity: 1;"> </span></a>
+
+</body>
+</html>
