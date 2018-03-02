@@ -337,7 +337,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		<tbody>
 		<?php foreach($rows as $row):?>
 		<tr>
-			<td><a href="index.php?p=Home&c=Article&a=index">
+			<td><a href="index.php?p=Home&c=Article&a=index&id=<?=$row['id']?>">
 				<span style="font-size: small;padding-left: 120px"><?=$row['end']<time()?'<span style="font-size:10px;color:red;">活动已过期</span>'.date('Y-m-d H:i:s',$row['start']).'---'.date('Y-m-d H:i:s',$row['end']):date('Y-m-d H:i:s',$row['start']).'---'.date('Y-m-d H:i:s',$row['end']);?></span>
 			-&ensp;<?=$row['title']?>
 			:&ensp;<?=mb_substr($row['content'],0,20)?></a></td>

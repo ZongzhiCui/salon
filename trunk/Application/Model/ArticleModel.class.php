@@ -7,42 +7,11 @@
 
 class ArticleModel extends Model
 {
-    public function getIndex($id,$field){
-        //分页和搜索
-        $where = '1=1 ';
-        if (!empty($field['keyword'])){
-            $where .= "and (title like '%{$field['keyword']}%' or intro like '%{$field['keyword']}%' or content like '%{$field['keyword']}%')";
-        }
-
-        //分页显示
-        $page_size = $field['page_size']??4;
-        //>>计算count totalPage
-        $sql = "select count(id) from `article` where status=1 and ".$where;
-        $count = $this->pdo->fetchColumn($sql);
-        $total_page = ceil($count/$page_size);
-
-        //>>开始页和每页条数
-        $page = intval($field['page']??1);
-        $page = $page<1?1:$page;
-        $page = $page>$total_page?$total_page:$page;
-        $start = ($page-1)*$page_size;
-        $limit = " limit {$start},{$page_size}";
-
-        $sql = "select * from article where cate_id='{$id}' and status=1 and {$where} order by id desc {$limit}";
-        $arts = $this->pdo->fetchAll($sql);
-        foreach ($arts as &$value){
-            $sql = "select u.username,r.* from reply r LEFT JOIN user u on r.user_id=u.id where (r.art_id={$value['id']} and r.status=0) order by id desc";
-            $reply = $this->pdo->fetchAll($sql);
-            $value['reply'] = $reply;
-        }
-        $html = PageTool::myYeMa($page,$page_size,$total_page);
+    public function getIndex($id){
+        $sql = "select * from article where id={$id}";
+        $arts = $this->pdo->fetchRow($sql);
         return [
-            'arts'=>$arts,
-            'count'=>$count,
-            'total_page'=>$total_page,
-            'page'=>$page,
-            'page_size'=>$page_size,
-            'html'=>$html
+            'row'=>$arts,
         ];
     }
     public function getContent($id){

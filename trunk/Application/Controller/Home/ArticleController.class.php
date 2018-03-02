@@ -12,16 +12,12 @@ class ArticleController extends PlatformController
     {
         parent::__construct();
         $this->obj = ObjFactory::createObj('ArticleModel');
-        $cates = $this->obj->getCate();
-        $this->assign('cates',$cates);
+//        $cates = $this->obj->getCate();
+//        $this->assign('cates',$cates);
     }
     public function index(){
-        if (isset($_GET['id'])){ //分类ID
-            $id = addslashes($_GET['id']);
-        }
-        $id = $id??'1=1';
-        $field = $_REQUEST;
-        $arts = $this->obj->getIndex($id,$field);
+        $id = addslashes($_GET['id']);
+        $arts = $this->obj->getIndex($id);
         $this->assign($arts);//相关文章
 
         $this->display('index');
