@@ -1,0 +1,53 @@
+﻿<?php include VIEW_PATH.'Admin/Home/nav.html';?>
+        <div id="page-wrapper" >
+            <div id="page-inner">
+               <div class="row">
+                <div class="col-md-12">
+                    <!-- Form Elements -->
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            添加充值
+                        </div>
+                        <div class="panel-body">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <form action="index.php?p=Admin&c=Histories&a=recharge_save" method="post">
+                                        <div class="form-group">
+                                            <label>会员:
+                                                <select name="user_id">
+                                                    <?php foreach($users as $user):?>
+                                                    <option value="<?=$user['id']?>"><?=$user['realname']?></option>
+                                                    <?php endforeach;?>
+                                                </select>
+                                            </label>
+                                            <br><br>
+                                            <label>充值:<input type="number" name="amount" placeholder="充值的金额" /></label><br><br>
+                                            <label>时间:<input type="text" readonly placeholder="当前时间:<?=time();?>" /></label>
+                                        </div>
+                                        <button type="submit" class="btn btn-primary">充值</button>
+                                    </form>
+
+                                </div>
+             <!-- /. PAGE INNER  -->
+                            </div>
+                        </div>
+                    </div>
+         <!-- /. PAGE WRAPPER  -->
+                </div>
+                </div>
+                </div>
+                </div>
+     <!-- /. WRAPPER  -->
+    <!-- SCRIPTS -AT THE BOTOM TO REDUCE THE LOAD TIME-->
+    <!-- JQUERY SCRIPTS -->
+    <script src="assets/js/jquery-1.10.2.js"></script>
+      <!-- BOOTSTRAP SCRIPTS -->
+    <script src="assets/js/bootstrap.min.js"></script>
+    <!-- METISMENU SCRIPTS -->
+    <script src="assets/js/jquery.metisMenu.js"></script>
+      <!-- CUSTOM SCRIPTS -->
+    <script src="assets/js/custom.js"></script>
+    
+   
+</body>
+</html>

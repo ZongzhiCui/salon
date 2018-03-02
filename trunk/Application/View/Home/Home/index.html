@@ -101,7 +101,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						<?php
                     	@session_start();
                     	if (!empty($_SESSION['user'])){?>
-						<li style="position: absolute;right: 20px;"><img src="$_SESSION['user']['photo']" alt="头像"><a href="index.php?p=Home&c=User&a=index"  data-hover="<?=$_SESSION['user']['username'].'&emsp;欢迎您的光临'?>"><?=$_SESSION['user']['username'].'&emsp;欢迎您的光临'?></a>&emsp;&emsp;<a
+						<li style="position: absolute;right: 20px;"><img src="<?=$_SESSION['user']['photo']?>" alt="头像"><a href="index.php?p=Home&c=User&a=index"  data-hover="<?=$_SESSION['user']['username'].'&emsp;欢迎您的光临'?>"><?=$_SESSION['user']['username'].'&emsp;欢迎您的光临'?></a>&emsp;&emsp;<a
 								href="index.php?p=Home&c=Login&a=logout">安全退出</a></li>
 						<?php }else{?>
 						<li style="position: absolute;right: 20px;"><a href="index.php?p=Home&c=Login&a=index"  data-hover="请先登录">请先登录</a></li>

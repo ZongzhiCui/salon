@@ -1,0 +1,130 @@
+<?php include VIEW_PATH.'Admin/Home/nav.html';?>
+<div id="page-wrapper">
+    <div id="page-inner">
+        <div class="row">
+            <div class="col-md-12">
+                <!-- Advanced Tables -->
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        消费记录
+                    </div>
+                    <div class="panel-body">
+                        <div class="table-responsive">
+                            <div id="dataTables-example_wrapper" class="dataTables_wrapper form-inline" role="grid">
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <div id="dataTables-example_filter" class="dataTables_filter">
+                                                <form action="index.php?p=Admin&c=Histories&a=index" method="post">
+                                                    <input type="text" name="keyword" placeholder="搜索"><input type="submit" value="Search">
+                                                </form>
+                                        </div>
+                                    </div>
+                                </div>
+                                <table class="table table-striped table-bordered table-hover dataTable no-footer"
+                                       id="dataTables-example" aria-describedby="dataTables-example_info">
+                                    <thead>
+                                    <tr role="row">
+                                        <th class="sorting_asc" tabindex="0" aria-controls="dataTables-example"
+                                            rowspan="1" colspan="1" aria-sort="ascending"
+                                            aria-label="Rendering engine: activate to sort column ascending"
+                                            style="width: 149px;">消费者
+                                        </th>
+                                        <th class="sorting" tabindex="0" aria-controls="dataTables-example" rowspan="1"
+                                            colspan="1" aria-label="Browser: activate to sort column ascending"
+                                            style="width: 231px;">服务人员
+                                        </th>
+                                        <th class="sorting" tabindex="0" aria-controls="dataTables-example" rowspan="1"
+                                            colspan="1" aria-label="CSS grade: activate to sort column ascending"
+                                            style="width: 87px;">充值/消费
+                                        </th>
+                                        <th class="sorting" tabindex="0" aria-controls="dataTables-example" rowspan="1"
+                                            colspan="1" aria-label="Engine version: activate to sort column ascending"
+                                            style="width: 125px;">使用金额
+                                        </th>
+                                        <th class="sorting" tabindex="0" aria-controls="dataTables-example" rowspan="1"
+                                            colspan="1" aria-label="CSS grade: activate to sort column ascending"
+                                            style="width: 87px;">时间
+                                        </th>
+                                        <th class="sorting" tabindex="0" aria-controls="dataTables-example" rowspan="1"
+                                            colspan="1" aria-label="CSS grade: activate to sort column ascending"
+                                            style="width: 87px;">余额(操作充值或消费得出)
+                                        </th>
+                                        <th class="sorting" tabindex="0" aria-controls="dataTables-example" rowspan="1"
+                                            colspan="1" aria-label="CSS grade: activate to sort column ascending"
+                                            style="width: 87px;">赠送金额
+                                        </th>
+                                        <th class="sorting" tabindex="0" aria-controls="dataTables-example" rowspan="1"
+                                            colspan="1" aria-label="CSS grade: activate to sort column ascending"
+                                            style="width: 87px;">操作
+                                        </th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <?php foreach($order as $row):?>
+                                    <tr class="gradeA odd">
+                                        <form action="index.php?p=Admin&c=Histories&a=edit" method="post">
+                                        <td class="sorting_1"><?=$row['name'];?></td>
+                                        <td class=" "><?=$row['username']??'自助服务';?></td>
+                                        <td class="center "><?=$row['type'];?></td>
+                                        <td class=" "><?=$row['amount'];?></td>
+                                        <td class=" "><?=date('Y-m-d H:i',$row['time']);?></td>
+                                        <td class="center ">
+                                            <?=$row['remainder'];?><br>
+                                            <!--<input type="text" name="reply" placeholder="回复客户">-->
+                                            <!--<input type="submit" name="id" value="<?=$row['id'];?>">-->
+                                        </td>
+                                        <td class="center ">
+                                            <?=$row['handsel'];?><br>
+                                        </td>
+
+                                        <td class="center ">
+                                            <a href="index.php?p=Admin&c=Histories&a=delete&id=<?=$row['id'];?>">delete</a>
+                                        </td>
+                                        </form>
+                                    </tr>
+                                    <?php endforeach;?>
+                                    <tr>
+                                        <td colspan="8">
+                                            <a href="index.php?p=Admin&c=Histories&a=recharge&id=<?=$row['id'];?>">充值</a>
+                                            <a href="index.php?p=Admin&c=Histories&a=consume&id=<?=$row['id'];?>">消费</a>
+                                        </td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <div class="dataTables_info" id="dataTables-example_info" role="alert"
+                                             aria-live="polite" aria-relevant="all">Showing <?=$page;?> of <?=$total_page;?> entries 总条数:<?=$count;?>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="dataTables_paginate paging_simple_numbers"
+                                             id="dataTables-example_paginate">
+                                            <?=$html;?>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <!--End Advanced Tables -->
+            </div>
+        </div>
+    </div>
+</div>
+<!-- SCRIPTS -AT THE BOTOM TO REDUCE THE LOAD TIME-->
+<!-- JQUERY SCRIPTS -->
+<script src="./Public/Admin/assets/js/jquery-1.10.2.js"></script>
+<!-- BOOTSTRAP SCRIPTS -->
+<script src="./Public/Admin/assets/js/bootstrap.min.js"></script>
+<!-- METISMENU SCRIPTS -->
+<script src="Public/Admin/assets/js/jquery.metisMenu.js"></script>
+<!-- MORRIS CHART SCRIPTS -->
+<script src="Public/Admin/assets/js/morris/raphael-2.1.0.min.js"></script>
+<script src="Public/Admin/assets/js/morris/morris.js"></script>
+<!-- CUSTOM SCRIPTS -->
+<script src="Public/Admin/assets/js/custom.js"></script>
+</body>
+</html>

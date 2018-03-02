@@ -1,0 +1,69 @@
+﻿<?php include VIEW_PATH.'Admin/Home/nav.html';?>
+        <div id="page-wrapper" >
+            <div id="page-inner">
+               <div class="row">
+                <div class="col-md-12">
+                    <!-- Form Elements -->
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            添加充值
+                        </div>
+                        <div class="panel-body">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <form action="index.php?p=Admin&c=Histories&a=consume_save" method="post">
+                                        <div class="form-group">
+                                            <label>会员:
+                                                <select name="user_id">
+                                                    <?php foreach($users as $user):?>
+                                                    <option value="<?=$user['id']?>"><?=$user['realname']?></option>
+                                                    <?php endforeach;?>
+                                                </select>
+                                            </label>
+                                            <br><br>
+                                            <label>美发师:
+                                                <select name="member_id">
+                                                    <?php foreach($members as $member):?>
+                                                    <option value="<?=$member['id']?>"><?=$member['realname']?></option>
+                                                    <?php endforeach;?>
+                                                </select>
+                                            </label>
+                                            <br><br>
+                                            <label>消费:
+                                                <select name="plan_id">
+                                                    <?php foreach($plans as $plan):?>
+                                                    <option value="<?=$plan['id']?>"><?=$plan['name']?>-价值:<?=$plan['money']?></option>
+                                                    <?php endforeach;?>
+                                                </select><span style="color: #cc603b;font-size: 12px;">套餐没有优惠</span>
+                                                <input type="number" name="amount" placeholder="自定义消费的金额" />
+                                            </label>
+                                            <br><br>
+                                            <label>时间:<input type="text" readonly placeholder="当前时间:<?=time();?>" /></label>
+                                        </div>
+                                        <button type="submit" class="btn btn-primary">获得它</button>
+                                    </form>
+
+                                </div>
+             <!-- /. PAGE INNER  -->
+                            </div>
+                        </div>
+                    </div>
+         <!-- /. PAGE WRAPPER  -->
+                </div>
+                </div>
+                </div>
+                </div>
+     <!-- /. WRAPPER  -->
+    <!-- SCRIPTS -AT THE BOTOM TO REDUCE THE LOAD TIME-->
+    <!-- JQUERY SCRIPTS -->
+    <script src="assets/js/jquery-1.10.2.js"></script>
+      <!-- BOOTSTRAP SCRIPTS -->
+    <script src="assets/js/bootstrap.min.js"></script>
+    <!-- METISMENU SCRIPTS -->
+    <script src="assets/js/jquery.metisMenu.js"></script>
+      <!-- CUSTOM SCRIPTS -->
+    <script src="assets/js/custom.js"></script>
+    
+   
+</body>
+</html>
