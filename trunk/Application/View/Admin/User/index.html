@@ -27,7 +27,7 @@
                                             <th>电话</th>
                                             <th>备注</th>
                                             <th>余额</th>
-                                            <th>是否为vip</th>
+                                            <th>VIP等级</th>
                                             <th>头像</th>
                                             <th>最后登录时间</th>
                                             <th>操作</th>
@@ -41,7 +41,7 @@
                                             <td><?=$row['telephone']?></td>
                                             <td><?=$row['remark']?></td>
                                             <td><?=$row['money']?></td>
-                                            <td><?=$row['is_vip']==0?'不是':'是'?></td>
+                                            <td><?=$row['level']?></td>
                                             <td><img src="<?=$row['photo']?>" alt=""></td>
                                             <td><?=date('Y-m-d H:i:s',$row['last_login'])?></td>
                                             <td>

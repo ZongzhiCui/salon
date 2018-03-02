@@ -1,0 +1,66 @@
+﻿<?php include VIEW_PATH.'Admin/Home/nav.html';?>
+        <div id="page-wrapper" >
+            <div id="page-inner">
+                <div class="row">
+                    <div class="col-md-6">
+                        <!--   Kitchen Sink -->
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                           充值详情
+                            </div>
+                            <div class="panel-body">
+                                <div class="table-responsive">
+                                    <table class="table table-striped table-bordered table-hover">
+                                        <thead>
+                                        <tr>
+                                            <th>充值金额</th>
+                                            <th>赠送倍率</th>
+                                            <th>操作</th>
+                                        </tr>
+                                        <?php foreach($rows as $row):?>
+                                        <tr>
+                                            <td><?=$row['recharge']?></td>
+                                            <td><?=$row['handsel']?></td>
+                                            <td><a href="index.php?p=Admin&c=User&a=edit_xq&id=<?=$row['id']?>">修改</a></td>
+                                        </tr>
+                                        <?php endforeach;?>
+                                        <tr>
+                                            <td colspan="3"><a href="index.php?p=Admin&c=User&a=add_gz">添加规则</a></td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- End  Kitchen Sink -->
+                    </div>
+                </div>
+                <!-- /. ROW  -->
+            </div>
+                <!-- /. ROW  -->
+        </div>
+               
+    </div>
+             <!-- /. PAGE INNER  -->
+         <!-- /. PAGE WRAPPER  -->
+     <!-- /. WRAPPER  -->
+    <!-- SCRIPTS -AT THE BOTOM TO REDUCE THE LOAD TIME-->
+    <!-- JQUERY SCRIPTS -->
+    <script src="./Public/Admin/assets/js/jquery-1.10.2.js"></script>
+      <!-- BOOTSTRAP SCRIPTS -->
+    <script src="./Public/Admin/assets/js/bootstrap.min.js"></script>
+    <!-- METISMENU SCRIPTS -->
+    <script src="./Public/Admin/assets/js/jquery.metisMenu.js"></script>
+     <!-- DATA TABLE SCRIPTS -->
+    <script src="./Public/Admin/assets/js/dataTables/jquery.dataTables.js"></script>
+    <script src="./Public/Admin/assets/js/dataTables/dataTables.bootstrap.js"></script>
+        <script>
+            $(document).ready(function () {
+                $('#dataTables-example').dataTable();
+            });
+    </script>
+         <!-- CUSTOM SCRIPTS -->
+    <script src="./Public/Admin/assets/js/custom.js"></script>
+    
+   
+</body>
+</html>

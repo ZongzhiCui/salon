@@ -1,0 +1,147 @@
+﻿<?php include VIEW_PATH.'Admin/Home/nav.html';?>
+        <div id="page-wrapper" >
+            <div id="page-inner">
+                <div class="row">
+                    <div class="col-md-12">
+                     <h2>VIP权限</h2>
+                        <h5>权限详情</h5>
+                       
+                    </div>
+                </div>
+                 <!-- /. ROW  -->
+                 <hr />
+                <div class="col-md-6">
+                    <h3>修改会员等级</h3>
+                    <form role="form" method="post" action="index.php?p=Admin&c=User&a=edit_xq">
+                        <div class="form-group">
+                            <label>等级</label>
+                            <input type="hidden" name="id" value="<?=$row['id']?>">
+                            <input class="form-control"  type="text" name="level" value="<?=$row['level']?>"/>
+                            <p class="help-block">修改原会员等级</p>
+                        </div>
+                        <div class="form-group">
+                            <label>修改累计充值</label>
+                            <input class="form-control"  type="text" name="condition" value="<?=$row['condition']?>"/>
+                            <p class="help-block">修改累计充值金额</p>
+                        </div>
+                        <div class="form-group">
+                            <label>可享受折扣</label>
+                            <input class="form-control"  type="text" name="discount" value="<?=$row['discount']?>"/>
+                            <p class="help-block">修改可享受折扣</p>
+                        </div>
+                        <!--<div class="form-group">-->
+                            <!--<label>Just A Label Control</label>-->
+                            <!--<p class="form-control-static">info@yourdomain.com</p>-->
+                        <!--</div>-->
+                        <!--<div class="form-group">-->
+                            <!--<label>File input</label>-->
+                            <!--<input type="file" />-->
+                        <!--</div>-->
+                        <!--<div class="form-group">-->
+                            <!--<label>Text area</label>-->
+                            <!--<textarea class="form-control" rows="3"></textarea>-->
+                        <!--</div>-->
+                        <!--<div class="form-group">-->
+                            <!--<label>Checkboxes</label>-->
+                            <!--<div class="checkbox">-->
+                                <!--<label>-->
+                                    <!--<input type="checkbox" value="" />Checkbox Example One-->
+                                <!--</label>-->
+                            <!--</div>-->
+                            <!--<div class="checkbox">-->
+                                <!--<label>-->
+                                    <!--<input type="checkbox" value=""/>Checkbox Example Two-->
+                                <!--</label>-->
+                            <!--</div>-->
+                            <!--<div class="checkbox">-->
+                                <!--<label>-->
+                                    <!--<input type="checkbox" value=""/>Checkbox Example Three-->
+                                <!--</label>-->
+                            <!--</div>-->
+                        <!--</div>-->
+                        <!--<div class="form-group">-->
+                            <!--<label>Inline Checkboxes Examples</label>-->
+                            <!--<label class="checkbox-inline">-->
+                                <!--<input type="checkbox"/> One-->
+                            <!--</label>-->
+                            <!--<label class="checkbox-inline">-->
+                                <!--<input type="checkbox"/> Two-->
+                            <!--</label>-->
+                            <!--<label class="checkbox-inline">-->
+                                <!--<input type="checkbox"/> Three-->
+                            <!--</label>-->
+                        <!--</div>-->
+                        <!--<div class="form-group">-->
+                            <!--<label>Radio Button Examples</label>-->
+                            <!--<div class="radio">-->
+                                <!--<label>-->
+                                    <!--<input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked />Radio Example One-->
+                                <!--</label>-->
+                            <!--</div>-->
+                            <!--<div class="radio">-->
+                                <!--<label>-->
+                                    <!--<input type="radio" name="optionsRadios" id="optionsRadios2" value="option2"/>Radio Example Two-->
+                                <!--</label>-->
+                            <!--</div>-->
+                            <!--<div class="radio">-->
+                                <!--<label>-->
+                                    <!--<input type="radio" name="optionsRadios" id="optionsRadios3" value="option3"/>Radio Example Three-->
+                                <!--</label>-->
+                            <!--</div>-->
+                        <!--</div>-->
+
+                        <!--<div class="form-group">-->
+                            <!--<label>Select Example</label>-->
+                            <!--<select class="form-control">-->
+                                <!--<option>One Vale</option>-->
+                                <!--<option>Two Vale</option>-->
+                                <!--<option>Three Vale</option>-->
+                                <!--<option>Four Vale</option>-->
+                            <!--</select>-->
+                        <!--</div>-->
+                        <!--<div class="form-group">-->
+                            <!--<label>Multiple Select Example</label>-->
+                            <!--<select multiple class="form-control">-->
+                                <!--<option>One Vale</option>-->
+                                <!--<option>Two Vale</option>-->
+                                <!--<option>Three Vale</option>-->
+                                <!--<option>Four Vale</option>-->
+                            <!--</select>-->
+                        <!--</div>-->
+                        <button type="submit" class="btn btn-default">提交</button>
+                        <button type="reset" class="btn btn-primary">点击重置</button>
+
+                    </form>
+
+
+                </div>
+                <!-- /. ROW  -->
+            </div>
+                <!-- /. ROW  -->
+        </div>
+               
+    </div>
+             <!-- /. PAGE INNER  -->
+         <!-- /. PAGE WRAPPER  -->
+     <!-- /. WRAPPER  -->
+    <!-- SCRIPTS -AT THE BOTOM TO REDUCE THE LOAD TIME-->
+    <!-- JQUERY SCRIPTS -->
+    <script src="./Public/Admin/assets/js/jquery-1.10.2.js"></script>
+      <!-- BOOTSTRAP SCRIPTS -->
+    <script src="./Public/Admin/assets/js/bootstrap.min.js"></script>
+    <!-- METISMENU SCRIPTS -->
+    <script src="./Public/Admin/assets/js/jquery.metisMenu.js"></script>
+     <!-- DATA TABLE SCRIPTS -->
+    <script src="./Public/Admin/assets/js/dataTables/jquery.dataTables.js"></script>
+    <script src="./Public/Admin/assets/js/dataTables/dataTables.bootstrap.js"></script>
+        <script>
+            $(document).ready(function () {
+                $('#dataTables-example').dataTable();
+            });
+    </script>
+         <!-- CUSTOM SCRIPTS -->
+    <script src="./Public/Admin/assets/js/custom.js"></script>
+    
+   
+</body>
+</html>

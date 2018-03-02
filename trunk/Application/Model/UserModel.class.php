@@ -157,7 +157,7 @@ last_login_ip='{$ip}'
                 return false;
             }
         $im=new ImageTool();
-        $thumb=$im->thumb($res,80,80);
+        $thumb=$im->thumb($res,40,40);
 
         //准备sql
         $sql="update `user` set 
@@ -200,11 +200,93 @@ last_login_ip='{$ip}' where id={$data['id']}
             $this->error='充值金额不能小于0';
             return false;
         }
+        if ($data['money']>=5000){
+            $sql="update `user` set `level` = 1 where id={$data['id']}";
+            $this->pdo->execute($sql);
+        }
+        //查询倍率
+        $sql="select handsel from rules where recharge<='{$data['money']}' order by recharge desc limit 1";
+        $res=$this->pdo->fetchColumn($sql);
+//        print_r($res);die;
         //准备sql
+        $sql="update `user` set money=money+($res*{$data['money']}) where id='{$data['id']}'";
         //执行sql
+        $this->pdo->execute($sql);
+        $v=($res*$data['money'])-$data['money'];
+        return $v;
+    }
+    public function gethdxq(){
+        $sql="select * from rules";
+        return $this->pdo->fetchAll($sql);
+    }
+    public function getedit_hdxq($id){
+        //准备sql
+        $sql="select * from `rules` where id={$id}";
+        //执行sql
+        return $this->pdo->fetchRow($sql);
+
+    }
+    public function gethdxq_save($data){
+        //健壮性
+        if (empty($data['recharge'])){
+            $this->error='请输入金额';
+            return false;
+        }
+        if (empty($data['handsel'])){
+            $this->error='请输入活动倍率';
+            return false;
+        }
+        if ($data['recharge']<0){
+            $this->error='充值金额不能为负数';
+            return false;
+        }
+        if ($data['handsel']<0){
+            $this->error='赠送倍率不能为负数';
+            return false;
+        }
+        //准备sql,并执行
+        $sql="update `rules` set recharge='{$data['recharge']}',handsel='{$data['handsel']}' where id='{$data['id']}'" ;
+        $this->pdo->execute($sql);
+    }
+    public function getadd_gz($data){
+        //健壮性
+        if (empty($data['recharge'])){
+            $this->error='请输入金额';
+            return false;
+        }
+        if (empty($data['handsel'])){
+            $this->error='请输入活动倍率';
+            return false;
+        }
+        if ($data['recharge']<0){
+            $this->error='充值金额不能为负数';
+            return false;
+        }
+        if ($data['handsel']<0){
+            $this->error='赠送倍率不能为负数';
+            return false;
+        }
+        //准备sql
+        $sql="insert into rules set recharge='{$data['recharge']}',handsel='{$data['handsel']}'";
+        //执行sql
+        $this->pdo->execute($sql);
     }
     public function getDelete($id){
-
+        //判断有无消费记录
+        //准备sql
+        $sql="select * from histories where user_id={$id}";
+        //执行sql 判断是否为false 如果是可以删除 反之返回false
+        $res=$this->pdo->fetchAll($sql);
+        if (empty($res)){
+            //没有记录 可以删除
+            //准备sql
+            $sql="delete from `user` where id={$id}";
+            $this->pdo->execute($sql);
+        }
+        else{
+            $this->error='此用户有消费记录';
+            return false;
+        }
     }
 
 }
