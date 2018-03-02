@@ -12,8 +12,8 @@ class ArticleController extends PlatformController
     {
         parent::__construct();
         $this->obj = ObjFactory::createObj('ArticleModel');
-        $cates = $this->obj->getCate();
-        $this->assign('cates',$cates);
+//        $cates = $this->obj->getCate();
+//        $this->assign('cates',$cates);
     }
     public function index(){
         if (isset($_GET['id'])){ //分类ID

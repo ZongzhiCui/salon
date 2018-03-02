@@ -205,14 +205,36 @@ last_login_ip='{$ip}' where id={$data['id']}
             $this->pdo->execute($sql);
         }
         //查询倍率
-        $sql="select handsel from rules where recharge<='{$data['money']}' order by recharge desc limit 1";
+        if($data['money']>=100) {
+            $sql = "select handsel from rules where recharge<='{$data['money']}' order by recharge desc limit 1";
+            $res = $this->pdo->fetchColumn($sql);
+            $sql = "update `user` set money=money+($res*{$data['money']}) where id='{$data['id']}'";
+            $this->pdo->execute($sql);
+            $v=($res*$data['money'])-$data['money'];
+        }
+
+        else{
+            //准备sql
+            $sql = "update `user` set money=money+{$data['money']} where id='{$data['id']}'";
+            //执行sql
+            $this->pdo->execute($sql);
+            $v=0;
+        }
+
+        //加入消费记录
+        $time=time();
+        $sql="select money from `user` where id ={$data['id']}";
         $res=$this->pdo->fetchColumn($sql);
-//        print_r($res);die;
-        //准备sql
-        $sql="update `user` set money=money+($res*{$data['money']}) where id='{$data['id']}'";
-        //执行sql
+        $sql="insert into histories(user_id,`type`,amount,content,`time`,remainder,handsel) VALUES (
+'{$data['id']}',
+'充值',
+'{$data['money']}',
+'充值{$data['money']}',
+'{$time}',
+'{$res}',
+'{$v}'
+)";
         $this->pdo->execute($sql);
-        $v=($res*$data['money'])-$data['money'];
         return $v;
     }
     public function gethdxq(){
