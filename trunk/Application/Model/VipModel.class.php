@@ -21,6 +21,7 @@ class VipModel extends Model
 //        $field = addslashes($field);
         $sql = "select * from `{$table}` where username='{$field['username']}'";
         $admin = $this->pdo->fetchRow($sql);
+
         if(empty($admin)){
             $this->error = '用户名不存在';
             return false;
@@ -43,6 +44,7 @@ class VipModel extends Model
         $last['last_login'] = time();
         $last['last_login_ip'] = ip2long($_SERVER['REMOTE_ADDR']);
         $sql = Tools::myUpdate($table,$last);
+//        var_dump($this->pdo->execute($sql));
         return $this->pdo->execute($sql);
     }
     /**

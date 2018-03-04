@@ -15,7 +15,7 @@ return array(
             'psn' => 'mysql:host=127.0.0.1;dbname=salon;charset=utf8;port=3306',
             'username' => 'root',
             'password' => 'root',
-            'errmode' => [PDO::ATTR_ERRMODE => PDO::ERRMODE_WARNING]
+            'errmode' => [PDO::ATTR_ERRMODE => PDO::ERRMODE_SILENT]
         ],
     'app' => array(
         'default_platform' => 'Home',

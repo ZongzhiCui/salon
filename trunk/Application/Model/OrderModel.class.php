@@ -65,7 +65,7 @@ class OrderModel extends Model
     }
     public function getAdd($ob,$id){
         @session_start();
-        $field['realname'] = $_SESSION['user']['realname'];
+        $field['realname'] = $_SESSION['user']['id'];
         $field['phone'] = $_SESSION['user']['telephone'];
         if (strtotime($_POST['date']) < time()){
             $this->error = '预约时间至少提前一小时!';
