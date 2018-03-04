@@ -236,16 +236,6 @@ last_login_ip='{$ip}'
             $this->error='请填写密码';
             return false;
         }
-
-
-        //判断用户名在数据库的唯一性
-        //>>1.根据名字去数据库读取数据如果数据存在则不可添加
-        $sql = "select `id` from `user` where username='{$data['username']}'";
-        $r = $this->pdo->fetchAll($sql);
-        if (!empty($r)){
-            $this->error = '该用户名已经存在!';
-            return false;
-        }
         $sql="select * from `user` where id='{$data['id']}'";
         $res=$this->pdo->fetchRow($sql);
         if ($res['password']!=Tools::myPwd($data['pwd'])){
