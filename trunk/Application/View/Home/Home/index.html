@@ -29,8 +29,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 </head>
 <body>
 <!--start-home-->
-		<div class="banner" id="home">
-			<div class="container">
+<div class="banner" id="home">
+	<a style="position: fixed;right: 0" href="index.php?p=Admin&c=Home&a=index">⭐</a>
+	<div class="container">
 			  <div class="head-top">
 			   <!--logo-->
 			       <div class="logo">
@@ -96,8 +97,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					<nav>
 						<ul class="cl-effect-16">
 						<li><a class="active" href="index.php?p=Home&c=Home&a=index" data-hover="HOME">Home</a></li>
-						<li><a href="index.php?p=Home&c=Home&a=gallery" data-hover="Gallery">Gallery</a></li>
-							<li><a href="index.php?p=Home&c=Order&a=index" data-hover="预约">预约</a></li>
+						<li><a href="index.php?p=Home&c=Home&a=gallery" data-hover="作品墙">作品墙</a></li>
+						<li><a href="index.php?p=Home&c=Order&a=index" data-hover="预约">预约</a></li>
+						<li><a href="index.php?p=Home&c=Mall&a=index" data-hover="积分商城">积分商城</a></li>
 						<?php
                     	@session_start();
                     	if (!empty($_SESSION['user'])){?>

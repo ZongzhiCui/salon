@@ -18,6 +18,7 @@
 <body>
 <div id="wrapper">
     <nav class="navbar navbar-default navbar-cls-top " role="navigation" style="margin-bottom: 0">
+        <a style="position: fixed;right: 0" href="index.php?p=Home&c=Home&a=index">⭐</a>
         <div class="navbar-header">
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".sidebar-collapse">
                 <span class="sr-only">Toggle navigation</span>
@@ -37,7 +38,7 @@ font-size: 16px;">最后登录时间:<?=date('m月d日 H:i',$_SESSION['admin']['
         <div class="sidebar-collapse">
             <ul class="nav" id="main-menu">
                 <li class="text-center">
-                    <img src="./Public/Admin/assets/img/find_user.png" class="user-image img-responsive">
+                    <img src="./Public/Admin/assets/img/user.gif" class="user-image img-responsive">
                 </li>
                 <li>
                     <a href="#"><i class="fa fa-table fa-3x"></i>员工<span class="fa arrow"></span></a>
@@ -65,7 +66,7 @@ font-size: 16px;">最后登录时间:<?=date('m月d日 H:i',$_SESSION['admin']['
                     </ul>
                 </li>
                 <li>
-                    <a href="#"><i class="fa fa-table fa-3x"></i>预约<span class="fa arrow"></span></a>
+                    <a href="#"><i class="fa fa-dashboard fa-3x"></i>预约<span class="fa arrow"></span></a>
                     <ul class="nav nav-second-level">
                         <li>
                             <a href="index.php?p=Admin&c=Order&a=index">列表</a>
@@ -112,6 +113,20 @@ font-size: 16px;">最后登录时间:<?=date('m月d日 H:i',$_SESSION['admin']['
                     <ul class="nav nav-second-level">
                         <li>
                             <a href="index.php?p=Admin&c=Code&a=index">列表</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="index.php?p=Admin&c=Mall&a=index"><i class="fa fa-qrcode fa-3x"></i>积分商城</a>
+                </li>
+                <li>
+                    <a href="index.php?p=Admin&c=Integral&a=index"><i class="fa fa-table fa-3x"></i>会员积分<span class="fa arrow"></span></a>
+                    <ul class="nav nav-second-level">
+                        <li>
+                            <a href="index.php?p=Admin&c=Integral&a=index">列表</a>
+                        </li>
+                        <li>
+                            <a href="index.php?p=Admin&c=MallBuy&a=index">积分订单</a>
                         </li>
                     </ul>
                 </li>

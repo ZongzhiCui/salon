@@ -36,8 +36,24 @@ class UserModel extends Model
         $limit = " limit {$start},{$page_size}";
 
         $sql = "select * from `user` where {$where} order by id desc {$limit}";
-//        var_dump($sql);die;
         $rs = $this->pdo->fetchAll($sql);
+
+        //充值记录
+        //消费记录
+        @session_start();
+//        var_dump($_SESSION['user']);die;
+        $sql = "select * from histories where user_id={$_SESSION['user']['id']} order by id desc";
+        $vip = $this->pdo->fetchAll($sql);
+        $recharge = [];
+        $consume = [];
+        foreach($vip as $v){
+            if ($v['type'] == '充值'){
+                $recharge[] = $v;
+            }elseif ($v['type'] == '消费'){
+                $consume[] = $v;
+            }
+        }
+
         $html = PageTool::myYeMa($page,$page_size,$total_page);
         return [
             'rows'=>$rs,
@@ -45,13 +61,107 @@ class UserModel extends Model
             'total_page'=>$total_page,
             'page'=>$page,
             'page_size'=>$page_size,
-            'html'=>$html
+            'html'=>$html,
+            'recharge'=>$recharge,
+            'consume'=>$consume,
         ];
 //        return $rs;
 //    $fenye = new PageTools();
 //    $rs = $fenye->myFenYe($field,'user');
 //    return $rs;
     }
+
+    /**
+     * 获取我的预约记录
+     */
+    public function getMy_order(){
+        @session_start();
+        $sql = "select * from `order` where realname={$_SESSION['user']['id']} and cancel=0 order by id desc";
+        $my_order = $this->pdo->fetchAll($sql);
+//        var_dump($my_order);die;
+        foreach($my_order as &$value){
+            if (!empty($value['barber'])){
+                $sql = "select * from member where id={$value['barber']}";
+                $value['mem_name'] = $this->pdo->fetchRow($sql)['realname'];
+            }
+            if (!empty($value['plan_id'])){
+                $sql = "select * from plan where id={$value['plan_id']}";
+                $value['plan_name'] = $this->pdo->fetchRow($sql)['name'];
+            }
+        }
+        return [
+            'my_order'=>$my_order,
+        ];
+    }
+
+    /**
+     * 把客户最新的留言修改到 预约表里
+     */
+    public function getMy_content($id,$content){
+        $sql = "update `order` set content='{$content}' where id={$id}";
+        $r = $this->pdo->execute($sql);
+        return $r;
+    }
+    public function getDel_order($id){
+        /**
+         * 下次优化扩展功能:必须要后台同意预约前,如果后台同意预约了 ,需要付违约金
+         */
+        $sql = "select * from  `order` where id={$id}";
+        $my_order = $this->pdo->fetchRow($sql);
+        @session_start();
+        $this->pdo->beginTransaction();
+        if ($my_order['status'] == 1){
+            //取消成功预约美发师扣30
+            if ($my_order['barber'] != 0){
+                $money = bcsub($_SESSION['user']['money'],30,2);
+                $sql = "update `user` set money={$money} where id={$_SESSION['user']['id']}";
+                $r = $this->pdo->execute($sql);
+                if ($r === false){
+                    $this->error = '扣除违约金失败';
+                    $this->pdo->roolBack();
+                    return false;
+                }
+            }
+            //取消成功预约的套餐扣20%
+            if ($my_order['plan_id'] != 0){
+                $sql = "select * from plan where id={$my_order['plan_id']}";
+                $plan_money = $this->pdo->fetchRow($sql)['money'];
+                $money = bcsub($_SESSION['user']['money'],bcmul($plan_money,0.2,2),2);
+                $sql = "update `user` set money={$money} where id={$_SESSION['user']['id']}";
+                $r = $this->pdo->execute($sql);
+                if ($r === false){
+                    $this->error = '扣除违约金失败';
+                    $this->pdo->roolBack();
+                    return false;
+                }
+            }
+        }
+
+        $sql = "update `order` set cancel=-1 where id={$id}";
+        $num = $this->pdo->execute($sql);
+        if ($num === false){
+            $this->error = '取消预约失败';
+            $this->pdo->roolBack();
+            return false;
+        }
+        $this->pdo->commit();
+        return $num;
+    }
+    public function getMy_mallBuy(){
+        @session_start();
+        $sql = "select * from mallbuy where user_id={$_SESSION['user']['id']}";
+        $my_mallbuy = $this->pdo->fetchAll($sql);
+        foreach ($my_mallbuy as &$value){
+            $sql = "select * from mall where id={$value['mall_id']}";
+            $mall_name = $this->pdo->fetchRow($sql);
+            $value['mall_name'] = $mall_name['name'];
+        }
+
+        return [
+            'my_mallbuy'=>$my_mallbuy,
+        ];
+    }
+
     public function getAdd_save($data,$file){
         //判定2次密码的相同
         if($data['pwd1']!==$data['pwd2']){

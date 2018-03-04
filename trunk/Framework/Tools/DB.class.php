@@ -20,6 +20,7 @@ class DB
     private static $instance = null;
     private function __construct($config=[])
     {
+
         if(empty($config)){
             $config_file = include_once CONFIG_PATH.'application.config.php';
             $config = $config_file['pdo'];
@@ -165,6 +166,19 @@ class DB
     public static function __callStatic($name, $arguments)
     {
         echo '用静态方法调用了一个不存在或不可访问的方法!--一般应用在跳转到首页!';
+    }
+
+    /**
+     * 为何外面直接写PDO开启事务不行 必须这里设置方法?
+     */
+    public function beginTransaction(){
+        $this->pdo->beginTransaction();
+    }
+    public function roolBack(){
+        $this->pdo->rollBack();
+    }
+    public function commit(){
+        $this->pdo->commit();
     }
 }
 /*该类DB的使用如下:

@@ -107,18 +107,50 @@ class HistoriesModel extends Model
         $plans = $this->pdo->fetchAll($sql);
         $sql = "select * from `member`";
         $members = $this->pdo->fetchAll($sql);
+        $sql = "select * from `code`";
+        $codes = $this->pdo->fetchAll($sql);
         return [
             'users'=>$users,
             'plans'=>$plans,
             'members'=>$members,
+            'codes'=>$codes,
         ];
     }
     public function getConsume_save($field){
+        $this->pdo->beginTransaction();
+        /**
+         * 先判断代金券是否可用
+         */
+        if (!empty($field['code_id'])){
+            $sql = "select * from `code` where id={$field['code_id']}";
+            $code = $this->pdo->fetchRow($sql);
+            if ($code['user_id'] != $field['user_id']){
+                $this->error = '您没有这个代金券';
+                return false;
+            }
+            if ($code['status'] != 1){
+                $this->error = '您的代金券已经被使用';
+                return false;
+            }
+            //代金券可以使用 $code['money'];
+            $vouchers = $code['money'];
+            //使用优惠券的话把优惠券做废掉
+            $sql = "update code set status=0 where id={$field['code_id']}";
+            $r = $this->pdo->execute($sql);
+            if ($r !== 1){
+                $this->error = '您的代金券已经被使用';
+                $this->pdo->rollBack();
+                return false;
+            }
+        }else{
+            //没有使用代金券
+            $vouchers = 0;
+        }
+
         //读取用户对应会员等级
         $sql = "select * from `user` where id={$field['user_id']}";
         $level = $this->pdo->fetchRow($sql);
 //        $level['level'];//会员等级
-
 
         /**读取出规则表里充值金额对应的优惠活动**/
         $sql = "select * from rules where level='{$level['level']}' limit 1";
@@ -132,19 +164,23 @@ class HistoriesModel extends Model
         unset($field['plan_id']);
 //        $plan['name'];$plan['money'];//套餐表里的名字和价格
         if (empty($field['amount'])) { //如果没有自定义金额就按套餐的价格来
-            $field['amount'] = $plan['money'];
+            $field['amount'] = bcsub($plan['money'],$vouchers,2);
             $field['remainder'] = bcsub($level['money'],$field['amount'],2);
             $field['content'] = $plan['name'];
-        }else{
-            //优惠后的价格
-            $money = bcmul($field['amount'],$discount,2);
+            $field['handsel'] = $vouchers;
+        }else{//自定义价格有会员等级对应的折扣.如果有优惠券先减优惠券再优惠
+            //消费的原价值  -- 为 -- $field['amount']
+            //用了优惠券的价格 $abc
+            $abc = bcsub($field['amount'],$vouchers,2);
+            //再折扣后的价格
+            $money = bcmul($abc,$discount,2);
             //账户余额
             $field['remainder'] = bcsub($level['money'],$money,2);
             //优惠的价格保存到数据库
             $field['handsel'] = bcsub($field['amount'],$money,2);
             $field['content'] = '其他消费';
         }
-        $this->pdo->beginTransaction();
+
         $sql = "update `user` set money='{$field['remainder']}' where id={$field['user_id']}";
         $a = $this->pdo->execute($sql);
         if ($a === false){

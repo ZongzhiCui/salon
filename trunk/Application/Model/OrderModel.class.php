@@ -28,7 +28,7 @@ class OrderModel extends Model
         $limit = " limit {$start},{$page_size}";
         $sql = "select * from plan where status=0";
         $plans = $this->pdo->fetchAll($sql);
-        $sql = "select * from member where {$where} order by id desc {$limit}";;
+        $sql = "select * from member where {$where} order by id desc {$limit}";
         $mems = $this->pdo->fetchAll($sql);
 //        var_dump($plans,$mems);die;
         $html = PageTool::myYeMa($page,$page_size,$total_page);
@@ -104,7 +104,7 @@ class OrderModel extends Model
         //分页显示
         $page_size = $field['page_size']??4;
         //>>计算count totalPage
-        $sql = "select count(id) from `order` where del=0 AND ".$where;
+        $sql = "select count(id) from `order` where del=0 and cancel=0 AND ".$where;
         $count = $this->pdo->fetchColumn($sql);
         $total_page = ceil($count/$page_size);
 
@@ -115,7 +115,7 @@ class OrderModel extends Model
         $start = ($page-1)*$page_size;
         $limit = " limit {$start},{$page_size}";
 
-        $sql = "select m.*,o.* from `order` o LEFT join member m ON m.id=o.barber where o.del=0 AND ".$where.$limit;
+        $sql = "select m.*,o.* from `order` o LEFT join member m ON m.id=o.barber where o.del=0 and o.cancel=0 AND ".$where.$limit;
         $orders = $this->pdo->fetchAll($sql);
         foreach ($orders as &$valu){
             $sql = "select * from `user` where id={$valu['realname']}";

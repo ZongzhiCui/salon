@@ -106,74 +106,49 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	</div>
 </div>
 <!--gallery-->
-	<div class="gallery">
-		<div class="container">
-			<div class="portfolio-bottom">
+			<!--<div class="portfolio-bottom">-->
 				<div class="gallery-one">
-					<div class="col-md-3 gallery-left">
-						   <a href="./Public/Home/images/s1.jpg" class=" mask b-link-stripe b-animate-go   swipebox"  title="Image Title">
-						     <img src="./Public/Home/images/s1.jpg" alt="" class="img-Responsive zoom-img"/>
-						    </a>
-					</div>
-					<div class="col-md-3 gallery-left">
-						<a href="./Public/Home/images/s2.jpg" class=" mask b-link-stripe b-animate-go   swipebox"  title="Image Title">
-								<img src="./Public/Home/images/s2.jpg" alt="" class="img-Responsive zoom-img"/>
-						</a>
-					</div>
-					<div class="col-md-3 gallery-left">
-						<a href="./Public/Home/images/s3.jpg" class=" mask b-link-stripe b-animate-go   swipebox"  title="Image Title">
-								<img src="./Public/Home/images/s3.jpg" alt="" class="img-Responsive zoom-img"/>
-						</a>
-					</div>
-					<div class="col-md-3 gallery-left">
-						<a href="./Public/Home/images/s4.jpg" class=" mask b-link-stripe b-animate-go   swipebox"  title="Image Title">
-								<img src="./Public/Home/images/s4.jpg" alt="" class="img-Responsive zoom-img"/>
-						</a>
-					</div>
-					<div class="col-md-3 gallery-left">
-						<a href="./Public/Home/images/s5.jpg" class=" mask b-link-stripe b-animate-go   swipebox"  title="Image Title">
-								<img src="./Public/Home/images/s5.jpg" alt="" class="img-Responsive zoom-img"/>
-						</a>
-					</div>
-					<div class="col-md-3 gallery-left">
-						<a href="./Public/Home/images/s6.jpg" class=" mask b-link-stripe b-animate-go   swipebox"  title="Image Title">
-								<img src="./Public/Home/images/s6.jpg" alt="" class="img-Responsive zoom-img"/>
-						</a>
-					</div>
-					<div class="col-md-3 gallery-left">
-						<a href="./Public/Home/images/s7.jpg" class=" mask b-link-stripe b-animate-go   swipebox"  title="Image Title">
-								<img src="./Public/Home/images/s7.jpg" alt="" class="img-Responsive zoom-img"/>
-						</a>
-					</div>
-					<div class="col-md-3 gallery-left">
-						<a href="./Public/Home/images/s8.jpg" class=" mask b-link-stripe b-animate-go   swipebox"  title="Image Title">
-								<img src="./Public/Home/images/s8.jpg" alt="" class="img-Responsive zoom-img"/>
-						</a>
-					</div>
-					<div class="col-md-3 gallery-left">
-						<a href="./Public/Home/images/s1.jpg" class=" mask b-link-stripe b-animate-go   swipebox"  title="Image Title">
-								<img src="./Public/Home/images/s1.jpg" alt="" class="img-Responsive zoom-img"/>
-						</a>
-					</div>
-					<div class="col-md-3 gallery-left">
-						<a href="./Public/Home/images/s2.jpg" class=" mask b-link-stripe b-animate-go   swipebox"  title="Image Title">
-								<img src="./Public/Home/images/s2.jpg" alt="" class="img-Responsive zoom-img"/>
-						</a>
-					</div>
-					<div class="col-md-3 gallery-left">
-						<a href="./Public/Home/images/s3.jpg" class=" mask b-link-stripe b-animate-go   swipebox"  title="Image Title">
-								<img src="./Public/Home/images/s3.jpg" alt="" class="img-Responsive zoom-img"/>
-						</a>
-					</div><div class="col-md-3 gallery-left">
-						<a href="./Public/Home/images/s4.jpg" class=" mask b-link-stripe b-animate-go   swipebox"  title="Image Title">
-								<img src="./Public/Home/images/s4.jpg" alt="" class="img-Responsive zoom-img"/>
-						</a>
+					<div class="hair-section">
+						<span style="position: absolute;right: 200px;">我的积分:<?=$integral['total']?></span>
+						<div class="container">
+							<h3 class="tittle">积分商城</h3>
+							<form action="index.php?p=Home&c=MallBuy&a=buy" method="post">
+								<input type="text" name="address" placeholder="您的地址" required>
+								<div class="grid">
+								<?php foreach($mall as $row):?>
+								<div class="col-md-4 h-f">
+									<figure class="effect-jazz">
+										<label><img src="<?=$row['logo']?>" alt="img25">
+										<figcaption>
+											<h4>剩余：<span><?=$row['num']?></span></h4>
+											<p><?=mb_substr($row['intro'],0,30)?>.</p>
+											<!--<a href="index.php?p=Home&c=MallBuy&a=buy&id=<?=$row['id']?>">View more</a>-->
+											<input style="position: absolute;left: 0;top: 0;border-radius: 30px" type="submit" name="id" value="<?=$row['id']?>">
+										</figcaption></label>
+									</figure>
+									<div class="hf-text"><h5><?=$row['name']?></h5><p><?=$row['price']?></p></div>
+								</div>
+								<?php endforeach;?>
+								</form>
+								<!--<div class="col-md-4 h-f one">-->
+									<!--<figure class="effect-jazz">-->
+										<!--<a class="example-image-link" href="images/s6.jpg" data-lightbox="example-set" data-title=""><img class="example-image" src="images/s6.jpg" alt=""></a>-->
+
+										<!--<figcaption>-->
+											<!--<h4>make<span>over</span></h4>-->
+											<!--<p>When Jazz starts to chase cars, the whole world stands still.</p>-->
+											<!--<a href="#">View more</a>-->
+										<!--</figcaption>-->
+									<!--</figure>-->
+									<!--<div class="hf-text"><h5>Makeover</h5><p>$ 180</p></div>-->
+								<!--</div>-->
+							</div>
+						</div>
+						<div style="text-align: center"><?=$html;?></div>
 					</div>
 					<div class="clearfix"> </div>
 				</div>
-			</div>
-		</div>
-	</div>
+			<!--</div>-->
 
   <!--bottom-->
 	    <div class="s-bottom">
