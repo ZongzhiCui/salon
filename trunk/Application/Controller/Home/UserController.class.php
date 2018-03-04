@@ -19,8 +19,36 @@ $field = $_REQUEST;
 $field['page_size'] = 3;
         $users = $this->obj->getAll($field);
         $this->assign($users);
+        //我的预约
+        $my_order = $this->obj->getMy_order();
+        $this->assign($my_order);
+        //我的积分消费
+        @session_start();
+        $my_mallbuy = $this->obj->getMy_mallBuy();
+        $this->assign($my_mallbuy);
         $this->display('index');
     }
+    //给自己的预约留言
+    public function my_content(){
+        $id = addslashes($_POST['id']);
+        $content = $_POST['content'][$id];
+        $r = $this->obj->getMy_content($id,$content);
+        if ($r === false){
+            Tools::jump('./index.php?p=Home&c=User&a=index',$this->obj->getError(),3);
+        }
+        Tools::jump('./index.php?p=Home&c=User&a=index');
+    }
+    //客户取消预约
+    public function del_order(){
+//        var_dump($_GET);die;
+        $id = addslashes($_GET['id']);
+        $r = $this->obj->getDel_order($id);
+        if ($r === false){
+            Tools::jump('./index.php?p=Home&c=User&a=index',$this->obj->getError(),3);
+        }
+        Tools::jump('./index.php?p=Home&c=User&a=index');
+    }
+
     public function add_save(){
         $field = $_POST;
         //这里判断上传文件

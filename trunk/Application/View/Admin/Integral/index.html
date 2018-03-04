@@ -1,0 +1,55 @@
+﻿<?php include VIEW_PATH.'Admin/Home/nav.html';?>
+        <div id="page-wrapper" >
+            <div id="page-inner">
+                    <span style="font-size: 8px;color:#cc350e;position: absolute;right: 40px">
+                        积分规则:每消费100块钱(以优惠后的金额为准)获得10000积分.
+                    </span><br>
+                <table class="table">
+                    <tr>
+                        <th>user_id</th>
+                        <th>total</th>
+                        <th>操作</th>
+                    </tr>
+                    <?php foreach($integrals as $row):?>
+                    <tr>
+                        <td><?=$row['realname']?></td>
+                        <td><?=$row['total']?></td>
+                        <td><a href="index.php?p=Admin&c=Integral&a=have&id=<?=$row['user_id']?>">更新积分</a></td>
+                    </tr>
+                    <?php endforeach;?>
+                    <tr>
+                        <form action="index.php?p=Admin&c=Integral&a=add" method="post">
+                        <td>
+                            <select name="user_id">
+                            <?php if(!empty($users)){;
+                                  foreach($users as $user):?>
+                            <option value="<?=$user['id']?>"><?=$user['realname']?></option>
+                            <?php endforeach;
+                                  }else{?>
+                                  <option value="">用户已经全部添加</option>
+                            <?php }?>
+                            </select>
+                        </td>
+                        <td><input type="submit" value="添加用户"></td>
+                        <td></td>
+                        </form>
+                    </tr>
+
+                </table>
+            </div>
+        </div>
+    <!-- SCRIPTS -AT THE BOTOM TO REDUCE THE LOAD TIME-->
+    <!-- JQUERY SCRIPTS -->
+    <script src="./Public/Admin/assets/js/jquery-1.10.2.js"></script>
+      <!-- BOOTSTRAP SCRIPTS -->
+    <script src="./Public/Admin/assets/js/bootstrap.min.js"></script>
+    <!-- METISMENU SCRIPTS -->
+    <script src="Public/Admin/assets/js/jquery.metisMenu.js"></script>
+     <!-- MORRIS CHART SCRIPTS -->
+     <script src="Public/Admin/assets/js/morris/raphael-2.1.0.min.js"></script>
+    <script src="Public/Admin/assets/js/morris/morris.js"></script>
+      <!-- CUSTOM SCRIPTS -->
+    <script src="Public/Admin/assets/js/custom.js"></script>
+
+</body>
+</html>

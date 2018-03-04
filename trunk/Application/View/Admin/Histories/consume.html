@@ -34,8 +34,18 @@
                                                     <?php foreach($plans as $plan):?>
                                                     <option value="<?=$plan['id']?>"><?=$plan['name']?>-价值:<?=$plan['money']?></option>
                                                     <?php endforeach;?>
-                                                </select><span style="color: #cc603b;font-size: 12px;">套餐没有优惠</span>
+                                                </select><span style="color: #cc603b;font-size: 12px;">套餐没有折扣优惠</span>
                                                 <input type="number" name="amount" placeholder="自定义消费的金额" />
+                                            </label>
+                                            <br><br>
+                                            <label>代金券:
+                                                <select name="code_id">
+                                                    <option value="">没有代金券</option>
+                                                    <?php foreach($codes as $code):?>
+                                                    <option value="<?=$code['id']?>"><?=$code['code']?>-价值:<?=$code['money']?></option>
+                                                    <?php endforeach;?>
+                                                </select>
+                                                <!--<input type="text" name="code" placeholder="请输入优惠码">-->
                                             </label>
                                             <br><br>
                                             <label>时间:<input type="text" readonly placeholder="当前时间:<?=time();?>" /></label>
