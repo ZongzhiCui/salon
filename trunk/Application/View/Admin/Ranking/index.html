@@ -17,12 +17,14 @@
                                             <th>姓名</th>
                                             <th>充值费用</th>
                                         </tr>
-                                        <?php foreach($rows as $row):?>
+                                        <?php foreach($user_money as $key=>$each):?>
+                                        <?php foreach($each['sum'] as $one):?>
                                         <tr>
-                                            <td><div style="color: #83ff37;border-radius: 50px;width: 50px;"><?=$row['i']?></div></td>
-                                            <td><?=$row['real']['realname']?></td>
-                                            <td><?=$row['sum']?></td>
+                                            <td><div style="margin-left:5px;background-color: #40ffaa;width: 30px;color:red;border-radius: 59px"><?php echo $key+1;?></div></td>
+                                            <td><?=$one['user_id']?></td>
+                                            <td><?=$one['sum']?></td>
                                         </tr>
+                                        <?php endforeach;?>
                                         <?php endforeach;?>
                                     </table>
                                 </div>
@@ -42,12 +44,14 @@
                                             <th>姓名</th>
                                             <th>消费费用</th>
                                         </tr>
-                                        <?php foreach($things as $row):?>
+                                        <?php foreach($user_save as $key=>$each):?>
+                                        <?php foreach($each['sum'] as $one):?>
                                         <tr>
-                                            <td><div style="color: #83ff37;border-radius: 50px;width: 50px;"><?=$row['i']?></div></td>
-                                            <td><?=$row['real']['realname']?></td>
-                                            <td><?=$row['sum']?></td>
+                                            <td><div style="margin-left:5px;background-color: #40ffaa;width: 30px;color:red;border-radius: 59px"><?php echo $key+1;?></div></td>
+                                            <td><?=$one['user_id']?></td>
+                                            <td><?=$one['sum']?></td>
                                         </tr>
+                                        <?php endforeach;?>
                                         <?php endforeach;?>
                                     </table>
                                 </div>
@@ -67,12 +71,14 @@
                                             <th>姓名</th>
                                             <th>服务次数</th>
                                         </tr>
-                                        <?php foreach($member as $row):?>
+                                        <?php foreach($member as $key=>$each):?>
+                                        <?php foreach($each['count'] as $one):?>
                                         <tr>
-                                            <td><div style="color: #83ff37;border-radius: 50px;width: 50px;"><?=$row['i']?></div></td>
-                                            <td><?=$row['member']?></td>
-                                            <td><?=$row['count']?></td>
+                                            <td><div style="margin-left:5px;background-color: #40ffaa;width: 30px;color:red;border-radius: 59px"><?php echo $key+1;?></div></td>
+                                            <td><?=$one['real']?></td>
+                                            <td><?=$one['count']?></td>
                                         </tr>
+                                        <?php endforeach;?>
                                         <?php endforeach;?>
                                     </table>
                                 </div>

@@ -19,6 +19,9 @@ class RankingController extends PlatformController
         //接受数据
         //处理数据
        $rows= $this->obj->getAll();
+//       $member= $this->obj->getmember();
+//       var_dump($member);die;
+//       $this->assign('member',$member);
         //显示页面
         $this->assign($rows);
         $this->display('index');
