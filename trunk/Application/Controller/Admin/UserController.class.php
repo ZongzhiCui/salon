@@ -92,7 +92,7 @@ class UserController extends PlatformController
             if ($res === false) {
                 $this->redirect('index.php?p=Admin&c=User&a=recharge&id=' . $data['id'], '充值失败' . $this->obj->getError() . $this->obj->getError(), 3);
             } else {
-                $this->redirect('index.php?p=Admin&c=User&a=index', "充值{$data['money']}元,赠送{$res}元", 3);
+                $this->redirect('index.php?p=Admin&c=User&a=index', "充值{$data['money']}元,赠送{$res}元".$this->obj->getError(), 3);
             }
         } else {
             //接受数据
@@ -184,7 +184,17 @@ class UserController extends PlatformController
     public function edit_vip(){
         //分支
         if ($_SERVER['REQUEST_METHOD']=='POST'){
-
+            //接受数据
+            $data=$_POST;
+            //处理数据
+            $res=$this->obj->getedit_vip($data);
+            //显示页面
+            if ($res===false){
+                $this->redirect('index.php?p=Admin&c=User&a=edit_vip&id='.$data['id'],'修改失败'.$this->obj->getError(),3);
+            }
+            else{
+                $this->redirect('index.php?p=Admin&c=User&a=vip_xq','修改成功',3);
+            }
         }else{
             //接受数据
             $id=$_GET['id'];
@@ -195,4 +205,22 @@ class UserController extends PlatformController
             $this->display();
         }
     }
-}
+        public function add_vip()
+        {
+            //分支
+            if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+                //接受数据
+                $data = $_POST;
+                //处理数据
+                $res = $this->obj->getadd_vip($data);
+                //显示页面
+                if ($res === false) {
+                    $this->redirect('index.php?p=Admin&c=User&a=add_vip', '增加失败' . $this->obj->getError(), 3);
+                } else {
+                    $this->redirect('index.php?p=Admin&c=User&a=vip_xq', '增加成功', 3);
+                }
+            } else {
+                $this->display();
+            }
+        }
+    }

@@ -11,22 +11,22 @@
                  <!-- /. ROW  -->
                  <hr />
                 <div class="col-md-6">
-                    <h3>修改会员等级</h3>
-                    <form role="form" method="post" action="index.php?p=Admin&c=User&a=edit_vip">
+                    <h3>增加会员等级</h3>
+                    <form role="form" method="post" action="index.php?p=Admin&c=User&a=add_vip">
                         <div class="form-group">
                             <label>等级</label>
                             <input type="hidden" name="id" value="<?=$row['id']?>">
-                            <input class="form-control"  type="text" name="level" value="<?=$row['level']?>"/>
-                            <p class="help-block">修改原会员等级</p>
+                            <input class="form-control"  type="text" name="level"/>
+                            <p class="help-block">新增会员等级</p>
                         </div>
                         <div class="form-group">
                             <label>修改累计充值</label>
-                            <input class="form-control"  type="text" name="condition" value="<?=$row['condition']?>"/>
+                            <input class="form-control"  type="text" name="condition"/>
                             <p class="help-block">修改累计充值金额</p>
                         </div>
                         <div class="form-group">
                             <label>可享受折扣</label>
-                            <input class="form-control"  type="text" name="discount" value="<?=$row['discount']?>"/>
+                            <input class="form-control"  type="text" name="discount"/>
                             <p class="help-block">修改可享受折扣</p>
                         </div>
                         <!--<div class="form-group">-->

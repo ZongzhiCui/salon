@@ -200,9 +200,13 @@ last_login_ip='{$ip}' where id={$data['id']}
             $this->error='充值金额不能小于0';
             return false;
         }
-        if ($data['money']>=5000){
+        //查询用户vip等级
+        $sql="select `level` from `user` where id={$data['id']}";
+        $vals=$this->pdo->fetchColumn($sql);
+        if ($data['money']>=5000 && $vals<1){
             $sql="update `user` set `level` = 1 where id={$data['id']}";
             $this->pdo->execute($sql);
+            $this->error='恭喜你,已成为我们公司的VIP用户';
         }
         //查询倍率
         if($data['money']>=100) {
@@ -212,7 +216,6 @@ last_login_ip='{$ip}' where id={$data['id']}
             $this->pdo->execute($sql);
             $v=($res*$data['money'])-$data['money'];
         }
-
         else{
             //准备sql
             $sql = "update `user` set money=money+{$data['money']} where id='{$data['id']}'";
@@ -220,21 +223,48 @@ last_login_ip='{$ip}' where id={$data['id']}
             $this->pdo->execute($sql);
             $v=0;
         }
-
         //加入消费记录
         $time=time();
         $sql="select money from `user` where id ={$data['id']}";
-        $res=$this->pdo->fetchColumn($sql);
+        $val=$this->pdo->fetchColumn($sql);
         $sql="insert into histories(user_id,`type`,amount,content,`time`,remainder,handsel) VALUES (
 '{$data['id']}',
 '充值',
 '{$data['money']}',
 '充值{$data['money']}',
 '{$time}',
-'{$res}',
+'{$val}',
 '{$v}'
 )";
         $this->pdo->execute($sql);
+
+        $a='充值';
+        $sql="select sum(amount) from histories where user_id={$data['id']} && `type`='{$a}'";
+        $res=$this->pdo->fetchColumn($sql);
+        if ($res>=200000 && $vals <6){
+            $sql="update `user` set `level`=6 where id={$data['id']}";
+            $this->pdo->execute($sql);
+            $this->error='恭喜你已经升级为我们公司VIP6';
+        }
+        elseif($res>=100000 && $vals <5){
+            $sql="update `user` set `level`=5 where id={$data['id']} && `level`<5";
+            $this->pdo->execute($sql);
+            $this->error='恭喜你已升级为我们公司VIP5';
+        }
+        elseif($res>=50000 && $vals <4){
+            $sql="update `user` set `level`=4 where id={$data['id']} && `level`<4";
+            $this->pdo->execute($sql);
+            $this->error='恭喜你已升级为我们公司VIP4';
+        }
+        elseif($res>=20000 && $vals <3){
+            $sql="update `user` set `level`=3where id={$data['id']} && `level`<3";
+            $this->pdo->execute($sql);
+            $this->error='恭喜你已升级为我们公司VIP3';
+        } elseif($res>=10000 && $vals <2){
+            $sql="update `user` set `level`=2 where id={$data['id']} && `level`<2";
+            $this->pdo->execute($sql);
+            $this->error='恭喜你已升级为我们公司VIP2';
+        }
         return $v;
     }
     public function gethdxq(){
@@ -309,6 +339,102 @@ last_login_ip='{$ip}' where id={$data['id']}
             $this->error='此用户有消费记录';
             return false;
         }
+    }
+    public function getedit_vip($data){
+        //健壮性
+        if ($data['condition']<0){
+            $this->error='累计充值金额不能小于0';
+            return false;
+        }
+        if (is_numeric($data['condition'])===false){
+            $this->error='累计金额亲输入数字';
+            return false;
+        }
+        if (is_numeric($data['discount'])===false){
+            $this->error='会员折扣亲输入数字';
+            return false;
+        }
+        if (is_numeric($data['level'])===false){
+            $this->error='会员等级请输入数字';
+            return false;
+        }
+
+        if (empty($data['discount'])){
+            $this->error='请输入会员折扣';
+            return false;
+        }
+        if (empty($data['condition'])){
+            $this->error='请输入累计充值金额';
+            return false;
+        }
+        if ($data['discount']<0){
+            $this->error='折扣不能为负数';
+            return false;
+        }
+        if (empty($data['level'])){
+            $this->error='请输入会员等级';
+            return false;
+        }
+        if ($data['level']<0){
+            $this->error='会员等级不能为负数';
+            return false;
+        }
+        //准备sql
+        $sql="update rules set 
+discount='{$data['discount']}',
+`level`='{$data['level']}',
+`condition`='{$data['condition']}' where id='{$data['id']}'
+";
+        //执行sql
+        $this->pdo->execute($sql);
+    }
+    public function getadd_vip($data){
+        //健壮性
+        if ($data['condition']<0){
+            $this->error='累计充值金额不能小于0';
+            return false;
+        }
+        if (is_numeric($data['condition'])===false){
+            $this->error='累计金额亲输入数字';
+            return false;
+        }
+        if (is_numeric($data['discount'])===false){
+            $this->error='会员折扣亲输入数字';
+            return false;
+        }
+        if (is_numeric($data['level'])===false){
+            $this->error='会员等级请输入数字';
+            return false;
+        }
+
+        if (empty($data['discount'])){
+            $this->error='请输入会员折扣';
+            return false;
+        }
+        if (empty($data['condition'])){
+            $this->error='请输入累计充值金额';
+            return false;
+        }
+        if ($data['discount']<0){
+            $this->error='折扣不能为负数';
+            return false;
+        }
+        if (empty($data['level'])){
+            $this->error='请输入会员等级';
+            return false;
+        }
+        if ($data['level']<0){
+            $this->error='会员等级不能为负数';
+            return false;
+        }
+        //准备sql
+        $sql="insert into rules set 
+discount='{$data['discount']}',
+`level`='{$data['level']}',
+`condition`='{$data['condition']}
+";
+        //执行sql
+        $this->pdo->execute($sql);
     }
 
 }
