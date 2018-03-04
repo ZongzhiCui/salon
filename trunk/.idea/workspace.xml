@@ -15,8 +15,8 @@
       <file leaf-file-name="UserController.class.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Application/Controller/Admin/UserController.class.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1">
-              <caret line="54" column="24" lean-forward="false" selection-start-line="54" selection-start-column="20" selection-end-line="54" selection-end-column="24" />
+            <state relative-caret-position="180">
+              <caret line="54" column="20" lean-forward="false" selection-start-line="54" selection-start-column="20" selection-end-line="54" selection-end-column="20" />
               <folding>
                 <element signature="n#hdxq#0;n#UserController#0;n#!!top" expanded="false" />
                 <element signature="n#edit_xq#0;n#UserController#0;n#!!top" expanded="false" />
@@ -35,100 +35,101 @@
       <file leaf-file-name="UserModel.class.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Application/Model/UserModel.class.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="303">
-              <caret line="237" column="9" lean-forward="false" selection-start-line="237" selection-start-column="9" selection-end-line="237" selection-end-column="9" />
+            <state relative-caret-position="65">
+              <caret line="239" column="35" lean-forward="true" selection-start-line="239" selection-start-column="35" selection-end-line="239" selection-end-column="35" />
               <folding>
                 <element signature="n#getDelete#0;n#UserModel#0;n#!!top" expanded="false" />
                 <element signature="n#getedit_vip#0;n#UserModel#0;n#!!top" expanded="false" />
                 <element signature="n#getadd_vip#0;n#UserModel#0;n#!!top" expanded="false" />
-                <marker date="1520136127589" expanded="true" signature="682:717" ph="select count... user" />
-                <marker date="1520136127589" expanded="true" signature="1079:1132" ph="select * fro... user" />
-                <marker date="1520136127589" expanded="true" signature="1301:1381" ph="select * fro... histories" />
-                <marker date="1520136127589" expanded="true" signature="2250:2342" ph="select * fro... order" />
-                <marker date="1520136127589" expanded="true" signature="2534:2564" ph="select * fro... member" />
-                <marker date="1520136127589" expanded="true" signature="2744:2772" ph="select * fro... plan" />
-                <marker date="1520136127589" expanded="true" signature="3067:3116" ph="update `orde... " />
-                <marker date="1520136127589" expanded="true" signature="3317:3349" ph="select * fro... order" />
-                <marker date="1520136127589" expanded="true" signature="3669:3711" ph="update `user... " />
-                <marker date="1520136127589" expanded="true" signature="4074:4102" ph="select * fro... plan" />
-                <marker date="1520136127589" expanded="true" signature="4305:4347" ph="update `user... " />
-                <marker date="1520136127589" expanded="true" signature="4641:4679" ph="update `orde... " />
-                <marker date="1520136127589" expanded="true" signature="5003:5039" ph="select * fro... mallbuy" />
-                <marker date="1520136127589" expanded="true" signature="5179:5207" ph="select * fro... mall" />
-                <marker date="1520136127589" expanded="true" signature="6272:6332" ph="select `id` user" />
-                <marker date="1520136127589" expanded="true" signature="6607:6641" ph="insert into `user`... " />
-                <marker date="1520136127589" expanded="true" signature="6607:6661" ph="insert into `user`... " />
-                <marker date="1520136127589" expanded="true" signature="6607:6662" ph="insert into `user`... " />
-                <marker date="1520136127589" expanded="true" signature="6607:6690" ph="insert into `user`... " />
-                <marker date="1520136127589" expanded="true" signature="6607:6722" ph="insert into `user`... " />
-                <marker date="1520136127589" expanded="true" signature="6607:6744" ph="insert into `user`... " />
-                <marker date="1520136127589" expanded="true" signature="6607:6778" ph="insert into `user`... " />
-                <marker date="1520136127589" expanded="true" signature="6607:6806" ph="insert into `user`... " />
-                <marker date="1520136127589" expanded="true" signature="6607:6824" ph="insert into `user`... " />
-                <marker date="1520136127589" expanded="true" signature="6607:6846" ph="insert into `user`... " />
-                <marker date="1520136127589" expanded="true" signature="6607:6868" ph="insert into `user`... " />
-                <marker date="1520136127589" expanded="true" signature="6999:7027" ph="select * fro... user" />
-                <marker date="1520136127589" expanded="true" signature="7627:7672" ph="select * fro... user" />
-                <marker date="1520136127589" expanded="true" signature="8348:8595" ph="update `user... " />
-                <marker date="1520136127589" expanded="true" signature="8348:8605" ph="update `user... " />
-                <marker date="1520136127589" expanded="true" signature="8348:8618" ph="update `user... " />
-                <marker date="1520136127589" expanded="true" signature="8355:8595" ph="insert into `user`... " />
-                <marker date="1520136127589" expanded="true" signature="8664:8725" ph="update `user... " />
-                <marker date="1520136127589" expanded="true" signature="8664:8893" ph="update `user... " />
-                <marker date="1520136127589" expanded="true" signature="8664:8903" ph="update `user... " />
-                <marker date="1520136127589" expanded="true" signature="9041:9071" ph="select * fro... user" />
-                <marker date="1520136127589" expanded="true" signature="9337:9373" ph="select level... user" />
-                <marker date="1520136127589" expanded="true" signature="9337:9386" ph="select level... user" />
-                <marker date="1520136127589" expanded="true" signature="9498:9516" ph="update from " />
-                <marker date="1520136127589" expanded="true" signature="9498:9537" ph="update from " />
-                <marker date="1520136127589" expanded="true" signature="9498:9550" ph="update from " />
-                <marker date="1520136127589" expanded="true" signature="9717:9755" ph="select * fro... rules" />
-                <marker date="1520136127589" expanded="true" signature="9717:9758" ph="select * fro... rules" />
-                <marker date="1520136127589" expanded="true" signature="9717:9760" ph="select * fro... rules" />
-                <marker date="1520136127589" expanded="true" signature="9717:9777" ph="select * fro... rules" />
-                <marker date="1520136127589" expanded="true" signature="9717:9800" ph="select * fro... rules" />
-                <marker date="1520136127589" expanded="true" signature="9717:9808" ph="select hands... rules" />
-                <marker date="1520136127589" expanded="true" signature="9881:9959" ph="update `user... " />
-                <marker date="1520136127589" expanded="true" signature="10118:10189" ph="update `user... " />
-                <marker date="1520136127589" expanded="true" signature="10332:10367" ph="select money... user" />
-                <marker date="1520136127589" expanded="true" signature="10441:10518" ph="insert into histories... " />
-                <marker date="1520136127589" expanded="true" signature="10441:10528" ph="insert into histories... " />
-                <marker date="1520136127589" expanded="true" signature="10441:10552" ph="insert into histories... " />
-                <marker date="1520136127589" expanded="true" signature="10441:10622" ph="insert into histories... " />
-                <marker date="1520136127589" expanded="true" signature="10692:10770" ph="select sum(a... histories" />
-                <marker date="1520136127589" expanded="true" signature="10874:10911" ph="update `user... " />
-                <marker date="1520136127589" expanded="true" signature="11081:11144" ph="update `user... " />
-                <marker date="1520136127589" expanded="true" signature="11299:11362" ph="update `user... " />
-                <marker date="1520136127589" expanded="true" signature="11517:11579" ph="update `user... " />
-                <marker date="1520136127589" expanded="true" signature="11726:11789" ph="update `user... " />
-                <marker date="1520136127589" expanded="true" signature="11955:11974" ph="select * fro... rules" />
-                <marker date="1520136127589" expanded="true" signature="12095:12126" ph="select * fro... user" />
-                <marker date="1520136127589" expanded="true" signature="12095:12131" ph="select * fro... user" />
-                <marker date="1520136127589" expanded="true" signature="12723:12752" ph="update from " />
-                <marker date="1520136127589" expanded="true" signature="12723:12772" ph="update from " />
-                <marker date="1520136127589" expanded="true" signature="12723:12782" ph="update from " />
-                <marker date="1520136127589" expanded="true" signature="12723:12801" ph="update from " />
-                <marker date="1520136127589" expanded="true" signature="12723:12812" ph="update from " />
-                <marker date="1520136127589" expanded="true" signature="12723:12826" ph="update from " />
-                <marker date="1520136127589" expanded="true" signature="13387:13408" ph="insert into rules... " />
-                <marker date="1520136127589" expanded="true" signature="13387:13419" ph="insert into rules... " />
-                <marker date="1520136127589" expanded="true" signature="13387:13439" ph="insert into rules... " />
-                <marker date="1520136127589" expanded="true" signature="13387:13448" ph="insert into rules... " />
-                <marker date="1520136127589" expanded="true" signature="13387:13468" ph="insert into rules... " />
-                <marker date="1520136127589" expanded="true" signature="13613:13630" ph="select * fro... his" />
-                <marker date="1520136127589" expanded="true" signature="13613:13651" ph="select * fro... histories" />
-                <marker date="1520136127589" expanded="true" signature="13833:13861" ph="delete from " />
-                <marker date="1520136127589" expanded="true" signature="13833:13866" ph="delete from " />
-                <marker date="1520136127589" expanded="true" signature="15127:15143" ph="update rules... " />
-                <marker date="1520136127589" expanded="true" signature="15127:15155" ph="update rules... " />
-                <marker date="1520136127589" expanded="true" signature="15127:15175" ph="update rules... " />
-                <marker date="1520136127589" expanded="true" signature="15127:15176" ph="update rules... " />
-                <marker date="1520136127589" expanded="true" signature="15127:15204" ph="update rules... " />
-                <marker date="1520136127589" expanded="true" signature="15127:15239" ph="update rules... " />
-                <marker date="1520136127589" expanded="true" signature="15127:15250" ph="update rules... " />
-                <marker date="1520136127589" expanded="true" signature="15127:15264" ph="update rules... " />
-                <marker date="1520136127589" expanded="true" signature="16440:16536" ph="insert into rules... " />
-                <marker date="1520136127589" expanded="true" signature="16440:16556" ph="insert into rules... " />
+                <marker date="1520145320420" expanded="true" signature="682:717" ph="select count... user" />
+                <marker date="1520145320420" expanded="true" signature="1079:1132" ph="select * fro... user" />
+                <marker date="1520145320420" expanded="true" signature="1301:1381" ph="select * fro... histories" />
+                <marker date="1520145320420" expanded="true" signature="2250:2342" ph="select * fro... order" />
+                <marker date="1520145320420" expanded="true" signature="2534:2564" ph="select * fro... member" />
+                <marker date="1520145320420" expanded="true" signature="2744:2772" ph="select * fro... plan" />
+                <marker date="1520145320420" expanded="true" signature="3067:3116" ph="update `orde... " />
+                <marker date="1520145320420" expanded="true" signature="3317:3349" ph="select * fro... order" />
+                <marker date="1520145320420" expanded="true" signature="3669:3711" ph="update `user... " />
+                <marker date="1520145320420" expanded="true" signature="4074:4102" ph="select * fro... plan" />
+                <marker date="1520145320420" expanded="true" signature="4305:4347" ph="update `user... " />
+                <marker date="1520145320420" expanded="true" signature="4641:4679" ph="update `orde... " />
+                <marker date="1520145320420" expanded="true" signature="5003:5039" ph="select * fro... mallbuy" />
+                <marker date="1520145320420" expanded="true" signature="5179:5207" ph="select * fro... mall" />
+                <marker date="1520145320420" expanded="true" signature="6271:6331" ph="select `id` user" />
+                <marker date="1520145320420" expanded="true" signature="6606:6640" ph="insert into `user`... " />
+                <marker date="1520145320420" expanded="true" signature="6606:6660" ph="insert into `user`... " />
+                <marker date="1520145320420" expanded="true" signature="6606:6661" ph="insert into `user`... " />
+                <marker date="1520145320420" expanded="true" signature="6606:6689" ph="insert into `user`... " />
+                <marker date="1520145320420" expanded="true" signature="6606:6721" ph="insert into `user`... " />
+                <marker date="1520145320420" expanded="true" signature="6606:6743" ph="insert into `user`... " />
+                <marker date="1520145320420" expanded="true" signature="6606:6777" ph="insert into `user`... " />
+                <marker date="1520145320420" expanded="true" signature="6606:6805" ph="insert into `user`... " />
+                <marker date="1520145320420" expanded="true" signature="6606:6823" ph="insert into `user`... " />
+                <marker date="1520145320420" expanded="true" signature="6606:6845" ph="insert into `user`... " />
+                <marker date="1520145320420" expanded="true" signature="6606:6867" ph="insert into `user`... " />
+                <marker date="1520145320420" expanded="true" signature="6998:7026" ph="select * fro... user" />
+                <marker date="1520145320420" expanded="true" signature="7729:7774" ph="select * fro... user" />
+                <marker date="1520145320420" expanded="true" signature="8009:8061" ph="select passw... user" />
+                <marker date="1520145320420" expanded="true" signature="8732:8979" ph="update `user... " />
+                <marker date="1520145320420" expanded="true" signature="8732:8989" ph="update `user... " />
+                <marker date="1520145320420" expanded="true" signature="8732:9002" ph="update `user... " />
+                <marker date="1520145320420" expanded="true" signature="8739:8979" ph="insert into `user`... " />
+                <marker date="1520145320420" expanded="true" signature="9048:9109" ph="update `user... " />
+                <marker date="1520145320420" expanded="true" signature="9048:9277" ph="update `user... " />
+                <marker date="1520145320420" expanded="true" signature="9048:9287" ph="update `user... " />
+                <marker date="1520145320420" expanded="true" signature="9426:9456" ph="select * fro... user" />
+                <marker date="1520145320420" expanded="true" signature="9722:9758" ph="select level... user" />
+                <marker date="1520145320420" expanded="true" signature="9722:9771" ph="select level... user" />
+                <marker date="1520145320420" expanded="true" signature="9883:9901" ph="update from " />
+                <marker date="1520145320420" expanded="true" signature="9883:9922" ph="update from " />
+                <marker date="1520145320420" expanded="true" signature="9883:9935" ph="update from " />
+                <marker date="1520145320420" expanded="true" signature="10102:10140" ph="select * fro... rules" />
+                <marker date="1520145320420" expanded="true" signature="10102:10143" ph="select * fro... rules" />
+                <marker date="1520145320420" expanded="true" signature="10102:10145" ph="select * fro... rules" />
+                <marker date="1520145320420" expanded="true" signature="10102:10162" ph="select * fro... rules" />
+                <marker date="1520145320420" expanded="true" signature="10102:10185" ph="select * fro... rules" />
+                <marker date="1520145320420" expanded="true" signature="10102:10193" ph="select hands... rules" />
+                <marker date="1520145320420" expanded="true" signature="10266:10344" ph="update `user... " />
+                <marker date="1520145320420" expanded="true" signature="10503:10574" ph="update `user... " />
+                <marker date="1520145320420" expanded="true" signature="10717:10752" ph="select money... user" />
+                <marker date="1520145320420" expanded="true" signature="10826:10903" ph="insert into histories... " />
+                <marker date="1520145320420" expanded="true" signature="10826:10913" ph="insert into histories... " />
+                <marker date="1520145320420" expanded="true" signature="10826:10937" ph="insert into histories... " />
+                <marker date="1520145320420" expanded="true" signature="10826:11007" ph="insert into histories... " />
+                <marker date="1520145320420" expanded="true" signature="11077:11155" ph="select sum(a... histories" />
+                <marker date="1520145320420" expanded="true" signature="11259:11296" ph="update `user... " />
+                <marker date="1520145320420" expanded="true" signature="11466:11529" ph="update `user... " />
+                <marker date="1520145320420" expanded="true" signature="11684:11747" ph="update `user... " />
+                <marker date="1520145320420" expanded="true" signature="11902:11964" ph="update `user... " />
+                <marker date="1520145320420" expanded="true" signature="12111:12174" ph="update `user... " />
+                <marker date="1520145320420" expanded="true" signature="12340:12359" ph="select * fro... rules" />
+                <marker date="1520145320420" expanded="true" signature="12480:12511" ph="select * fro... user" />
+                <marker date="1520145320420" expanded="true" signature="12480:12516" ph="select * fro... user" />
+                <marker date="1520145320420" expanded="true" signature="13108:13137" ph="update from " />
+                <marker date="1520145320420" expanded="true" signature="13108:13157" ph="update from " />
+                <marker date="1520145320420" expanded="true" signature="13108:13167" ph="update from " />
+                <marker date="1520145320420" expanded="true" signature="13108:13186" ph="update from " />
+                <marker date="1520145320420" expanded="true" signature="13108:13197" ph="update from " />
+                <marker date="1520145320420" expanded="true" signature="13108:13211" ph="update from " />
+                <marker date="1520145320420" expanded="true" signature="13772:13793" ph="insert into rules... " />
+                <marker date="1520145320420" expanded="true" signature="13772:13804" ph="insert into rules... " />
+                <marker date="1520145320420" expanded="true" signature="13772:13824" ph="insert into rules... " />
+                <marker date="1520145320420" expanded="true" signature="13772:13833" ph="insert into rules... " />
+                <marker date="1520145320420" expanded="true" signature="13772:13853" ph="insert into rules... " />
+                <marker date="1520145320420" expanded="true" signature="13998:14015" ph="select * fro... his" />
+                <marker date="1520145320420" expanded="true" signature="13998:14036" ph="select * fro... histories" />
+                <marker date="1520145320420" expanded="true" signature="14218:14246" ph="delete from " />
+                <marker date="1520145320420" expanded="true" signature="14218:14251" ph="delete from " />
+                <marker date="1520145320420" expanded="true" signature="15512:15528" ph="update rules... " />
+                <marker date="1520145320420" expanded="true" signature="15512:15540" ph="update rules... " />
+                <marker date="1520145320420" expanded="true" signature="15512:15560" ph="update rules... " />
+                <marker date="1520145320420" expanded="true" signature="15512:15561" ph="update rules... " />
+                <marker date="1520145320420" expanded="true" signature="15512:15589" ph="update rules... " />
+                <marker date="1520145320420" expanded="true" signature="15512:15624" ph="update rules... " />
+                <marker date="1520145320420" expanded="true" signature="15512:15635" ph="update rules... " />
+                <marker date="1520145320420" expanded="true" signature="15512:15649" ph="update rules... " />
+                <marker date="1520145320420" expanded="true" signature="16825:16921" ph="insert into rules... " />
+                <marker date="1520145320420" expanded="true" signature="16825:16941" ph="insert into rules... " />
               </folding>
             </state>
           </provider>
@@ -144,8 +145,8 @@
       <find>select * from category order by id desc</find>
       <find>die</find>
       <find>db</find>
-      <find>edit</find>
       <find>getedit</find>
+      <find>edit</find>
     </findStrings>
     <replaceStrings>
       <replace>member</replace>
@@ -194,7 +195,6 @@
         <option value="$PROJECT_DIR$/Application/Controller/Home/ArticleController.class.php" />
         <option value="$PROJECT_DIR$/Application/View/Admin/User/edit_vip.html" />
         <option value="$PROJECT_DIR$/Application/View/Admin/User/add_vip.html" />
-        <option value="$PROJECT_DIR$/Application/Controller/Admin/UserController.class.php" />
         <option value="$PROJECT_DIR$/Application/Model/HistoriesModel.class.php" />
         <option value="$PROJECT_DIR$/Application/Controller/Admin/HistoriesController.class.php" />
         <option value="$PROJECT_DIR$/Application/View/Ranking/index.html" />
@@ -205,6 +205,7 @@
         <option value="$PROJECT_DIR$/Application/Model/RankingModel.class.php" />
         <option value="$PROJECT_DIR$/Application/View/Admin/Ranking/index.html" />
         <option value="$PROJECT_DIR$/Application/View/Admin/Code/index.html" />
+        <option value="$PROJECT_DIR$/Application/Controller/Admin/UserController.class.php" />
         <option value="$PROJECT_DIR$/Application/Model/UserModel.class.php" />
       </list>
     </option>
@@ -218,7 +219,8 @@
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectFrameBounds">
     <option name="x" value="-8" />
-    <option name="width" value="1297" />
+    <option name="y" value="-8" />
+    <option name="width" value="1382" />
     <option name="height" value="744" />
   </component>
   <component name="ProjectView">
@@ -397,6 +399,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="SearchEverywhereHistoryKey" value="&#9;FILE&#9;file://D:/server/apache/htdocs/My_code/0228salon/salon/trunk/Application/Controller/Admin/UserController.class.php" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -509,18 +512,18 @@
       <workItem from="1519865918135" duration="49630000" />
       <workItem from="1520046938996" duration="12238000" />
       <workItem from="1520062679250" duration="5546000" />
-      <workItem from="1520124722672" duration="10000000" />
+      <workItem from="1520124722672" duration="13223000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="100372000" />
+    <option name="totallyTimeSpent" value="103595000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="0" width="1297" height="744" extended-state="1" />
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="7" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2334114" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21888727" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2512" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -981,9 +984,9 @@
         <state relative-caret-position="387">
           <caret line="49" column="171" lean-forward="false" selection-start-line="49" selection-start-column="171" selection-end-line="49" selection-end-column="171" />
           <folding>
-            <element signature="n#style#0;n#div#0;n#td#0;n#tr#1;n#thead#0;n#table#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#td#0;n#tr#1;n#thead#0;n#table#0;n#div#0;n#div#1;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#td#0;n#tr#1;n#thead#0;n#table#0;n#div#0;n#div#1;n#div#2;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#td#0;n#tr#1;n#thead#0;n#table#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#div#0;n#td#0;n#tr#1;n#thead#0;n#table#0;n#div#0;n#div#1;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#div#0;n#td#0;n#tr#1;n#thead#0;n#table#0;n#div#0;n#div#1;n#div#2;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1030,8 +1033,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Application/Controller/Admin/UserController.class.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1">
-          <caret line="54" column="24" lean-forward="false" selection-start-line="54" selection-start-column="20" selection-end-line="54" selection-end-column="24" />
+        <state relative-caret-position="180">
+          <caret line="54" column="20" lean-forward="false" selection-start-line="54" selection-start-column="20" selection-end-line="54" selection-end-column="20" />
           <folding>
             <element signature="n#hdxq#0;n#UserController#0;n#!!top" expanded="false" />
             <element signature="n#edit_xq#0;n#UserController#0;n#!!top" expanded="false" />
@@ -1048,100 +1051,101 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Application/Model/UserModel.class.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="303">
-          <caret line="237" column="9" lean-forward="false" selection-start-line="237" selection-start-column="9" selection-end-line="237" selection-end-column="9" />
+        <state relative-caret-position="65">
+          <caret line="239" column="35" lean-forward="true" selection-start-line="239" selection-start-column="35" selection-end-line="239" selection-end-column="35" />
           <folding>
             <element signature="n#getDelete#0;n#UserModel#0;n#!!top" expanded="false" />
             <element signature="n#getedit_vip#0;n#UserModel#0;n#!!top" expanded="false" />
             <element signature="n#getadd_vip#0;n#UserModel#0;n#!!top" expanded="false" />
-            <marker date="1520136127589" expanded="true" signature="682:717" ph="select count... user" />
-            <marker date="1520136127589" expanded="true" signature="1079:1132" ph="select * fro... user" />
-            <marker date="1520136127589" expanded="true" signature="1301:1381" ph="select * fro... histories" />
-            <marker date="1520136127589" expanded="true" signature="2250:2342" ph="select * fro... order" />
-            <marker date="1520136127589" expanded="true" signature="2534:2564" ph="select * fro... member" />
-            <marker date="1520136127589" expanded="true" signature="2744:2772" ph="select * fro... plan" />
-            <marker date="1520136127589" expanded="true" signature="3067:3116" ph="update `orde... " />
-            <marker date="1520136127589" expanded="true" signature="3317:3349" ph="select * fro... order" />
-            <marker date="1520136127589" expanded="true" signature="3669:3711" ph="update `user... " />
-            <marker date="1520136127589" expanded="true" signature="4074:4102" ph="select * fro... plan" />
-            <marker date="1520136127589" expanded="true" signature="4305:4347" ph="update `user... " />
-            <marker date="1520136127589" expanded="true" signature="4641:4679" ph="update `orde... " />
-            <marker date="1520136127589" expanded="true" signature="5003:5039" ph="select * fro... mallbuy" />
-            <marker date="1520136127589" expanded="true" signature="5179:5207" ph="select * fro... mall" />
-            <marker date="1520136127589" expanded="true" signature="6272:6332" ph="select `id` user" />
-            <marker date="1520136127589" expanded="true" signature="6607:6641" ph="insert into `user`... " />
-            <marker date="1520136127589" expanded="true" signature="6607:6661" ph="insert into `user`... " />
-            <marker date="1520136127589" expanded="true" signature="6607:6662" ph="insert into `user`... " />
-            <marker date="1520136127589" expanded="true" signature="6607:6690" ph="insert into `user`... " />
-            <marker date="1520136127589" expanded="true" signature="6607:6722" ph="insert into `user`... " />
-            <marker date="1520136127589" expanded="true" signature="6607:6744" ph="insert into `user`... " />
-            <marker date="1520136127589" expanded="true" signature="6607:6778" ph="insert into `user`... " />
-            <marker date="1520136127589" expanded="true" signature="6607:6806" ph="insert into `user`... " />
-            <marker date="1520136127589" expanded="true" signature="6607:6824" ph="insert into `user`... " />
-            <marker date="1520136127589" expanded="true" signature="6607:6846" ph="insert into `user`... " />
-            <marker date="1520136127589" expanded="true" signature="6607:6868" ph="insert into `user`... " />
-            <marker date="1520136127589" expanded="true" signature="6999:7027" ph="select * fro... user" />
-            <marker date="1520136127589" expanded="true" signature="7627:7672" ph="select * fro... user" />
-            <marker date="1520136127589" expanded="true" signature="8348:8595" ph="update `user... " />
-            <marker date="1520136127589" expanded="true" signature="8348:8605" ph="update `user... " />
-            <marker date="1520136127589" expanded="true" signature="8348:8618" ph="update `user... " />
-            <marker date="1520136127589" expanded="true" signature="8355:8595" ph="insert into `user`... " />
-            <marker date="1520136127589" expanded="true" signature="8664:8725" ph="update `user... " />
-            <marker date="1520136127589" expanded="true" signature="8664:8893" ph="update `user... " />
-            <marker date="1520136127589" expanded="true" signature="8664:8903" ph="update `user... " />
-            <marker date="1520136127589" expanded="true" signature="9041:9071" ph="select * fro... user" />
-            <marker date="1520136127589" expanded="true" signature="9337:9373" ph="select level... user" />
-            <marker date="1520136127589" expanded="true" signature="9337:9386" ph="select level... user" />
-            <marker date="1520136127589" expanded="true" signature="9498:9516" ph="update from " />
-            <marker date="1520136127589" expanded="true" signature="9498:9537" ph="update from " />
-            <marker date="1520136127589" expanded="true" signature="9498:9550" ph="update from " />
-            <marker date="1520136127589" expanded="true" signature="9717:9755" ph="select * fro... rules" />
-            <marker date="1520136127589" expanded="true" signature="9717:9758" ph="select * fro... rules" />
-            <marker date="1520136127589" expanded="true" signature="9717:9760" ph="select * fro... rules" />
-            <marker date="1520136127589" expanded="true" signature="9717:9777" ph="select * fro... rules" />
-            <marker date="1520136127589" expanded="true" signature="9717:9800" ph="select * fro... rules" />
-            <marker date="1520136127589" expanded="true" signature="9717:9808" ph="select hands... rules" />
-            <marker date="1520136127589" expanded="true" signature="9881:9959" ph="update `user... " />
-            <marker date="1520136127589" expanded="true" signature="10118:10189" ph="update `user... " />
-            <marker date="1520136127589" expanded="true" signature="10332:10367" ph="select money... user" />
-            <marker date="1520136127589" expanded="true" signature="10441:10518" ph="insert into histories... " />
-            <marker date="1520136127589" expanded="true" signature="10441:10528" ph="insert into histories... " />
-            <marker date="1520136127589" expanded="true" signature="10441:10552" ph="insert into histories... " />
-            <marker date="1520136127589" expanded="true" signature="10441:10622" ph="insert into histories... " />
-            <marker date="1520136127589" expanded="true" signature="10692:10770" ph="select sum(a... histories" />
-            <marker date="1520136127589" expanded="true" signature="10874:10911" ph="update `user... " />
-            <marker date="1520136127589" expanded="true" signature="11081:11144" ph="update `user... " />
-            <marker date="1520136127589" expanded="true" signature="11299:11362" ph="update `user... " />
-            <marker date="1520136127589" expanded="true" signature="11517:11579" ph="update `user... " />
-            <marker date="1520136127589" expanded="true" signature="11726:11789" ph="update `user... " />
-            <marker date="1520136127589" expanded="true" signature="11955:11974" ph="select * fro... rules" />
-            <marker date="1520136127589" expanded="true" signature="12095:12126" ph="select * fro... user" />
-            <marker date="1520136127589" expanded="true" signature="12095:12131" ph="select * fro... user" />
-            <marker date="1520136127589" expanded="true" signature="12723:12752" ph="update from " />
-            <marker date="1520136127589" expanded="true" signature="12723:12772" ph="update from " />
-            <marker date="1520136127589" expanded="true" signature="12723:12782" ph="update from " />
-            <marker date="1520136127589" expanded="true" signature="12723:12801" ph="update from " />
-            <marker date="1520136127589" expanded="true" signature="12723:12812" ph="update from " />
-            <marker date="1520136127589" expanded="true" signature="12723:12826" ph="update from " />
-            <marker date="1520136127589" expanded="true" signature="13387:13408" ph="insert into rules... " />
-            <marker date="1520136127589" expanded="true" signature="13387:13419" ph="insert into rules... " />
-            <marker date="1520136127589" expanded="true" signature="13387:13439" ph="insert into rules... " />
-            <marker date="1520136127589" expanded="true" signature="13387:13448" ph="insert into rules... " />
-            <marker date="1520136127589" expanded="true" signature="13387:13468" ph="insert into rules... " />
-            <marker date="1520136127589" expanded="true" signature="13613:13630" ph="select * fro... his" />
-            <marker date="1520136127589" expanded="true" signature="13613:13651" ph="select * fro... histories" />
-            <marker date="1520136127589" expanded="true" signature="13833:13861" ph="delete from " />
-            <marker date="1520136127589" expanded="true" signature="13833:13866" ph="delete from " />
-            <marker date="1520136127589" expanded="true" signature="15127:15143" ph="update rules... " />
-            <marker date="1520136127589" expanded="true" signature="15127:15155" ph="update rules... " />
-            <marker date="1520136127589" expanded="true" signature="15127:15175" ph="update rules... " />
-            <marker date="1520136127589" expanded="true" signature="15127:15176" ph="update rules... " />
-            <marker date="1520136127589" expanded="true" signature="15127:15204" ph="update rules... " />
-            <marker date="1520136127589" expanded="true" signature="15127:15239" ph="update rules... " />
-            <marker date="1520136127589" expanded="true" signature="15127:15250" ph="update rules... " />
-            <marker date="1520136127589" expanded="true" signature="15127:15264" ph="update rules... " />
-            <marker date="1520136127589" expanded="true" signature="16440:16536" ph="insert into rules... " />
-            <marker date="1520136127589" expanded="true" signature="16440:16556" ph="insert into rules... " />
+            <marker date="1520145320420" expanded="true" signature="682:717" ph="select count... user" />
+            <marker date="1520145320420" expanded="true" signature="1079:1132" ph="select * fro... user" />
+            <marker date="1520145320420" expanded="true" signature="1301:1381" ph="select * fro... histories" />
+            <marker date="1520145320420" expanded="true" signature="2250:2342" ph="select * fro... order" />
+            <marker date="1520145320420" expanded="true" signature="2534:2564" ph="select * fro... member" />
+            <marker date="1520145320420" expanded="true" signature="2744:2772" ph="select * fro... plan" />
+            <marker date="1520145320420" expanded="true" signature="3067:3116" ph="update `orde... " />
+            <marker date="1520145320420" expanded="true" signature="3317:3349" ph="select * fro... order" />
+            <marker date="1520145320420" expanded="true" signature="3669:3711" ph="update `user... " />
+            <marker date="1520145320420" expanded="true" signature="4074:4102" ph="select * fro... plan" />
+            <marker date="1520145320420" expanded="true" signature="4305:4347" ph="update `user... " />
+            <marker date="1520145320420" expanded="true" signature="4641:4679" ph="update `orde... " />
+            <marker date="1520145320420" expanded="true" signature="5003:5039" ph="select * fro... mallbuy" />
+            <marker date="1520145320420" expanded="true" signature="5179:5207" ph="select * fro... mall" />
+            <marker date="1520145320420" expanded="true" signature="6271:6331" ph="select `id` user" />
+            <marker date="1520145320420" expanded="true" signature="6606:6640" ph="insert into `user`... " />
+            <marker date="1520145320420" expanded="true" signature="6606:6660" ph="insert into `user`... " />
+            <marker date="1520145320420" expanded="true" signature="6606:6661" ph="insert into `user`... " />
+            <marker date="1520145320420" expanded="true" signature="6606:6689" ph="insert into `user`... " />
+            <marker date="1520145320420" expanded="true" signature="6606:6721" ph="insert into `user`... " />
+            <marker date="1520145320420" expanded="true" signature="6606:6743" ph="insert into `user`... " />
+            <marker date="1520145320420" expanded="true" signature="6606:6777" ph="insert into `user`... " />
+            <marker date="1520145320420" expanded="true" signature="6606:6805" ph="insert into `user`... " />
+            <marker date="1520145320420" expanded="true" signature="6606:6823" ph="insert into `user`... " />
+            <marker date="1520145320420" expanded="true" signature="6606:6845" ph="insert into `user`... " />
+            <marker date="1520145320420" expanded="true" signature="6606:6867" ph="insert into `user`... " />
+            <marker date="1520145320420" expanded="true" signature="6998:7026" ph="select * fro... user" />
+            <marker date="1520145320420" expanded="true" signature="7729:7774" ph="select * fro... user" />
+            <marker date="1520145320420" expanded="true" signature="8009:8061" ph="select passw... user" />
+            <marker date="1520145320420" expanded="true" signature="8732:8979" ph="update `user... " />
+            <marker date="1520145320420" expanded="true" signature="8732:8989" ph="update `user... " />
+            <marker date="1520145320420" expanded="true" signature="8732:9002" ph="update `user... " />
+            <marker date="1520145320420" expanded="true" signature="8739:8979" ph="insert into `user`... " />
+            <marker date="1520145320420" expanded="true" signature="9048:9109" ph="update `user... " />
+            <marker date="1520145320420" expanded="true" signature="9048:9277" ph="update `user... " />
+            <marker date="1520145320420" expanded="true" signature="9048:9287" ph="update `user... " />
+            <marker date="1520145320420" expanded="true" signature="9426:9456" ph="select * fro... user" />
+            <marker date="1520145320420" expanded="true" signature="9722:9758" ph="select level... user" />
+            <marker date="1520145320420" expanded="true" signature="9722:9771" ph="select level... user" />
+            <marker date="1520145320420" expanded="true" signature="9883:9901" ph="update from " />
+            <marker date="1520145320420" expanded="true" signature="9883:9922" ph="update from " />
+            <marker date="1520145320420" expanded="true" signature="9883:9935" ph="update from " />
+            <marker date="1520145320420" expanded="true" signature="10102:10140" ph="select * fro... rules" />
+            <marker date="1520145320420" expanded="true" signature="10102:10143" ph="select * fro... rules" />
+            <marker date="1520145320420" expanded="true" signature="10102:10145" ph="select * fro... rules" />
+            <marker date="1520145320420" expanded="true" signature="10102:10162" ph="select * fro... rules" />
+            <marker date="1520145320420" expanded="true" signature="10102:10185" ph="select * fro... rules" />
+            <marker date="1520145320420" expanded="true" signature="10102:10193" ph="select hands... rules" />
+            <marker date="1520145320420" expanded="true" signature="10266:10344" ph="update `user... " />
+            <marker date="1520145320420" expanded="true" signature="10503:10574" ph="update `user... " />
+            <marker date="1520145320420" expanded="true" signature="10717:10752" ph="select money... user" />
+            <marker date="1520145320420" expanded="true" signature="10826:10903" ph="insert into histories... " />
+            <marker date="1520145320420" expanded="true" signature="10826:10913" ph="insert into histories... " />
+            <marker date="1520145320420" expanded="true" signature="10826:10937" ph="insert into histories... " />
+            <marker date="1520145320420" expanded="true" signature="10826:11007" ph="insert into histories... " />
+            <marker date="1520145320420" expanded="true" signature="11077:11155" ph="select sum(a... histories" />
+            <marker date="1520145320420" expanded="true" signature="11259:11296" ph="update `user... " />
+            <marker date="1520145320420" expanded="true" signature="11466:11529" ph="update `user... " />
+            <marker date="1520145320420" expanded="true" signature="11684:11747" ph="update `user... " />
+            <marker date="1520145320420" expanded="true" signature="11902:11964" ph="update `user... " />
+            <marker date="1520145320420" expanded="true" signature="12111:12174" ph="update `user... " />
+            <marker date="1520145320420" expanded="true" signature="12340:12359" ph="select * fro... rules" />
+            <marker date="1520145320420" expanded="true" signature="12480:12511" ph="select * fro... user" />
+            <marker date="1520145320420" expanded="true" signature="12480:12516" ph="select * fro... user" />
+            <marker date="1520145320420" expanded="true" signature="13108:13137" ph="update from " />
+            <marker date="1520145320420" expanded="true" signature="13108:13157" ph="update from " />
+            <marker date="1520145320420" expanded="true" signature="13108:13167" ph="update from " />
+            <marker date="1520145320420" expanded="true" signature="13108:13186" ph="update from " />
+            <marker date="1520145320420" expanded="true" signature="13108:13197" ph="update from " />
+            <marker date="1520145320420" expanded="true" signature="13108:13211" ph="update from " />
+            <marker date="1520145320420" expanded="true" signature="13772:13793" ph="insert into rules... " />
+            <marker date="1520145320420" expanded="true" signature="13772:13804" ph="insert into rules... " />
+            <marker date="1520145320420" expanded="true" signature="13772:13824" ph="insert into rules... " />
+            <marker date="1520145320420" expanded="true" signature="13772:13833" ph="insert into rules... " />
+            <marker date="1520145320420" expanded="true" signature="13772:13853" ph="insert into rules... " />
+            <marker date="1520145320420" expanded="true" signature="13998:14015" ph="select * fro... his" />
+            <marker date="1520145320420" expanded="true" signature="13998:14036" ph="select * fro... histories" />
+            <marker date="1520145320420" expanded="true" signature="14218:14246" ph="delete from " />
+            <marker date="1520145320420" expanded="true" signature="14218:14251" ph="delete from " />
+            <marker date="1520145320420" expanded="true" signature="15512:15528" ph="update rules... " />
+            <marker date="1520145320420" expanded="true" signature="15512:15540" ph="update rules... " />
+            <marker date="1520145320420" expanded="true" signature="15512:15560" ph="update rules... " />
+            <marker date="1520145320420" expanded="true" signature="15512:15561" ph="update rules... " />
+            <marker date="1520145320420" expanded="true" signature="15512:15589" ph="update rules... " />
+            <marker date="1520145320420" expanded="true" signature="15512:15624" ph="update rules... " />
+            <marker date="1520145320420" expanded="true" signature="15512:15635" ph="update rules... " />
+            <marker date="1520145320420" expanded="true" signature="15512:15649" ph="update rules... " />
+            <marker date="1520145320420" expanded="true" signature="16825:16921" ph="insert into rules... " />
+            <marker date="1520145320420" expanded="true" signature="16825:16941" ph="insert into rules... " />
           </folding>
         </state>
       </provider>

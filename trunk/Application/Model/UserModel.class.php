@@ -164,7 +164,7 @@ class UserModel extends Model
 
     public function getAdd_save($data,$file){
         //判定2次密码的相同
-        if($data['pwd1']!==$data['pwd2']){
+        if($data['pwd1']!=$data['pwd2']){
             $this->error = '两次输入的密码不一致';
             return false;
 //            Tools::jump('两次输入的密码不一致','./index.php?c=User&a=index',3);
@@ -221,6 +221,10 @@ last_login_ip='{$ip}'
     }
 
     public function getEdit_save($data,$file){
+       if (strlen($data['pwd1'])>=32){
+           $this->error='密码长度过长';
+           return false;
+       }
         //判定2次密码的相同
         if($data['pwd1']!==$data['pwd2']){
             $this->error = '两次输入的密码不一致';
@@ -232,22 +236,29 @@ last_login_ip='{$ip}'
             $this->error = '用户名不能小于3位';
             return false;
         }
-        if (empty($data['pwd1'])){
-            $this->error='请填写密码';
-            return false;
+//        print_r($data['pwd']);die;
+        if (!empty($data['pwd']) || !empty($data['pwd1'])){
+            $sql="select * from `user` where id='{$data['id']}'";
+            $res=$this->pdo->fetchRow($sql);
+            if ($res['password']!=Tools::myPwd($data['pwd'])){
+                $this->error='旧密码错误';
+                return false;
+            }
         }
-        $sql="select * from `user` where id='{$data['id']}'";
-        $res=$this->pdo->fetchRow($sql);
-        if ($res['password']!=Tools::myPwd($data['pwd'])){
-            $this->error='旧密码错误';
-            return false;
+        else{
+            $sql="select password from `user` where id='{$data['id']}'";
+            $data['pwd1']=$this->pdo->fetchColumn($sql);
         }
+
         //准备数据
         $time=time();
         $ip=$_SERVER['REMOTE_ADDR'];
         $ip=ip2long($ip);
-        $pwd=Tools::myPwd($data['pwd1']);
-
+        if (strlen($data['pwd1'])==32){
+         $pwd=$data['pwd1'];
+        }else{
+            $pwd=Tools::myPwd($data['pwd1']);
+        }
         if ($file['error']!=4){
             //移动图片
             $up= new UploadTool();
@@ -284,6 +295,7 @@ last_login='{$time}',
 last_login_ip='{$ip}' where id={$data['id']}
 ";
         }
+
         $this->pdo->execute($sql);
 
 
