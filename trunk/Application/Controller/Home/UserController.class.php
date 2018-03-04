@@ -18,6 +18,7 @@ class UserController extends PlatformController
 $field = $_REQUEST;
 $field['page_size'] = 3;
         $users = $this->obj->getAll($field);
+//        var_dump($users);die;
         $this->assign($users);
         //我的预约
         $my_order = $this->obj->getMy_order();

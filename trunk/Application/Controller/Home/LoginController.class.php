@@ -31,7 +31,7 @@ class LoginController extends Controller
         }
         $this->display('index');
     }
-    public function add_save(){
+    public function add_save(){ //在美发项目中未只用这个方法,备用当代码资源
         if ($_SERVER['REQUEST_METHOD'] == 'POST'){
                 $field = $_POST;
                 //这里判断上传文件
