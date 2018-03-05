@@ -8,7 +8,7 @@
 class MallModel extends Model
 {
     public  function getAdminIndex(){
-        $sql = "select * from mall";
+        $sql = "select * from mall order by id desc";
         $mall = $this->pdo->fetchAll($sql);
 
         return [
@@ -95,7 +95,7 @@ class MallModel extends Model
         $start = ($page-1)*$page_size;
         $limit = " limit {$start},{$page_size}";
 
-        $sql = "select * from mall where ".$where.$limit;
+        $sql = "select * from mall where ".$where."order by id desc".$limit;
         $mall = $this->pdo->fetchAll($sql);
 
         @session_start();

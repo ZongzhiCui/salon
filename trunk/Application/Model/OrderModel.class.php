@@ -68,7 +68,7 @@ class OrderModel extends Model
         $field['realname'] = $_SESSION['user']['id'];
         $field['phone'] = $_SESSION['user']['telephone'];
         if (strtotime($_POST['date']) < time()){
-            $this->error = '预约时间至少提前一小时!';
+            $this->error = '预约时间至少提前一天!';
             return false;
         }
         $field['date'] = strtotime($_POST['date']);
@@ -115,7 +115,7 @@ class OrderModel extends Model
         $start = ($page-1)*$page_size;
         $limit = " limit {$start},{$page_size}";
 
-        $sql = "select m.*,o.* from `order` o LEFT join member m ON m.id=o.barber where o.del=0 and o.cancel=0 AND ".$where.$limit;
+        $sql = "select m.*,o.* from `order` o LEFT join member m ON m.id=o.barber where o.del=0 and o.cancel=0 AND ".$where."order by o.id desc".$limit;
         $orders = $this->pdo->fetchAll($sql);
         foreach ($orders as &$valu){
             $sql = "select * from `user` where id={$valu['realname']}";

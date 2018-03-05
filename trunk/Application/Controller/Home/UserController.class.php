@@ -17,7 +17,7 @@ class UserController extends PlatformController
     public function index(){
 $field = $_REQUEST;
 $field['page_size'] = 3;
-        $users = $this->obj->getAll($field);
+        $users = $this->obj->getHomeAll($field);
 //        var_dump($users);die;
         $this->assign($users);
         //我的预约

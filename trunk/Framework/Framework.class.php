@@ -85,7 +85,8 @@ class Framework
             'PageTool'=>'./Framework/Tools/PageTool.class.php',
             'ObjFactory'=>'./Framework/Tools/ObjFactory.class.php',
             'Model'=>FRAME_PATH.'Model.class.php',
-            'Controller'=>FRAME_PATH.'Controller.class.php'
+            'Controller'=>FRAME_PATH.'Controller.class.php',
+            'PHPExcel'=>FRAME_PATH.'PHPExcel/Classes/PHPExcel.php',
         );
     }
 

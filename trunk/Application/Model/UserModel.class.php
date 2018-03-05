@@ -40,19 +40,7 @@ class UserModel extends Model
 
         //充值记录
         //消费记录
-        @session_start();
-//        var_dump($_SESSION['user']);die;
-        $sql = "select * from histories where user_id={$_SESSION['user']['id']} order by id desc";
-        $vip = $this->pdo->fetchAll($sql);
-        $recharge = [];
-        $consume = [];
-        foreach($vip as $v){
-            if ($v['type'] == '充值'){
-                $recharge[] = $v;
-            }elseif ($v['type'] == '消费'){
-                $consume[] = $v;
-            }
-        }
+
 
         $html = PageTool::myYeMa($page,$page_size,$total_page);
         return [
@@ -62,13 +50,74 @@ class UserModel extends Model
             'page'=>$page,
             'page_size'=>$page_size,
             'html'=>$html,
-            'recharge'=>$recharge,
-            'consume'=>$consume,
+//            'recharge'=>$recharge,
+//            'consume'=>$consume,
         ];
 //        return $rs;
 //    $fenye = new PageTools();
 //    $rs = $fenye->myFenYe($field,'user');
 //    return $rs;
+    }
+    //前台个人消费记录
+    public function getHomeAll(){
+            //处理搜索数据
+            $where = '1=1 ';
+            if (!empty($field['keyword'])){
+                $where .= "and (realname like '%{$field['keyword']}%' or username like '%{$field['keyword']}%')";
+            }
+            if(!empty($field['telephone'])){
+                $where.=" and telephone like '%{$field['telephone']}%'";
+            }
+            if(isset($field['sex'])){
+                $where.=" and sex = {$field['sex']}";
+            }
+
+            //分页显示
+            $page_size = $field['page_size']??4;
+            //>>计算count totalPage
+            $sql = "select count(id) from `user` where ".$where;
+
+            $count = $this->pdo->fetchColumn($sql);
+            $total_page = ceil($count/$page_size);
+
+            //>>开始页和每页条数
+            $page = intval($field['page']??1);
+            $page = $page<1?1:$page;
+            $page = $page>$total_page?$total_page:$page;
+            $start = ($page-1)*$page_size;
+            $limit = " limit {$start},{$page_size}";
+
+            $sql = "select * from `user` where {$where} order by id desc {$limit}";
+            $rs = $this->pdo->fetchAll($sql);
+
+            //充值记录
+            //消费记录
+            @session_start();
+//        var_dump($_SESSION['user']);die;
+            $sql = "select * from histories where user_id={$_SESSION['user']['id']} order by id desc";
+            $vip = $this->pdo->fetchAll($sql);
+            $recharge = [];
+            $consume = [];
+            foreach($vip as $v){
+                if ($v['type'] == '充值'){
+                    $recharge[] = $v;
+                }elseif ($v['type'] == '消费'){
+                    $consume[] = $v;
+                }
+            }
+
+            $html = PageTool::myYeMa($page,$page_size,$total_page);
+            return [
+                'rows'=>$rs,
+                'count'=>$count,
+                'total_page'=>$total_page,
+                'page'=>$page,
+                'page_size'=>$page_size,
+                'html'=>$html,
+                'recharge'=>$recharge,
+                'consume'=>$consume,
+            ];
+
     }
 
     /**
