@@ -33,8 +33,9 @@ class LoginController extends Controller
     }
     public function add_save(){ //在美发项目中未只用这个方法,备用当代码资源
         if ($_SERVER['REQUEST_METHOD'] == 'POST'){
-                $field = $_POST;
-                //这里判断上传文件
+            $field = $_POST;
+//            var_dump($field);die;
+            //这里判断上传文件
                 if ($_FILES['head']['error'] != 4){
                     //接收到文件数据 实现上传文件的功能
                     $file = $_FILES['head'];
@@ -51,11 +52,11 @@ class LoginController extends Controller
                     if ($thumb_logo === false){
                         Tools::jump('./index.php?p=Home&c=Login&a=add_save',$thumb->getError(),3);
                     }
-                    unlink(__DIR__.'/../'.$head);
+//                    unlink(__DIR__.'/../'.$head);
                     $field['photo'] = $thumb_logo;
                 }
                 $user_add = new UserModel();
-                $r = $user_add->getAdd_save($field);
+                $r = $user_add->getHomeAdd_save($field);
                 if ($r === false){
                     Tools::jump('./index.php?p=Home&c=Login&a=add_save',$user_add->getError(),3);
                 }

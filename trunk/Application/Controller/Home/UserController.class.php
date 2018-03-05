@@ -69,11 +69,10 @@ $field['page_size'] = 3;
             if ($thumb_logo === false){
                 Tools::jump('./index.php?p=Admin&c=User&a=add',$thumb->getError(),3);
             }
-            unlink(__DIR__.'/../'.$head);
             $field['head'] = $thumb_logo;
         }
 
-        $r = $this->obj->getAdd_save($field);
+        $r = $this->obj->getHomeAdd_save($field);
         if ($r === false){
             Tools::jump($this->obj->getError(),'./index.php?p=Admin&c=User&a=index',3);
         }

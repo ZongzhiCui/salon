@@ -69,18 +69,18 @@ class DB
         $stm = $this->query($sql);
         $rows = $stm->fetchAll(PDO::FETCH_ASSOC);
         if ($rows === false){
-            die('结果集对象错误!驱动错误信息:'.$stm->errorInfo()[2]);
+            return [];
+//            die('结果集对象错误!驱动错误信息:'.$stm->errorInfo()[2]);
         }
         return $rows;
     }
     /**实现fetchRow($sql),执行sql,解析完毕,返回一维数组**/
     public function fetchRow($sql){
         $stm = $this->query($sql);
-//        var_dump($stm);
         $row = $stm->fetch(PDO::FETCH_ASSOC);
         if ($row === false){
-//            return [];
-            die('结果集对象错误:'.var_dump($stm->errorInfo()));
+            return [];
+//            die('结果集对象错误:'.var_dump($stm->errorInfo()));
         }
         return $row;
     }
@@ -93,7 +93,8 @@ class DB
         $stm = $this->query($sql);
         $col = $stm->fetchColumn($column_number);
         if ($col === false){
-            die('结果集对象错误!驱动错误信息:'.$stm->errorInfo()[2]);
+            return [];
+//            die('结果集对象错误!驱动错误信息:'.$stm->errorInfo()[2]);
         }
         return $col;
     }
