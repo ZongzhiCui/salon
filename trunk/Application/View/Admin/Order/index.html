@@ -14,9 +14,12 @@
                                 <div class="row">
                                     <div class="col-sm-6">
                                         <div id="dataTables-example_filter" class="dataTables_filter">
-                                                <form action="index.php?p=Admin&c=Order&a=index" method="post">
-                                                    <input type="text" name="keyword" placeholder="搜索"><input type="submit" value="Search">
+                                                <form action="index.php?p=Admin&c=Order&a=index" method="post" enctype="application/x-www-form-urlencoded">
+                                                    <input type="number" id="myul" name="keyword" placeholder="预约电话"><input type="submit" value="Search">
                                                 </form>
+                                            <ul style="float: left;position: absolute;z-index: 66;background-color: #999999;width: 500px;list-style-type: none;padding-left: 0;cursor: pointer;" id="uul">
+                                                <!--<li>1111</li>-->
+                                            </ul>
                                         </div>
                                     </div>
                                 </div>
@@ -134,5 +137,40 @@
 <script src="Public/Admin/assets/js/morris/morris.js"></script>
 <!-- CUSTOM SCRIPTS -->
 <script src="Public/Admin/assets/js/custom.js"></script>
+<script src="Public\Home\public.js"></script>
+<script type="text/javascript">
+
+    function chose(lili) {
+//        console.dir($('myul'));
+        $('myul').value = lili.innerHTML;
+    }
+    window.onload = function () {
+        $('myul').addEventListener('keyup',function () {
+            var search = $v('myul');
+
+            var xhr = createAjax();
+            xhr.open('POST','index.php?p=Admin&c=Order&a=search');
+            xhr.setRequestHeader('Content-Type','application/x-www-form-urlencoded');
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState == 4 && xhr.status == 200){
+//                    d(typeof xhr.responseText);
+                    var data = JSON.parse(xhr.responseText);
+//                    d(data);
+                    var li = '';
+                    for (var i in data){
+                        li += "<li onclick='chose(this)'>"+data[i].phone+"</li>"  //绑定的事件无法触发
+                    }
+                    $('uul').innerHTML = li;
+                }
+            };
+            xhr.send('search='+search);
+        });
+        $('myul').addEventListener('blur',function () {
+            window.setTimeout(function () {
+                $('uul').innerHTML = "";
+            },200);
+        });
+    }
+</script>
 </body>
 </html>

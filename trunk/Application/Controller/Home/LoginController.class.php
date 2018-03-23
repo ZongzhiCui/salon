@@ -86,4 +86,27 @@ class LoginController extends Controller
     public function registeration(){
         $this->display();
     }
+
+    /**
+     * ajax
+     */
+    public function every(){
+        $username = $_POST['username']??'';
+        $r = $this->obj->getEvery($username);
+//        var_dump($r);die;
+        if ($r === false){
+            echo 0;
+        }elseif($r === true){
+            echo 1;
+        }
+    }
+    public function everyone(){
+        $telephone = $_POST['telephone']??'';
+        $r = $this->obj->getEveryone($telephone);
+        if ($r === false){
+            echo 0;
+        }elseif($r === true){
+            echo 1;
+        }
+    }
 }

@@ -83,6 +83,7 @@ class Framework
             'DB'=>TOOLS_PATH.'DB.class.php',
             'Tools'=>'./Framework/Tools/Tools.class.php',
             'PageTool'=>'./Framework/Tools/PageTool.class.php',
+            'Pagination'=>'./Framework/Tools/Pagination.php',
             'ObjFactory'=>'./Framework/Tools/ObjFactory.class.php',
             'Model'=>FRAME_PATH.'Model.class.php',
             'Controller'=>FRAME_PATH.'Controller.class.php',

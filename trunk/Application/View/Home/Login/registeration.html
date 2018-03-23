@@ -1,64 +1,250 @@
 ﻿<?php include VIEW_PATH.'Home\Login\link_script.html';?>
-
+<style>
+    .myDiv{
+        height: 17px;
+        font-size: 12px;
+        color: #385077;
+    }
+    .mySpan{
+        display: none;
+    }
+    .show{
+        display: inline;
+    }
+    .showErr{
+        display: inline;
+        font-size: 14px;
+        color: #ff0706;
+    }
+</style>
 </head>
 <body>
     <div class="container">
         <div class="row text-center  ">
             <div class="col-md-12">
-                <br /><br />
                 <h2>新用户注册</h2>
-               
                 <h5>( Register yourself to get access )</h5>
-                 <br />
             </div>
         </div>
          <div class="row">
-               
-                <div class="col-md-4 col-md-offset-4 col-sm-6 col-sm-offset-3 col-xs-10 col-xs-offset-1">
+            <div class="col-md-4 col-md-offset-4 col-sm-6 col-sm-offset-3 col-xs-10 col-xs-offset-1">
                         <div class="panel panel-default">
-                            <div class="panel-heading">
-                        <strong>注册</strong>
-                            </div>
                             <div class="panel-body">
-                                <form action="index.php?p=Home&c=Login&a=add_save" method="post" enctype="multipart/form-data">
+                                <form id="form" action="index.php?p=Home&c=Login&a=add_save" method="post" enctype="multipart/form-data">
 <br/>
-                                        <div class="form-group input-group">
-                                            <span class="input-group-addon"><i class="fa fa-circle-o-notch"  ></i></span>
-                                            <input type="text" name="realname" class="form-control" placeholder="真实姓名" />
-                                        </div>
-                                     <div class="form-group input-group">
+                                    <div class="input-group">
                                             <span class="input-group-addon"><i class="fa fa-tag"  ></i></span>
-                                            <input type="text" name="username" class="form-control" placeholder="用户昵称" />
-                                        </div>
-                                    <div class="form-group input-group">
-                                        <span class="input-group-addon"><i class="fa fa-phone"  ></i></span>
-                                        <input type="tel" name="telephone" class="form-control" placeholder="用户电话" />
+                                        <input type="text" id="username" name="username" class="form-control" placeholder="用户昵称" /><ul style="float: left;position: absolute;left: 344px;z-index: 66;background-color: #999999;width: 200px;list-style-type: none;padding-left: 0;" id="uul"></ul>
                                     </div>
-                                      <div class="form-group input-group">
-                                            <span class="input-group-addon"><i class="fa fa-lock"  ></i></span>
-                                            <input type="password" name="pwd1" class="form-control" placeholder="输入密码" />
-                                        </div>
-                                     <div class="form-group input-group">
-                                            <span class="input-group-addon"><i class="fa fa-lock"  ></i></span>
-                                            <input type="password" name="pwd2" class="form-control" placeholder="确认密码" />
+                                    <div class="myDiv div11"><span class="mySpan">*支持中文,字母,数字,'-','_',的组合,4-20个字符</span>
+                                    <span class="mySpan">*用户名必须4-20个字符,支持中文,字母,数字,'-','_'</span></div>
+                                    <div class="input-group">
+                                          <span class="input-group-addon"><i class="fa fa-lock"  ></i></span>
+                                          <input type="password" id="pwd1" name="pwd1" class="form-control" placeholder="输入密码" />
                                     </div>
-                                    <div class="form-group input-group">
+                                    <div class="myDiv div22"><span class="mySpan">*建议字母,数字,符号两种以上的组合,6-20个字符</span>
+                                        <span class="mySpan">*密码首位必须是字母需要6-20个字符</span></div>
+                                    <div class="input-group">
+                                        <span class="input-group-addon"><i class="fa fa-lock"  ></i></span>
+                                        <input type="password" id="pwd2" name="pwd2" class="form-control" placeholder="确认密码" />
+                                    </div>
+                                    <div class="myDiv div33"><span class="mySpan">*请再次输入密码</span>
+                                        <span class="mySpan">*两次密码必须一致</span></div>
+                                    <div class="input-group">
                                         <span class="input-group-addon"><i class="fa fa-file"  ></i></span>
-                                        <input type="file" name="head" class="form-control" placeholder="上传头像" />
+                                        <input type="file" id="head" name="head" class="form-control" placeholder="上传头像" />
                                     </div>
-
-                                    <input type="submit" class="btn btn-success " value="点击注册">
+                                    <div class="myDiv div44"></div>
+                                    <div class="input-group">
+                                        <span class="input-group-addon"><i class="fa fa-phone"  ></i></span>
+                                        <input type="tel" id="telephone" name="telephone" class="form-control" placeholder="用户电话" /><ul style="float: left;position: absolute;left: 344px;z-index: 66;background-color: #999999;width: 200px;list-style-type: none;padding-left: 0;" id="phone"></ul>
+                                    </div>
+                                    <div class="myDiv div55"><span class="mySpan">*请输入手机号</span>
+                                        <span class="mySpan">*手机号必须11位数字</span></div>
+                                    <div class="input-group">
+                                        <input type="tel" id="random1" class="form-control" placeholder="验证码" />
+                                        <input type="button" id="random" value="获取验证码" style="position: absolute;width: 100px;height: 34px">
+                                    </div>
+                                    <div class="myDiv div66"><span class="mySpan">*完成验证后,你可以用该手机登录和找回密码</span></div>
+                                    <input type="submit" id="submit" class="btn btn-success " value="点击注册">
                                     <hr />
                                 </form>
                                 已经注册 ?  <a href="index.php?p=Home&c=Login&a=index" >在这里登录</a>
                             </div>
-                           
                         </div>
                     </div>
-                
-                
         </div>
     </div>
+    <script type="text/javascript" src="./Public\Home\public.js"></script>
+    <script type="text/javascript">
+        function focus(){
+            var show = this.parentNode.nextSibling.nextSibling.firstChild;
+            //获取焦点的时候先取消一次错误提示信息.否则会有BUG
+            show.nextSibling.nextSibling.className = "mySpan";
+            //提示输入信息
+            show.className = "mySpan show";
+            // return this;
+        };
+        function blurr(){
+            var show = this.parentNode.nextSibling.nextSibling.firstChild;
+            show.className = "mySpan";
+            //失去焦点的时候判定信息的有效性
+            //show.nextSibling.nextSibling 信息错误的提示信息
+            var str = this.value;
+            var xhr = createAjax();
+            // console.debug(typeof str);
+            if (this.id == 'username'){ //验证用户名
+                var reg = /^[\u4E00-\u9FA5A-Za-z0-9_-]{4,20}$/;
+                if (str!='' && !reg.test(str)){
+                    show.nextSibling.nextSibling.className = "mySpan showErr";
+                    $('uul').innerHTML = "";
+                    return false;
+                }
+                xhr.open('POST','./index.php?p=Home&c=Login&a=every');
+                xhr.setRequestHeader('Content-Type','application/x-www-form-urlencoded');
+                xhr.onreadystatechange = function () {
+                    if (xhr.readyState == 4 && xhr.status == 200){
+//                        p(xhr.responseText);
+                        if (xhr.responseText == "0"){
+//                            d($('uul'));
+                            $('uul').innerHTML = "<li style='color: #ff150a'>已注册,推荐选择:</li>" +
+                                "<li>"+str+"<strong>8868</strong></li>"+
+                                "<li>"+str+"<strong>4680</strong></li>";
+                        }else{
+                            $('uul').innerHTML = "";
+                        }
+                    }
+                };
+                xhr.send('username='+str);
+                /*$('uul').onblur = function () {
+                    $('uul').innerHTML = "";
+                }*/
+            }
 
+            if (this.id == 'pwd1'){ //密码
+                var reg = /^[a-zA-Z]\w{5,17}$/;
+                if (str!='' && !reg.test(str)){
+                    show.nextSibling.nextSibling.className = "mySpan showErr";
+                    return false;
+                }
+                a = str;
+                // console.debug(a);
+            }
+            if (this.id == 'pwd2'){ //密码
+                // console.debug(str);
+                // console.debug(a);
+                if (str!='' && str!==a){
+                    show.nextSibling.nextSibling.className = "mySpan showErr";
+                    return false;
+                }
+            }
+            if (this.id == 'telephone'){ //手机号码
+                var reg = /^1[3578]\d{9}$/;
+                if (str!='' && !reg.test(str)){
+                    show.nextSibling.nextSibling.className = "mySpan showErr";
+                    $('phone').innerHTML = "";
+                    return false;
+                }
+                xhr.open('POST','./index.php?p=Home&c=Login&a=everyone');
+                xhr.setRequestHeader('Content-Type','application/x-www-form-urlencoded');
+                xhr.onreadystatechange = function () {
+                    if (xhr.readyState == 4 && xhr.status == 200){
+//                        p(xhr.responseText);
+                        if (xhr.responseText == "0"){
+//                            d($('uul'));
+                            $('phone').innerHTML = "<li style='color: #ff150a'>手机号已被注册</li>";
+                        }else{
+                            $('phone').innerHTML = "";
+                        }
+                    }
+                };
+                xhr.send('telephone='+str);
+            }
+        };
+        window.onload = function () {
+            var a = '';
+            var input = document.getElementsByTagName('input');
+            // console.dir(input);
+            //input.length
+            for (var i=0;i<input.length;++i){
+                if (i == 3){
+                    continue;
+                }
+                // console.debug(i);
+                input[i].onfocus = focus;
+
+                input[i].onblur = blurr;
+
+                if (i == 4){
+                    break;
+                }
+            }
+            var time = 6;
+            $('random').onclick = function () {
+                // console.dir(document.getElementById("random"));
+                var random = document.getElementById("random");
+                random.disabled = true;
+                var timer = window.setInterval(function showTime() {
+                    --time;
+                    var str = time+"秒重新获取";
+                    random.value = str;
+                    if(time==0){
+                        window.clearInterval(timer);
+                        random.value = "获取验证码";
+                        random.disabled = false;
+                        time = 6;
+                    }
+                },1000);
+            };
+            // console.dir($('form'));//找不到submit方法呢?
+            $('form').onsubmit = function () {
+                for (var j=0;j<input.length;++j){
+                    if (j == 3){
+                        continue;
+                    }
+                     console.dir(input[j]);
+                    if (input[j].value == ''){
+//                        console.debug(input[j].value);
+                        alert('用户信息不能为空!');
+                        // input[j].onfocus();
+                        return false;
+                    }else{
+//                        input[j].value;
+                        if (input[j].id == 'username'){ //验证用户名
+                            var reg = /^[\u4E00-\u9FA5A-Za-z0-9_-]{4,20}$/;
+                            if (!reg.test(input[j].value)){
+                                alert('用户名必须4-20个字符,支持中文,字母,数字,\'-\',\'_\'');
+                                return false;
+                            }
+                        }
+                        if (input[j].id == 'pwd1'){ //密码
+                            var reg = /^[a-zA-Z]\w{5,17}$/;
+                            if (!reg.test(input[j].value)){
+                                alert('密码首位必须是字母需要6-20个字符');
+                                return false;
+                            }
+                        }
+                        if (input[j].id == 'pwd2'){ //密码
+                            if (input[j].value!==input[j-1].value){
+                                alert('两次密码必须一致');
+                                return false;
+                            }
+                        }
+                        if (input[j].id == 'telephone'){ //密码
+                            var reg = /^1[3578]\d{9}$/;
+                            if (!reg.test(input[j].value)){
+                                alert('手机号必须11位数字');
+                                return false;
+                            }
+                        }
+
+                    }
+                    if (j == 4){
+                        break;
+                    }
+                }
+            };
+        }
+    </script>
 </body>
 </html>

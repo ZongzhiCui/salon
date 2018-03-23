@@ -99,12 +99,12 @@ class OrderModel extends Model
     public function getAdminIndex($field=[]){
         $where = '1=1 ';
         if (!empty($field['keyword'])){
-            $where .= "and (o.username like '%{$field['keyword']}%' or o.realname like '%{$field['keyword']}%' )";
+            $where .= "and (phone like '%{$field['keyword']}%' )";
         }
         //分页显示
         $page_size = $field['page_size']??4;
         //>>计算count totalPage
-        $sql = "select count(id) from `order` where del=0 and cancel=0 AND ".$where;
+        $sql = "select count(id) from `order` where del=0 and cancel=0 and ".$where;
         $count = $this->pdo->fetchColumn($sql);
         $total_page = ceil($count/$page_size);
 
@@ -159,5 +159,15 @@ class OrderModel extends Model
         $sql = Tools::myUpdate('order',$field);
         $r = $this->pdo->execute($sql);
         return $r;
+    }
+
+    public function getSearch($search){
+        $sql = "select phone from `order` where phone like '{$search}%'";
+        $r = $this->pdo->fetchAll($sql);
+        if ($r){
+            return $r;
+        }else{
+            return false;
+        }
     }
 }

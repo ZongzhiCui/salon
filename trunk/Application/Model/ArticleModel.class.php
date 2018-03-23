@@ -200,4 +200,21 @@ class ArticleModel extends Model
         }
         return $arts;
     }
+
+    /**
+     * ajax
+     */
+    public function getLooking($page,$pageSize,$start){
+
+        $sql = "select * from article limit {$start},{$pageSize}";
+        $rs = $this->pdo->fetchAll($sql);
+
+        $count = $this->pdo->fetchColumn("select count(id) from article");
+        $pageTool = new Pagination($count,$pageSize);
+        $pageHtml = $pageTool->fpage();
+
+//返回JSON格式的数据 包含表格和分页
+        return ['rs'=>$rs,'pageHtml'=>$pageHtml];
+
+    }
 }

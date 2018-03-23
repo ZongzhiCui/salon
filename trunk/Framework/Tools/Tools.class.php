@@ -38,12 +38,12 @@ class Tools
             if($time==0){ //立即跳转
                 header("Location: $url");
             }else{  //延迟跳转
-                echo '<h1>'.$msg.'</h1>';  //跳转之前输出提示信息
+                echo '<h2>'.$msg.'</h2>';  //跳转之前输出提示信息
                 header("Refresh: $time;url=$url");
             }
         }else{
             if($time!=0){   //延时跳转
-                echo '<h1>'.$msg.'</h1>';  //提示信息
+                echo '<h2>'.$msg.'</h2>';  //提示信息
                 $time = $time * 1000;
             }
             //使用js跳转

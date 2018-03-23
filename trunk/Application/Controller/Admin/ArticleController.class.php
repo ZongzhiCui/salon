@@ -46,7 +46,10 @@ class ArticleController extends PlatformController
         if ($r === false){
             Tools::jump('./index.php?p=Admin&c=Article&a=index',$this->obj->getError(),3);
         }
-        Tools::jump('./index.php?p=Admin&c=Article&a=index');
+//        Tools::jump('./index.php?p=Admin&c=Article&a=index');
+        if ($r == 1){
+            echo 1;
+        }
     }
     public function edit(){
         $id = addslashes($_GET['id']);
@@ -91,4 +94,18 @@ class ArticleController extends PlatformController
         }
         Tools::jump('./index.php?p=Admin&c=Article&a=index');
     }
+
+    /**
+     * ajax无刷新显示列表和分页
+     */
+    public function looking(){
+        $page = $_GET['page']??1;
+        $pageSize = 3;
+        $start = ($page-1)*$pageSize;
+
+        $rs = $this->obj->getLooking($page,$pageSize,$start);
+        header("Content-Type: text/json; charset=utf-8");
+        echo json_encode($rs);
+    }
+
 }

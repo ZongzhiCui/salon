@@ -46,7 +46,7 @@
                                             <td><img src="<?=$row['photo']?>" alt=""></td>
                                             <td><?=date('Y-m-d H:i:s',$row['last_login'])?></td>
                                             <td>
-                                                <a href="index.php?p=Admin&c=User&a=delete&id=<?=$row['id']?>">删除</a>
+                                                <a href="index.php?p=Admin&c=User&a=delete&id=<?=$row['id']?>" onclick="return confirm('确定删除?')">删除</a>
                                                 <a href="index.php?p=Admin&c=User&a=recharge&id=<?=$row['id']?>">充值</a>
                                                 <a href="index.php?p=Admin&c=User&a=edit&id=<?=$row['id']?>">修改</a>
                                             </td>

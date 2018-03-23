@@ -44,4 +44,18 @@ class OrderController extends PlatformController
         }
         Tools::jump('./index.php?p=Admin&c=Order&a=index');
     }
+
+    /**
+     *
+     */
+    public function search(){
+        $search = $_POST['search'];
+        $r = $this->obj->getSearch($search);
+        if ($r===false){
+            echo '';
+        }else{
+            header('Content-Type: text/json; charset=utf-8');
+            echo json_encode($r);
+        }
+    }
 }

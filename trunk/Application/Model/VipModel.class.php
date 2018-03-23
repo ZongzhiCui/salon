@@ -64,4 +64,33 @@ class VipModel extends Model
         @session_start();
         $_SESSION['user'] = $admin;
     }
+
+
+    /**
+     * ajxa数据
+     */
+    public function getEvery($username){
+        $sql = "select count(id) from user where username='{$username}'";
+//        var_dump(boolval([]));die;
+        $r = $this->pdo->fetchColumn($sql);
+//        var_dump($r);die;
+        if ($r > 0){
+            return false;
+        }elseif($r === "0"){
+            return true;
+        }else{
+            return '查询出错了!!!';
+        }
+    }
+    public function getEveryone($telephone){
+        $sql = "select count(id) from user where telephone='{$telephone}'";
+        $r = $this->pdo->fetchColumn($sql);
+        if ($r > 0){
+            return false;
+        }elseif($r === "0"){
+            return true;
+        }else{
+            return '查询出错了!!!';
+        }
+    }
 }

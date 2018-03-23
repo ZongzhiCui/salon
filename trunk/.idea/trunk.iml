@@ -5,5 +5,7 @@
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="module" module-name="apache" />
+    <orderEntry type="module" module-name="WWW" />
+    <orderEntry type="module" module-name="member" />
   </component>
 </module>
